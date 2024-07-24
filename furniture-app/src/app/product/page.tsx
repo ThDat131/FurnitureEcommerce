@@ -1,22 +1,23 @@
 "use client";
 import {
+  alpha,
+  Box,
   createTheme,
   CssBaseline,
   PaletteMode,
   Stack,
   ThemeProvider,
+  Typography,
 } from "@mui/material";
-import Box from '@mui/material/Box';
-import { alpha } from '@mui/material/styles';
 import { useState } from "react";
-import Header from "./dashboard/components/Header";
-import MainGrid from "./dashboard/components/MainGrid";
-import Navbar from "./dashboard/components/Navbar";
-import SideMenu from "./dashboard/components/SideMenu";
-import ToggleCustomTheme from "./dashboard/internals/components/ToggleCustomTheme";
-import getDashboardTheme from "./dashboard/theme/getDashboardTheme";
+import Header from "../dashboard/components/Header";
+import Navbar from "../dashboard/components/Navbar";
+import SideMenu from "../dashboard/components/SideMenu";
+import ToggleCustomTheme from "../dashboard/internals/components/ToggleCustomTheme";
+import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
+import MainProduct from "./component/MainProduct";
 
-export default function Home() {
+export default function User() {
   const [mode, setMode] = useState<PaletteMode>("light");
   const [showCustomTheme, setShowCustomTheme] = useState(true);
   const dashboardTheme = createTheme(getDashboardTheme(mode));
@@ -59,7 +60,10 @@ export default function Home() {
               }}
             >
               <Header mode={mode} toggleColorMode={toggleColorMode} />
-              <MainGrid />
+              <Typography variant="h4" color={mode === 'light' ? 'black' : 'white'}>
+                Product Management
+              </Typography>
+              <MainProduct />
             </Stack>
           </Box>
           <ToggleCustomTheme
