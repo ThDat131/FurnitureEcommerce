@@ -13,13 +13,13 @@ import SideMenu from "../dashboard/components/SideMenu";
 import Navbar from "../dashboard/components/Navbar";
 import Header from "../dashboard/components/Header";
 import ToggleCustomTheme from "../dashboard/internals/components/ToggleCustomTheme";
-import { useState } from "react";
+import React, { useState } from "react";
 import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
 import MainUser from "./component/MainUser";
 
 export default function User() {
-  const [mode, setMode] = useState<PaletteMode>("light");
-  const [showCustomTheme, setShowCustomTheme] = useState(true);
+  const [mode, setMode] = React.useState<PaletteMode>("light");
+  const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const dashboardTheme = createTheme(getDashboardTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
 
