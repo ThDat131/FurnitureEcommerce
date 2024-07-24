@@ -56,10 +56,6 @@ export default function Dashboard() {
             <MainGrid />
           </Stack>
         </Box>
-        <ToggleCustomTheme
-          showCustomTheme={showCustomTheme}
-          toggleCustomTheme={toggleCustomTheme}
-        />
       </Box>
     </ThemeProvider>
   );

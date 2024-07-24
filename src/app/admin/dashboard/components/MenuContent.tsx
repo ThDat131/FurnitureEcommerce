@@ -15,16 +15,10 @@ import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
 
 const mainListItems = [
-  { text: "Home", icon: <HomeRoundedIcon />, path: "/" },
-  { text: "User", icon: <PeopleRoundedIcon />, path: "/user" },
-  { text: "Product", icon: <ProductionQuantityLimitsIcon />, path: "/product" },
-  { text: "Category", icon: <AssignmentRoundedIcon />, path: "/category" },
-];
-
-const secondaryListItems = [
-  { text: "Settings", icon: <SettingsRoundedIcon /> },
-  { text: "About", icon: <InfoRoundedIcon /> },
-  { text: "Feedback", icon: <HelpRoundedIcon /> },
+  { text: "Home", icon: <HomeRoundedIcon />, path: "/admin" },
+  { text: "User", icon: <PeopleRoundedIcon />, path: "/admin/user" },
+  { text: "Product", icon: <ProductionQuantityLimitsIcon />, path: "/admin/product" },
+  { text: "Category", icon: <AssignmentRoundedIcon />, path: "/admin/category" },
 ];
 
 export default function MenuContent() {
@@ -49,17 +43,6 @@ export default function MenuContent() {
               selected={selectedIndex === index}
               onClick={() => handleListItemClick(item.path)}
             >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-
-      <List dense>
-        {secondaryListItems.map((item, index) => (
-          <ListItem key={index} disablePadding sx={{ display: "block" }}>
-            <ListItemButton>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>

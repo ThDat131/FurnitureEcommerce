@@ -1,24 +1,25 @@
 "use client";
 import {
+  alpha,
+  Box,
   createTheme,
   CssBaseline,
   PaletteMode,
   Stack,
   ThemeProvider,
+  Typography,
 } from "@mui/material";
-import Box from '@mui/material/Box';
-import { alpha } from '@mui/material/styles';
-import { useState } from "react";
-import Header from "./dashboard/components/Header";
-import MainGrid from "./dashboard/components/MainGrid";
-import Navbar from "./dashboard/components/Navbar";
-import SideMenu from "./dashboard/components/SideMenu";
-import ToggleCustomTheme from "./dashboard/internals/components/ToggleCustomTheme";
-import getDashboardTheme from "./dashboard/theme/getDashboardTheme";
+import SideMenu from "../dashboard/components/SideMenu";
+import Navbar from "../dashboard/components/Navbar";
+import Header from "../dashboard/components/Header";
+import ToggleCustomTheme from "../dashboard/internals/components/ToggleCustomTheme";
+import React, { useState } from "react";
+import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
+import MainUser from "./component/MainUser";
 
-export default function Home() {
-  const [mode, setMode] = useState<PaletteMode>("light");
-  const [showCustomTheme, setShowCustomTheme] = useState(true);
+export default function User() {
+  const [mode, setMode] = React.useState<PaletteMode>("light");
+  const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const dashboardTheme = createTheme(getDashboardTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
 
@@ -59,13 +60,12 @@ export default function Home() {
               }}
             >
               <Header mode={mode} toggleColorMode={toggleColorMode} />
-              <MainGrid />
+              <Typography variant="h4" color={mode === 'light' ? 'black' : 'white'}>
+                User Management
+              </Typography>
+              <MainUser />
             </Stack>
           </Box>
-          <ToggleCustomTheme
-            showCustomTheme={showCustomTheme}
-            toggleCustomTheme={toggleCustomTheme}
-          />
         </Box>
       </ThemeProvider>
     </main>

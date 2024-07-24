@@ -9,13 +9,13 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import SideMenu from "../dashboard/components/SideMenu";
-import Navbar from "../dashboard/components/Navbar";
-import Header from "../dashboard/components/Header";
-import ToggleCustomTheme from "../dashboard/internals/components/ToggleCustomTheme";
 import { useState } from "react";
+import Header from "../dashboard/components/Header";
+import Navbar from "../dashboard/components/Navbar";
+import SideMenu from "../dashboard/components/SideMenu";
+import ToggleCustomTheme from "../dashboard/internals/components/ToggleCustomTheme";
 import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
-import MainCategory from "./component/MainUser";
+import MainProduct from "./component/MainProduct";
 
 export default function User() {
   const [mode, setMode] = useState<PaletteMode>("light");
@@ -61,15 +61,11 @@ export default function User() {
             >
               <Header mode={mode} toggleColorMode={toggleColorMode} />
               <Typography variant="h4" color={mode === 'light' ? 'black' : 'white'}>
-                Category Management
+                Product Management
               </Typography>
-              <MainCategory />
+              <MainProduct />
             </Stack>
           </Box>
-          <ToggleCustomTheme
-            showCustomTheme={showCustomTheme}
-            toggleCustomTheme={toggleCustomTheme}
-          />
         </Box>
       </ThemeProvider>
     </main>

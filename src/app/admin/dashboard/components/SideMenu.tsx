@@ -40,11 +40,8 @@ export default function SideMenu() {
           p: 1.5,
         }}
       >
-        <SelectContent />
       </Box>
-      <Divider />
       <MenuContent />
-      <CardAlert />
       <Stack
         direction="row"
         sx={{
