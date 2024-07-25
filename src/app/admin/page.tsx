@@ -13,7 +13,6 @@ import Header from "./dashboard/components/Header";
 import MainGrid from "./dashboard/components/MainGrid";
 import Navbar from "./dashboard/components/Navbar";
 import SideMenu from "./dashboard/components/SideMenu";
-import ToggleCustomTheme from "./dashboard/internals/components/ToggleCustomTheme";
 import getDashboardTheme from "./dashboard/theme/getDashboardTheme";
 
 export default function Home() {
