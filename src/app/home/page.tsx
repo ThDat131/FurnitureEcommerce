@@ -3,6 +3,10 @@ import Banner from "./component/Banner";
 import { Grid } from "@mui/material";
 import Article from "./component/Article";
 import TrendingProduct from "./component/TrendingProduct";
+import { items } from "../static";
+import StorageService from "./component/StorageService";
+import Activity from "./component/Activity";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
@@ -20,8 +24,17 @@ const Home = () => {
           <Article />
         </Grid>
         <Grid item xs={12}>
-          <TrendingProduct />
+          <TrendingProduct items={items} />
         </Grid>
+        <Grid item xs={12}>
+          <StorageService />
+        </Grid>
+        <Grid item xs={12}>
+          <Activity />
+        </Grid>
+      </Grid>
+      <Grid xs={12}>
+        <Footer />
       </Grid>
     </Grid>
   );
