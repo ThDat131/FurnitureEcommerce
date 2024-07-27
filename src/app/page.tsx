@@ -1,5 +1,9 @@
+import Introduce from "./introduce/Introduce";
+
 const Page = () => {
-  return <main></main>;
+  return (
+    <Introduce />
+  );
 };
 
 export default Page;
