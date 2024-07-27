@@ -13,7 +13,6 @@ import {
 import SideMenu from "../dashboard/components/SideMenu";
 import Navbar from "../dashboard/components/Navbar";
 import Header from "../dashboard/components/Header";
-import ToggleCustomTheme from "../dashboard/internals/components/ToggleCustomTheme";
 import { useState } from "react";
 import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
 import MainCategory from "./component/MainUser";
