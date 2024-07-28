@@ -1,8 +1,7 @@
-import type { Metadata } from 'next';
 import { Box, Grid } from '@mui/material';
-import Header from '@/components/Header';
-import extBackground from '../app/assets/images/ext-background.png';
+import type { Metadata } from 'next';
 import Image from 'next/image';
+import extBackground from '../app/assets/images/ext-background.png';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -46,7 +45,7 @@ export default function RootLayout({
             alt=''
             src={extBackground}
           />
-          <Header />
+          {/* <Header /> */}
           <Grid item xs={12}>{children}</Grid>
         </Grid>
       </body>
