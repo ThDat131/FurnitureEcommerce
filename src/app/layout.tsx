@@ -1,7 +1,7 @@
 import { Box, Grid } from '@mui/material';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import extBackground from '../app/assets/images/ext-background.png';
+import extBackground from '../../app/assets/images/ext-background.png';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -16,39 +16,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body>
-        <Grid container>
-          <Box
-            sx={{
-              backgroundColor: '#401d59',
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              zIndex: -1,
-            }}
-          />
-          <Image
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              objectFit: 'cover',
-              objectPosition: 'left',
-              width: '100%',
-              height: '100%',
-              zIndex: -1,
-            }}
-            alt=''
-            src={extBackground}
-          />
-          {/* <Header /> */}
-          <Grid item xs={12}>{children}</Grid>
-        </Grid>
-      </body>
+      <head>
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'
+          rel='stylesheet'
+        />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'
+          rel='stylesheet'
+        ></link>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

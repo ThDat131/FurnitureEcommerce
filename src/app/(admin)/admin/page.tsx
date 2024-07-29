@@ -58,7 +58,7 @@ export default function Home() {
               }}
             >
               <Header mode={mode} toggleColorMode={toggleColorMode} />
-              <MainGrid />
+              {/* <MainGrid /> */}
             </Stack>
           </Box>
         </Box>
