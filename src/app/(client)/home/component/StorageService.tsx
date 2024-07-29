@@ -1,7 +1,7 @@
-import { Box, Grid, Typography } from "@mui/material";
-import packageimg from "../../assets/images/package.png";
-import warehouseImg from "../../assets/images/warehouse.png";
-import Image from "next/image";
+import { Box, Grid, Typography } from '@mui/material';
+import packageimg from '../../../assets/images/package.png';
+import warehouseImg from '../../../assets/images/warehouse.png';
+import Image from 'next/image';
 
 export default function StorageService() {
   return (
@@ -9,26 +9,26 @@ export default function StorageService() {
       <Grid
         xs={12}
         container
-        justifyContent={"space-evenly"}
-        alignItems={"center"}
+        justifyContent={'space-evenly'}
+        alignItems={'center'}
         sx={{
-          backgroundColor: "#000",
+          backgroundColor: '#000',
           marginTop: 12,
           marginBottom: 12,
           paddingBottom: 6,
           paddingTop: 6,
         }}
       >
-        <Grid item xs={3} sx={{ position: "relative" }}>
+        <Grid item xs={3} sx={{ position: 'relative' }}>
           <Image
             src={packageimg}
-            alt={"Package image"}
-            layout="responsive"
+            alt={'Package image'}
+            layout='responsive'
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
               maxWidth: 400,
               zIndex: 2,
             }}
@@ -36,24 +36,24 @@ export default function StorageService() {
         </Grid>
         <Grid item xs={3}>
           <Typography
-            variant="h4"
+            variant='h4'
             sx={{
-              color: "#EFE1CE",
-              textShadow: "0 0 5px black",
+              color: '#EFE1CE',
+              textShadow: '0 0 5px black',
               zIndex: 1,
-              textAlign: "center",
-              fontWeight: "bold",
+              textAlign: 'center',
+              fontWeight: 'bold',
             }}
           >
             DỊCH VỤ LƯU KHO
           </Typography>
           <Typography
-            variant="subtitle1"
+            variant='subtitle1'
             sx={{
-              color: "#EFE1CE",
-              textShadow: "0 0 5px black",
+              color: '#EFE1CE',
+              textShadow: '0 0 5px black',
               zIndex: 1,
-              textAlign: "justify",
+              textAlign: 'justify',
               marginTop: 4,
             }}
           >
@@ -64,12 +64,12 @@ export default function StorageService() {
             đến kho lạnh, kho ngoại quan, đáp ứng mọi nhu cầu lưu trữ của bạn.
           </Typography>
           <Typography
-            variant="subtitle1"
+            variant='subtitle1'
             sx={{
-              color: "#EFE1CE",
-              textShadow: "0 0 5px black",
+              color: '#EFE1CE',
+              textShadow: '0 0 5px black',
               zIndex: 1,
-              textAlign: "justify",
+              textAlign: 'justify',
               marginTop: 4,
             }}
           >
@@ -81,11 +81,11 @@ export default function StorageService() {
             đến thế!
           </Typography>
         </Grid>
-        <Grid item xs={3} justifyContent={"center"}>
+        <Grid item xs={3} justifyContent={'center'}>
           <Image
             src={warehouseImg}
-            alt={"Warehouse image"}
-            layout="responsive"
+            alt={'Warehouse image'}
+            layout='responsive'
           />
         </Grid>
       </Grid>

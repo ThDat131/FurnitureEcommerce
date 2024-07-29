@@ -1,6 +1,6 @@
-import { Box, Grid, Typography } from "@mui/material";
-import activity from "../../assets/images/activity.png";
-import Image from "next/image";
+import { Box, Grid, Typography } from '@mui/material';
+import activity from '../../../assets/images/activity.png';
+import Image from 'next/image';
 
 export default function Activity() {
   return (
@@ -8,41 +8,41 @@ export default function Activity() {
       <Grid
         xs={12}
         container
-        justifyContent={"space-evenly"}
-        alignItems={"center"}
+        justifyContent={'space-evenly'}
+        alignItems={'center'}
         sx={{ marginBottom: 20 }}
       >
         <Grid
           xs={7}
           item
           sx={{
-            backgroundColor: "#fff",
-            position: "relative",
+            backgroundColor: '#fff',
+            position: 'relative',
             paddingTop: 8,
             paddingBottom: 8,
             borderRadius: 8,
           }}
         >
-          <Grid xs={12} container justifyContent={"center"}>
+          <Grid xs={12} container justifyContent={'center'}>
             <Grid item xs={10}>
               <Image
                 src={activity}
-                alt={"Activity icon"}
-                layout="responsive"
+                alt={'Activity icon'}
+                layout='responsive'
                 style={{
                   maxWidth: 80,
                 }}
               />
             </Grid>
           </Grid>
-          <Grid justifyContent={"center"} xs={12} container>
+          <Grid justifyContent={'center'} xs={12} container>
             <Grid xs={10} item>
               <Typography
-                variant="subtitle1"
+                variant='subtitle1'
                 sx={{
-                  color: "#401d59",
+                  color: '#401d59',
                   zIndex: 1,
-                  textAlign: "justify",
+                  textAlign: 'justify',
                   marginTop: 4,
                 }}
               >
@@ -54,11 +54,11 @@ export default function Activity() {
                 cầu lưu trữ của bạn.
               </Typography>
               <Typography
-                variant="subtitle1"
+                variant='subtitle1'
                 sx={{
-                  color: "#401d59",
+                  color: '#401d59',
                   zIndex: 1,
-                  textAlign: "justify",
+                  textAlign: 'justify',
                   marginTop: 4,
                 }}
               >
@@ -77,10 +77,10 @@ export default function Activity() {
             sx={{
               width: 1,
               height: 0.005,
-              position: "absolute",
+              position: 'absolute',
               left: -80,
               bottom: -20,
-              backgroundColor: "#fff",
+              backgroundColor: '#fff',
               zIndex: 2,
             }}
           />
@@ -88,23 +88,23 @@ export default function Activity() {
             sx={{
               width: 0.002,
               height: 1,
-              position: "absolute",
+              position: 'absolute',
               left: -20,
               bottom: -80,
-              backgroundColor: "#fff",
+              backgroundColor: '#fff',
               zIndex: 2,
             }}
           />
         </Grid>
         <Grid xs={3} item>
           <Typography
-            variant="h4"
+            variant='h4'
             sx={{
-              color: "#EFE1CE",
-              fontFamily: "TimesNewRomanPS-ItalicMT",
-              marginBottom: "30px",
-              textAlign: "left",
-              fontWeight: "bold",
+              color: '#EFE1CE',
+              fontFamily: 'TimesNewRomanPS-ItalicMT',
+              marginBottom: '30px',
+              textAlign: 'left',
+              fontWeight: 'bold',
             }}
           >
             <i>HOẠT ĐỘNG</i>
