@@ -1,12 +1,7 @@
 'use client'; // Ensure this is a client component
 
 import React, { useState } from 'react';
-import {
-  Select,
-  MenuItem,
-  FormControl,
-  Avatar,
-} from '@mui/material';
+import { Select, MenuItem, FormControl, Avatar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import vnIcon from '../app/assets/images/flag/vn.png';
 import engIcon from '../app/assets/images/flag/eng.png';
@@ -62,9 +57,9 @@ const LanguageButton = () => {
           '.MuiOutlinedInput-notchedOutline': { borderStyle: 'none' },
         }}
       >
-        <MenuItem value='vi'>Việt</MenuItem>
+        <MenuItem value='vi'>VN</MenuItem>
         <MenuItem value='zh'>中文</MenuItem>
-        <MenuItem value='en'>Eng</MenuItem>
+        <MenuItem value='en'>ENG</MenuItem>
       </Select>
     </LanguageSelectContainer>
   );
