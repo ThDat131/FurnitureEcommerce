@@ -31,11 +31,66 @@ export default function Footer() {
                 alignItems="center"
                 sx={{ padding: 2 }}
               >
-                <FacebookIcon sx={{ cursor: "pointer" }} />
-                <InstagramIcon sx={{ cursor: "pointer" }} />
-                <LinkedInIcon sx={{ cursor: "pointer" }} />
-                <XIcon sx={{ cursor: "pointer" }} />
-                <YouTubeIcon sx={{ cursor: "pointer" }} />
+                <Box
+                  sx={{
+                    cursor: "pointer",
+                    transition: "all 0.2 ease",
+                    "&:hover": {
+                      transform: "scale(1.2)",
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  <FacebookIcon />
+                </Box>
+                <Box
+                  sx={{
+                    cursor: "pointer",
+                    transition: "all 0.2 ease",
+                    "&:hover": {
+                      transform: "scale(1.2)",
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  <InstagramIcon />
+                </Box>
+                <Box
+                  sx={{
+                    cursor: "pointer",
+                    transition: "all 0.2 ease",
+                    "&:hover": {
+                      transform: "scale(1.2)",
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  <LinkedInIcon />
+                </Box>
+                <Box
+                  sx={{
+                    cursor: "pointer",
+                    transition: "all 0.2 ease",
+                    "&:hover": {
+                      transform: "scale(1.2)",
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  <XIcon />
+                </Box>
+                <Box
+                  sx={{
+                    cursor: "pointer",
+                    transition: "all 0.2 ease",
+                    "&:hover": {
+                      transform: "scale(1.2)",
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  <YouTubeIcon />
+                </Box>
               </Stack>
             </Divider>
             <Typography
@@ -47,7 +102,13 @@ export default function Footer() {
               LOGO
             </Typography>
             <Grid xs={12} container item justifyContent={"space-evenly"}>
-              <Grid container spacing={4} px={4} py={5} justifyContent={"space-evenly"}>
+              <Grid
+                container
+                spacing={4}
+                px={4}
+                py={5}
+                justifyContent={"space-evenly"}
+              >
                 <Grid item xs={12} md={3}>
                   <Typography
                     textAlign={"left"}
@@ -114,7 +175,7 @@ export default function Footer() {
                   >
                     GOOGLE MAP
                   </Typography>
-                  <Grid xs={12}>
+                  <Grid xs={12} md={12}>
                     <MyGoogleMap />
                   </Grid>
                 </Grid>
