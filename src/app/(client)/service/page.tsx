@@ -1,3 +1,4 @@
+"use client";
 import Footer from "@/components/Footer";
 import {
   Button,
@@ -7,11 +8,13 @@ import {
   CardMedia,
   Grid,
   Paper,
+  ThemeProvider,
   Typography,
 } from "@mui/material";
 import lightImg from "../../assets/images/introduce/light.png";
 import settingImg from "../../assets/images/introduce/setting.png";
 import toolImg from "../../assets/images/introduce/tool.png";
+import theme from "../theme";
 
 const serviceData = [
   {
@@ -33,9 +36,10 @@ const serviceData = [
 ];
 
 const Service = () => {
+  const serviceTheme = theme;
   return (
-    <>
-      <Grid xs={12} sx={{ backgroundColor: "#fff" }}>
+    <ThemeProvider theme={serviceTheme}>
+      <Grid xs={12}>
         <Grid
           xs={12}
           container
@@ -43,7 +47,15 @@ const Service = () => {
           sx={{ paddingTop: 8, paddingBottom: 8 }}
         >
           {serviceData.map(({ title, description, img }, index) => (
-            <Grid xs={10} md={3} item justifyContent={"center"} container key={index} sx={{ mt: 1, mb: 1 }}>
+            <Grid
+              xs={10}
+              md={3}
+              item
+              justifyContent={"center"}
+              container
+              key={index}
+              sx={{ mt: 1, mb: 1 }}
+            >
               <Grid xs={12}>
                 <Paper elevation={24}>
                   <Card
@@ -55,7 +67,10 @@ const Service = () => {
                     }}
                   >
                     <CardMedia
-                      sx={{ height: 140, backgroundColor: "#401D59" }}
+                      sx={{
+                        height: 140,
+                        backgroundColor: serviceTheme.palette.primary.main,
+                      }}
                       image={img.src}
                       title="lightImg"
                       component="img"
@@ -66,12 +81,20 @@ const Service = () => {
                       }}
                     />
                     <CardContent>
-                      <Typography gutterBottom variant="h6" component="div">
+                      <Typography
+                        gutterBottom
+                        variant="h6"
+                        component="div"
+                        color={serviceTheme.palette.primary.main}
+                        fontWeight={"bold"}
+                        textAlign={"center"}
+                      >
                         {title}
                       </Typography>
                       <Typography
                         variant="body2"
-                        color="text.secondary"
+                        color={serviceTheme.palette.primary.main}
+                        textAlign={"justify"}
                         sx={{
                           display: "-webkit-box",
                           WebkitLineClamp: 12,
@@ -94,7 +117,7 @@ const Service = () => {
         </Grid>
         <Footer />
       </Grid>
-    </>
+    </ThemeProvider>
   );
 };
 
