@@ -1,9 +1,13 @@
 "use client";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import MailIcon from "@mui/icons-material/Mail";
+import HomeIcon from "@mui/icons-material/Home";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import PhoneIcon from "@mui/icons-material/Phone";
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
+import WorkIcon from "@mui/icons-material/Work";
 import {
   AppBar,
   Divider,
@@ -21,7 +25,7 @@ import {
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LanguageButton from "./LanguageButton";
 
 const StyledAppBar = styled(AppBar)({
@@ -34,6 +38,7 @@ const StyledAppBar = styled(AppBar)({
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
+  height: "113px",
 });
 
 const MenuItem = styled(Typography)({
@@ -67,11 +72,49 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-start",
 }));
 
+const sideMenu = [
+  {
+    name: "TRANG CHỦ",
+    icon: <HomeIcon />,
+    path: "/home",
+  },
+  {
+    name: "SẢN PHẨM",
+    icon: <ProductionQuantityLimitsIcon />,
+    path: "/products",
+  },
+  {
+    name: "DỊCH VỤ",
+    icon: <MiscellaneousServicesIcon />,
+    path: "/service",
+  },
+  {
+    name: "TUYỂN DỤNG",
+    icon: <WorkIcon />,
+    path: "/recruitment",
+  },
+  {
+    name: "HOẠT ĐỘNG",
+    icon: <LocalActivityIcon />,
+    path: "/activity",
+  },
+  {
+    name: "LIÊN HỆ",
+    icon: <PhoneIcon />,
+    path: "/contact",
+  },
+];
+
 const Header = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const isScreenLarge = useMediaQuery("(min-width:1010px)");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -80,6 +123,13 @@ const Header = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleSideMenuItemClick = (path: any) => {
+    router.push(path);
+    handleDrawerClose();
+  };
+
+  if (!mounted) return null;
 
   return (
     <StyledAppBar position="static">
@@ -104,7 +154,9 @@ const Header = () => {
           >
             <Grid item>
               <MenuItem
-                className={usePathname() === "/home" ? "selected" : ""}
+                className={
+                  usePathname() === "/home" && isScreenLarge ? "selected" : ""
+                }
                 onClick={() => router.push("/home")}
                 variant="body1"
               >
@@ -113,7 +165,11 @@ const Header = () => {
             </Grid>
             <Grid item>
               <MenuItem
-                className={usePathname() === "/products" ? "selected" : ""}
+                className={
+                  usePathname() === "/products" && isScreenLarge
+                    ? "selected"
+                    : ""
+                }
                 onClick={() => router.push("/products")}
                 variant="body1"
               >
@@ -122,7 +178,11 @@ const Header = () => {
             </Grid>
             <Grid item>
               <MenuItem
-                className={usePathname() === "/service" ? "selected" : ""}
+                className={
+                  usePathname() === "/service" && isScreenLarge
+                    ? "selected"
+                    : ""
+                }
                 onClick={() => router.push("/service")}
                 variant="body1"
               >
@@ -131,7 +191,11 @@ const Header = () => {
             </Grid>
             <Grid item>
               <MenuItem
-                className={usePathname() === "/recruitment" ? "selected" : ""}
+                className={
+                  usePathname() === "/recruitment" && isScreenLarge
+                    ? "selected"
+                    : ""
+                }
                 onClick={() => router.push("/recruitment")}
                 variant="body1"
               >
@@ -140,7 +204,11 @@ const Header = () => {
             </Grid>
             <Grid item>
               <MenuItem
-                className={usePathname() === "/activity" ? "selected" : ""}
+                className={
+                  usePathname() === "/activity" && isScreenLarge
+                    ? "selected"
+                    : ""
+                }
                 onClick={() => router.push("/activity")}
                 variant="body1"
               >
@@ -149,7 +217,11 @@ const Header = () => {
             </Grid>
             <Grid item>
               <MenuItem
-                className={usePathname() === "/contact" ? "selected" : ""}
+                className={
+                  usePathname() === "/contact" && isScreenLarge
+                    ? "selected"
+                    : ""
+                }
                 onClick={() => router.push("/contact")}
                 variant="body1"
               >
@@ -207,28 +279,13 @@ const Header = () => {
             </DrawerHeader>
             <Divider />
             <List>
-              {["Inbox", "Starred", "Send email", "Drafts"].map(
-                (text, index) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                    </ListItemButton>
-                  </ListItem>
-                )
-              )}
-            </List>
-            <Divider />
-            <List>
-              {["All mail", "Trash", "Spam"].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
+              {sideMenu.map((item, index) => (
+                <ListItem key={index} disablePadding>
+                  <ListItemButton
+                    onClick={() => handleSideMenuItemClick(item.path)}
+                  >
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.name} />
                   </ListItemButton>
                 </ListItem>
               ))}
