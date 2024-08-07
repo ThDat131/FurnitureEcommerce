@@ -17,8 +17,8 @@ export default function RootLayout({
       <body>
         <Grid container>
           <Header />
-          <Grid item xs={12} sx={{ backgroundColor: '#fff', zIndex: -2 }}>
-          {/* <Grid item xs={12} sx={{ backgroundColor: '#fff', zIndex: 0 }}> */}
+          {/* <Grid item xs={12} sx={{ backgroundColor: '#fff', zIndex: -2 }}> */}
+          <Grid item xs={12} sx={{ backgroundColor: '#fff', zIndex: 0 }}>
             {children}
           </Grid>
         </Grid>
