@@ -154,7 +154,7 @@ export const menuComponentsCustomizations: Components<Theme> = {
           backgroundColor: theme.palette.background.paper,
           boxShadow: 'none',
         },
-        [`&.${selectClasses.focused}`]: {
+        [`&.${selectClasses.select}`]: {
           outlineOffset: 0,
           borderColor: gray[400],
         },
@@ -172,7 +172,7 @@ export const menuComponentsCustomizations: Components<Theme> = {
             backgroundColor: theme.palette.background.paper,
             boxShadow: 'none',
           },
-          [`&.${selectClasses.focused}`]: {
+          [`&.${selectClasses.select}`]: {
             outlineOffset: 0,
             borderColor: gray[900],
           },
