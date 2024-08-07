@@ -14,28 +14,22 @@ import { useState } from "react";
 import Header from "../dashboard/components/Header";
 import Navbar from "../dashboard/components/Navbar";
 import SideMenu from "../dashboard/components/SideMenu";
-import ToggleCustomTheme from "../dashboard/internals/components/ToggleCustomTheme";
 import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
 import MainProduct from "./component/MainProduct";
 import AddIcon from '@mui/icons-material/Add';
 
 export default function User() {
   const [mode, setMode] = useState<PaletteMode>("light");
-  const [showCustomTheme, setShowCustomTheme] = useState(true);
   const dashboardTheme = createTheme(getDashboardTheme(mode));
-  const defaultTheme = createTheme({ palette: { mode } });
 
   const toggleColorMode = () => {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
-  const toggleCustomTheme = () => {
-    setShowCustomTheme((prev) => !prev);
-  };
 
   return (
     <main>
-      <ThemeProvider theme={showCustomTheme ? dashboardTheme : defaultTheme}>
+      <ThemeProvider theme={dashboardTheme}>
         <CssBaseline />
         <Box sx={{ display: "flex" }}>
           <SideMenu />

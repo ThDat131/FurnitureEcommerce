@@ -28,7 +28,7 @@ export default function Header({ mode, toggleColorMode }: HeaderProps) {
       spacing={2}
     >
       <NavbarBreadcrumbs />
-      <Stack direction="row" sx={{ gap: 1 }}>
+      {/* <Stack direction="row" sx={{ gap: 1 }}>
         <Search />
         <CustomDatePicker />
         <MenuButton showBadge aria-label="Open notifications">
@@ -39,7 +39,7 @@ export default function Header({ mode, toggleColorMode }: HeaderProps) {
           toggleColorMode={toggleColorMode}
           data-screenshot="toggle-mode"
         />
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 }
