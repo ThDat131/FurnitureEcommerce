@@ -39,7 +39,7 @@ const Service = () => {
   const serviceTheme = theme;
   return (
     <ThemeProvider theme={serviceTheme}>
-      <Grid xs={12}>
+      <Grid xs={12} sx={{ backgroundColor: '#fff' }}>
         <Grid
           xs={12}
           container

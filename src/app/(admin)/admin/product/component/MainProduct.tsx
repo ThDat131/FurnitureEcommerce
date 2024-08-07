@@ -1,4 +1,3 @@
-import { staticProducts } from "@/app/static";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -13,11 +12,16 @@ import {
   TablePagination,
   TableRow,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "@/api/axios.instance";
+import { ApiResponse } from "@/types/utils/api-response.interface";
+import { IProduct } from "@/types/products/products.interface";
+import { ApiPathEnum } from "@/api/api.path.enum";
 
 export default function MainProduct() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [products, setProducts] = useState<IProduct[]>([])
 
   const handleChangePage = (event: any, newPage: any) => {
     setPage(newPage);
@@ -28,10 +32,19 @@ export default function MainProduct() {
     setPage(0);
   };
 
-  const paginatedProducts = staticProducts.slice(
+  const paginatedProducts = products.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
+
+
+  useEffect(() => {
+    axios.get<ApiResponse<IProduct[]>>(ApiPathEnum.Product).then(res => {
+      if (res.status === 200) {
+        setProducts(res.data.data as IProduct[])
+      }
+    })
+  }, [])
 
   return (
     <>
@@ -43,11 +56,11 @@ export default function MainProduct() {
           <TableHead>
             <TableRow>
               <TableCell align="left" sx={{ fontWeight: 'bold' }}>Id</TableCell>
-              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Name</TableCell>
-              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Category</TableCell>
-              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Price</TableCell>
-              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Stock</TableCell>
-              <TableCell align="center" sx={{ fontWeight: 'bold' }}>Action</TableCell>
+              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Tên sản phẩm</TableCell>
+              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Danh mục</TableCell>
+              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Giá</TableCell>
+              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Số lượng tồn kho</TableCell>
+              <TableCell align="center" sx={{ fontWeight: 'bold' }}>Hành động</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -56,9 +69,9 @@ export default function MainProduct() {
                 key={product.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="left">{product.id}</TableCell>
+                <TableCell align="left">{product._id}</TableCell>
                 <TableCell align="left">{product.name}</TableCell>
-                <TableCell align="left">{product.category}</TableCell>
+                <TableCell align="left">{product.categoryId}</TableCell>
                 <TableCell align="left">{product.price}</TableCell>
                 <TableCell align="left">{product.stock}</TableCell>
                 <TableCell align="center">
@@ -87,7 +100,7 @@ export default function MainProduct() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 50]}
         component="div"
-        count={staticProducts.length}
+        count={products.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

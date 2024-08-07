@@ -17,7 +17,7 @@ const Contact = () => {
   const contactTheme = theme;
   return (
     <ThemeProvider theme={contactTheme}>
-      <Box>
+      <Box sx={{ backgroundColor: '#fff' }}>
         <Grid
           xs={12}
           container

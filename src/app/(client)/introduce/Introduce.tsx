@@ -11,6 +11,7 @@ import toolImg from '../../assets/images/introduce/tool.png';
 import lineTopLeft from '../../assets/images/introduce/topleft.png';
 import lineTopRight from '../../assets/images/introduce/topright.png';
 import PurpleBackground from '@/components/PurpleBackground';
+import theme from '../theme';
 
 function Item({ isSmallScreen }: any) {
   console.log(isSmallScreen);
