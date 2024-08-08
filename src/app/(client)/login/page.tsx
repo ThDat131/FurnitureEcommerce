@@ -17,6 +17,8 @@ import {
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ApiPathEnum } from "@/api/api.path.enum";
+import axios from "@/api/axios.instance";
 
 function Copyright(props: any) {
   return (
@@ -44,22 +46,6 @@ export default function Login() {
 
   const router = useRouter();
 
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //   });
-  // };
-
-  // const handleLogin = () => {
-  //   if (username === "admin" && password === "123") {
-  //     router.push("/");
-  //     alert("success");
-  //   }
-  // };
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -67,19 +53,15 @@ export default function Login() {
     const username = data.get("username") as string;
     const password = data.get("password") as string;
     try {
-      const response = await fetch("http://192.168.2.10:4000/api/auth/sign-in", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
+      const response = await axios.post(ApiPathEnum.Login, {
+        username,
+        password,
       });
 
-      if (response.ok) {
-        const user = await response.json();
-        console.log("Đăng nhập thành công:", user);
+      if (response.status === 200 || response.status === 201) {
+        const user = response.data;
+        localStorage.setItem("token", user.accessToken);
         router.push("/");
-        alert("success");
       } else {
         console.error("Đăng nhập thất bại:", response.statusText);
         alert("failed");
@@ -164,7 +146,7 @@ export default function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={() => console.log('test')}
+                onClick={() => console.log("test")}
               >
                 Sign In
               </Button>
