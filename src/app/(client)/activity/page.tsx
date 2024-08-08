@@ -19,6 +19,8 @@ const Activity = () => {
       >
         <Grid xs={10} item>
           <PotentialProductBox direction="right" />
+          <PotentialProductBox direction="right" />
+          <PotentialProductBox direction="right" />
         </Grid>
       </Grid>
       <Footer />
