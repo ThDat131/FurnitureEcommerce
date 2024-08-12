@@ -1,56 +1,6 @@
-import { Box, Grid, Stack, Typography } from '@mui/material';
+import { Box, Divider, Grid, Stack, Typography } from '@mui/material';
 import { CSSProperties } from 'react';
 import theme from '../../theme';
-
-const RightLine = () => {
-  return (
-    <svg
-      width='743'
-      height='276'
-      viewBox='0 0 743 276'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-      style={{ position: 'absolute' }}
-    >
-      <path d='M0 57H696.501' stroke='#401D59' stroke-width='3' />
-      <path d='M59 71H742.012' stroke='#340B42' stroke-width='2' />
-      <path d='M106 263.004V28.9959' stroke='#340B42' stroke-width='2' />
-      <line
-        x1='92.5'
-        y1='275.032'
-        x2='93.5'
-        y2='0.994525'
-        stroke='#401D59'
-        stroke-width='3'
-      />
-    </svg>
-  );
-};
-
-const LeftLine = () => {
-  return (
-    <svg
-      width='728'
-      height='276'
-      viewBox='0 0 728 276'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-      style={{ position: 'absolute', top: '10px' }}
-    >
-      <path d='M0 29H696.501' stroke='#401D59' stroke-width='3' />
-      <path d='M44 42H727.012' stroke='#340B42' stroke-width='2' />
-      <path d='M610 249.009V15' stroke='#340B42' stroke-width='2' />
-      <line
-        x1='623.5'
-        y1='275.032'
-        x2='624.5'
-        y2='0.994525'
-        stroke='#401D59'
-        stroke-width='3'
-      />
-    </svg>
-  );
-};
 
 const PotentialProductBox = ({ direction }: { direction: string }) => {
   const fontStyle: CSSProperties = {
@@ -69,6 +19,14 @@ const PotentialProductBox = ({ direction }: { direction: string }) => {
         my={3}
         borderColor={theme.palette.primary.main}
         border={1}
+        // sx={{
+        //   '&:hover': {
+        //     backgroundColor: theme.palette.primary.main,
+        //     color: theme.palette.primary.contrastText,
+        //     borderColor: theme.palette.primary.contrastText,
+        //     overflow: 'auto'
+        //   }
+        // }}
       >
         <Grid item xs={4} overflow={'hidden'}>
           <Box
@@ -81,12 +39,11 @@ const PotentialProductBox = ({ direction }: { direction: string }) => {
         </Grid>
         <Grid item xs={8}>
           <Stack position={'relative'}>
-            <Typography sx={{ ...fontStyle, fontSize: '20px' }}>
+            <Typography sx={{ ...fontStyle, fontSize: '20px', mb: 2 }}>
               TÊN SẢN PHẨM
             </Typography>
-            <RightLine />
+            <Divider sx={{ borderColor: theme.palette.primary.main }} />
           </Stack>
-
           <Typography sx={{ ...fontStyle, marginTop: 8 }}>Mô tả</Typography>
         </Grid>
       </Grid>
@@ -103,14 +60,14 @@ const PotentialProductBox = ({ direction }: { direction: string }) => {
       >
         <Grid item xs={8}>
           <Stack position={'relative'}>
-            <Typography sx={{ ...fontStyle, fontSize: '20px' }}>
+            <Typography sx={{ ...fontStyle, fontSize: '20px', mb: 2 }}>
               TÊN SẢN PHẨM
             </Typography>
-            <RightLine />
+            <Divider sx={{ borderColor: theme.palette.primary.main }} />
           </Stack>
           <Typography sx={{ ...fontStyle, marginTop: 8 }}>Mô tả</Typography>
         </Grid>
-        <Grid item xs={4} overflow={'hidden'}>
+        <Grid item xs={4} overflow={'hidden'} container justifyContent={'flex-end'}>
           <Box
             component={'img'}
             border={0}

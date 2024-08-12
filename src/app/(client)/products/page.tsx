@@ -215,6 +215,9 @@ const Products = () => {
             </Grid>
           </Grid>
         </Container>
+        <Grid xs={12}>
+          <Footer />
+        </Grid>
       </Box>
     </ThemeProvider>
   );

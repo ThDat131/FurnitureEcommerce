@@ -15,21 +15,23 @@ import Navbar from "../dashboard/components/Navbar";
 import Header from "../dashboard/components/Header";
 import { useState } from "react";
 import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
-import MainCategory from "./component/MainUser";
 import AddIcon from '@mui/icons-material/Add';
+import CategoryDialog from "./component/CategoryDialog";
+import { ICategory } from "@/types/categories/categories.interface";
+import MainCategory from "./component/MainCategory";
 
 export default function User() {
   const [mode, setMode] = useState<PaletteMode>("light");
+  const [open, setOpen] = useState(false);
+  const [reload, setReload] = useState(true);
+  const [type, setType] = useState<'CREATE' | 'UPDATE'>('CREATE')
+  const [selectedCategory, setSelectedCategory] = useState<ICategory>()
   const [showCustomTheme, setShowCustomTheme] = useState(true);
   const dashboardTheme = createTheme(getDashboardTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
 
   const toggleColorMode = () => {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
-  };
-
-  const toggleCustomTheme = () => {
-    setShowCustomTheme((prev) => !prev);
   };
 
   return (
@@ -65,7 +67,7 @@ export default function User() {
                 variant="h4"
                 color={mode === "light" ? "black" : "white"}
               >
-                Category Management
+                Quản lý danh mục
               </Typography>
               <Box sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}>
                 <Button
@@ -75,15 +77,20 @@ export default function User() {
                   tabIndex={-1}
                   startIcon={<AddIcon />}
                   color="info"
+                  onClick={() => {
+                    setOpen(true);
+                    setType('CREATE')
+                  }}
                 >
-                  New category
+                  Danh mục mới
                 </Button>
               </Box>
-              <MainCategory />
+              <MainCategory reload={reload} setReload={setReload} setType={setType} setSelectedCategory={setSelectedCategory} setOpen={setOpen} />
             </Stack>
           </Box>
         </Box>
       </ThemeProvider>
+      <CategoryDialog reload={reload} open={open} setOpen={setOpen} type={type} category={selectedCategory} setReload={setReload} />
     </main>
   );
 }

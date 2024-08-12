@@ -29,7 +29,6 @@ export default function Footer() {
                 divider={<Box sx={{ width: 24 }} />}
                 justifyContent="center"
                 alignItems="center"
-                sx={{ padding: 2 }}
               >
                 <Box
                   sx={{
@@ -95,8 +94,7 @@ export default function Footer() {
             </Divider>
             <Typography
               textAlign={"center"}
-              marginTop={2}
-              marginBottom={2}
+              my={4}
               variant="h6"
             >
               LOGO
@@ -104,12 +102,10 @@ export default function Footer() {
             <Grid xs={12} container item justifyContent={"space-evenly"}>
               <Grid
                 container
-                spacing={4}
-                px={4}
-                py={5}
                 justifyContent={"space-evenly"}
+                spacing={4}
               >
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={4}>
                   <Typography
                     textAlign={"left"}
                     variant="h6"
@@ -145,7 +141,7 @@ export default function Footer() {
                     </Link>
                   </Typography>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={4}>
                   <Typography
                     textAlign={"left"}
                     variant="h6"
@@ -167,7 +163,7 @@ export default function Footer() {
                     Dịch vụ sau triễn lãm.
                   </Typography>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={4}>
                   <Typography
                     variant="h6"
                     gutterBottom
