@@ -1,8 +1,8 @@
 "use client";
 import { Grid, ThemeProvider } from "@mui/material";
-import PotentialProductBox from "../products/components/potential-product-box";
 import theme from "../theme";
 import Footer from "@/components/Footer";
+import Blog from "./Blog";
 
 const Activity = () => {
   const activityTheme = theme;
@@ -18,9 +18,8 @@ const Activity = () => {
         my={3}
       >
         <Grid xs={10} item>
-          <PotentialProductBox direction="right" />
-          <PotentialProductBox direction="right" />
-          <PotentialProductBox direction="right" />
+          <Blog directionImg={"right"}/>
+          <Blog directionImg={"left"}/>
         </Grid>
       </Grid>
       <Footer />

@@ -1,4 +1,7 @@
 "use client";
+import { ApiPathEnum } from "@/api/api.path.enum";
+import axios from "@/api/axios.instance";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
 import {
   Avatar,
   Box,
@@ -14,11 +17,9 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { useState } from "react";
+import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
-import { ApiPathEnum } from "@/api/api.path.enum";
-import axios from "@/api/axios.instance";
+import { useState } from "react";
 
 function Copyright(props: any) {
   return (
@@ -45,6 +46,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
+  const cookies = useCookies();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -60,8 +62,9 @@ export default function Login() {
 
       if (response.status === 200 || response.status === 201) {
         const user = response.data;
-        localStorage.setItem("token", user.accessToken);
-        router.push("/");
+        cookies.set("token", user.data.accessToken);
+        cookies.set("username", user.data.username);
+        router.push("/admin");
       } else {
         console.error("Đăng nhập thất bại:", response.statusText);
         alert("failed");
