@@ -27,10 +27,11 @@ import { styled, useTheme } from "@mui/material/styles";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import LanguageButton from "./LanguageButton";
+import theme from "@/app/(client)/theme";
 
 const StyledAppBar = styled(AppBar)({
   width: "100%",
-  backgroundColor: "#3F0071",
+  backgroundColor: theme.palette.primary.main,
   padding: "16px",
   zIndex: 1,
 });
@@ -55,7 +56,7 @@ const MenuItem = styled(Typography)({
     backgroundColor: "#fff",
     borderRadius: "10px",
   },
-  fontSize: "clamp(0.5rem, 2vw, 1rem)",
+  fontSize: "1.5rem",
   "@media (max-width: 1010px)": {
     fontSize: 0,
   },

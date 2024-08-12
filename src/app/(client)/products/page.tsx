@@ -22,6 +22,7 @@ import GearSvg from './components/gear-svg';
 import PotentialProductBox from './components/potential-product-box';
 import BookIcon from '../../assets/images/icon/book.png';
 import Image from 'next/image';
+import Footer from '@/components/Footer';
 
 const Products = () => {
   const sliderItems = 3;
@@ -209,6 +210,9 @@ const Products = () => {
             </Grid>
           </Grid>
         </Container>
+        <Grid xs={12}>
+          <Footer />
+        </Grid>
       </Box>
     </ThemeProvider>
   );
