@@ -1,7 +1,9 @@
-import { staticCategories } from "@/app/static";
+import { ApiPathEnum } from "@/api/api.path.enum";
+import axios from "@/api/axios.instance";
+import { ICategory } from "@/types/categories/categories.interface";
+import { ApiResponse } from "@/types/utils/api-response.interface";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import {
   IconButton,
   Paper,
@@ -13,11 +15,21 @@ import {
   TablePagination,
   TableRow,
 } from "@mui/material";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-export default function MainCategory() {
+interface MainCategoryProps {
+  reload: boolean,
+  setReload: Dispatch<SetStateAction<boolean>>,
+  setSelectedCategory: Dispatch<SetStateAction<ICategory>>
+  setType: Dispatch<SetStateAction<'CREATE' | 'UPDATE'>>
+  setOpen: Dispatch<SetStateAction<boolean>>,
+}
+
+const MainCategory: React.FC<MainCategoryProps> = ({ reload, setReload, setSelectedCategory, setType, setOpen }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [categories, setCategories] = useState<ICategory[]>([])
+  const [error, setError] = useState('')
 
   const handleChangePage = (event: any, newPage: any) => {
     setPage(newPage);
@@ -28,10 +40,26 @@ export default function MainCategory() {
     setPage(0);
   };
 
-  const paginatedCategories = staticCategories.slice(
+  const paginatedCategories = categories.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
+
+  const removeCategory = (id: string) => {
+    axios.delete(`${ApiPathEnum.Category}/${id}`).then(res => {
+      if (res.status === 200)
+        setReload(!reload)
+    })
+  }
+
+  useEffect(() => {
+    axios.get<ApiResponse<ICategory[]>>(ApiPathEnum.Category).then(res => {
+      if (res.status === 200) {
+        setCategories(res.data?.data as ICategory[])
+      }
+      else setError(res.data?.error as string)
+    })
+  }, [reload])
 
   return (
     <>
@@ -43,9 +71,8 @@ export default function MainCategory() {
           <TableHead>
             <TableRow>
               <TableCell align="left" sx={{ fontWeight: 'bold' }}>Id</TableCell>
-              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Name</TableCell>
-              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Description</TableCell>
-              <TableCell align="center">Action</TableCell>
+              <TableCell align="left" sx={{ fontWeight: 'bold' }}>Tên</TableCell>
+              <TableCell align="center">Hành động</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -54,23 +81,24 @@ export default function MainCategory() {
                 key={category.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="left">{category.id}</TableCell>
+                <TableCell align="left">{category._id}</TableCell>
                 <TableCell align="left">{category.name}</TableCell>
-                <TableCell align="left">{category.description}</TableCell>
                 <TableCell align="center">
                   <IconButton
                     sx={{ border: "none", boxShadow: "none", padding: 0 }}
+                    onClick={() => {
+                      setType('UPDATE')
+                      setSelectedCategory(category)
+                      setOpen(true)
+                    }}
                   >
-                    <VisibilityIcon color="primary" />
-                  </IconButton>
-                  <IconButton
-                    sx={{ border: "none", boxShadow: "none", padding: 0 }}
-                  >
+
                     <EditIcon color="success" />
                   </IconButton>
                   <IconButton
                     color="secondary"
                     sx={{ border: "none", boxShadow: "none", padding: 0 }}
+                    onClick={() => removeCategory(category?._id as string)}
                   >
                     <DeleteIcon color="error" />
                   </IconButton>
@@ -83,7 +111,7 @@ export default function MainCategory() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 50]}
         component="div"
-        count={staticCategories.length}
+        count={categories.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
@@ -92,3 +120,5 @@ export default function MainCategory() {
     </>
   );
 }
+
+export default MainCategory
