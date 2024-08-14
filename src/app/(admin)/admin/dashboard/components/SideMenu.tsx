@@ -22,12 +22,10 @@ const Drawer = styled(MuiDrawer)({
   },
 });
 
-useEffect(() => {}, []);
-
 export default function SideMenu() {
   const cookies = useCookies();
 
-  let username;
+  useEffect(() => {}, []);
 
   return (
     <Drawer
