@@ -11,7 +11,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import shape from "../../../assets/images/shape/waveImg.png";
 
@@ -35,7 +35,6 @@ function Item({item, isMobile}: any) {
             variant="h4"
             sx={{
               color: "#401d59",
-              fontFamily: "TimesNewRomanPS-ItalicMT",
               marginBottom: "30px",
               textAlign: isMobile ? "center" : "right",
               fontWeight: "bold",
@@ -47,7 +46,6 @@ function Item({item, isMobile}: any) {
             variant="subtitle1"
             sx={{
               color: "#401d59",
-              fontFamily: "HelveticaNeue",
               fontWeight: "lighter",
               textAlign: "justify",
               marginBottom: 2,
@@ -90,7 +88,6 @@ function Item({item, isMobile}: any) {
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 color: "#EFE1CE",
-                textShadow: "0 0 5px black",
                 zIndex: 1,
                 textAlign: "center",
                 fontWeight: "bold",
@@ -108,6 +105,8 @@ function Item({item, isMobile}: any) {
 export default function TrendingProduct({ items }: TrendingProductProps) {
   const theme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  useEffect(() => {}, []);
 
   theme.typography.h4 = {
     fontSize: "1.2rem",

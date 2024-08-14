@@ -28,6 +28,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import LanguageButton from "./LanguageButton";
 import theme from "@/app/(client)/theme";
+import Image from "next/image";
+import logo from "../app/assets/images/logoHeader.jpg";
 
 const StyledAppBar = styled(AppBar)({
   width: "100%",
@@ -142,8 +144,8 @@ const Header = () => {
           flexWrap={"nowrap"}
           xs={12}
         >
-          <Grid item xs={6} md={1}>
-            <Typography variant="h6">LOGO</Typography>
+          <Grid item xs={6} md={1} container justifyContent={"center"} alignItems={"center"}>
+            <Image src={logo} alt="logo" layout="responsive" style={{ borderRadius: 6 }}/>
           </Grid>
           <Grid
             item

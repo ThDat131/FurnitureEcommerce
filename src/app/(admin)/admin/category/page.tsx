@@ -13,7 +13,7 @@ import {
 import SideMenu from "../dashboard/components/SideMenu";
 import Navbar from "../dashboard/components/Navbar";
 import Header from "../dashboard/components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
 import AddIcon from '@mui/icons-material/Add';
 import CategoryDialog from "./component/CategoryDialog";
@@ -33,6 +33,8 @@ export default function User() {
   const toggleColorMode = () => {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
   };
+
+  useEffect(() => {}, []);
 
   return (
     <main>

@@ -15,6 +15,7 @@ import lightImg from "../../assets/images/introduce/light.png";
 import settingImg from "../../assets/images/introduce/setting.png";
 import toolImg from "../../assets/images/introduce/tool.png";
 import theme from "../theme";
+import { useEffect } from "react";
 
 const serviceData = [
   {
@@ -28,7 +29,7 @@ const serviceData = [
     description: "Mô tả 2",
   },
   {
-    title: "DỊCH VỤ SAU TRIỄN LÃM",
+    title: "DỊCH VỤ SAU TRIỂN LÃM",
     img: lightImg,
     description:
       "Dịch vụ sau triển lãm trong ngành furniture không chỉ kết thúc khi sự kiện khép lại mà còn tiếp tục với nhiều hoạt động quan trọng. Sau khi triển lãm kết thúc, các nhà sản xuất và nhà cung cấp nội thất thường cung cấp dịch vụ chăm sóc khách hàng tận tâm, bao gồm việc theo dõi phản hồi từ khách hàng, cung cấp thông tin chi tiết về sản phẩm và hỗ trợ tư vấn. Đồng thời, họ cũng thực hiện các hoạt động chăm sóc khách hàng như gửi thông tin cập nhật về các sản phẩm mới và khuyến mãi, tổ chức các buổi gặp gỡ để thảo luận về nhu cầu cụ thể và giải pháp nội thất phù hợp. Những dịch vụ này giúp duy trì mối quan hệ với khách hàng và đối tác, đồng thời tối ưu hóa cơ hội kinh doanh trong lĩnh vực nội thất.",
@@ -37,6 +38,9 @@ const serviceData = [
 
 const Service = () => {
   const serviceTheme = theme;
+
+  useEffect(() => {}, []);
+
   return (
     <ThemeProvider theme={serviceTheme}>
       <Grid xs={12} sx={{ backgroundColor: '#fff' }}>

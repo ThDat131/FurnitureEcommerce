@@ -23,8 +23,11 @@ import PotentialProductBox from "./components/potential-product-box";
 import BookIcon from "../../assets/images/icon/book.png";
 import Image from "next/image";
 import Blog from "../activity/Blog";
+import Footer from "@/components/Footer";
 
 const Products = () => {
+  useEffect(() => {}, []);
+
   const sliderItems = 3;
 
   const styleTitle: CSSProperties = {

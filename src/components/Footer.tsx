@@ -6,6 +6,8 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import { MyGoogleMap } from "./GoogleMap";
+import logo from "../app/assets/images/footerLogo.png";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -92,19 +94,11 @@ export default function Footer() {
                 </Box>
               </Stack>
             </Divider>
-            <Typography
-              textAlign={"center"}
-              my={4}
-              variant="h6"
-            >
-              LOGO
-            </Typography>
+            <Grid xs={12} container justifyContent={"center"} sx={{ mt: 4, mb: 4 }}>
+              <Image src={logo} alt="logo" layout="responsive" style={{ maxWidth: 200 }} />
+            </Grid>
             <Grid xs={12} container item justifyContent={"space-evenly"}>
-              <Grid
-                container
-                justifyContent={"space-evenly"}
-                spacing={4}
-              >
+              <Grid container justifyContent={"space-evenly"} spacing={4}>
                 <Grid item xs={12} md={4}>
                   <Typography
                     textAlign={"left"}
@@ -154,13 +148,13 @@ export default function Footer() {
                     Sản phẩm hàng hoá, thương mại.
                   </Typography>
                   <Typography variant="body2">
-                    Dịch vụ cho thuê trang thiết bị hội chợ, triễn lãm.
+                    Dịch vụ cho thuê trang thiết bị hội chợ, triển lãm.
                   </Typography>
                   <Typography variant="body2">
                     Dịch vụ thi công lắp đặt đèn chiếu sáng, nguồn điện.
                   </Typography>
                   <Typography variant="body2">
-                    Dịch vụ sau triễn lãm.
+                    Dịch vụ sau triển lãm.
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={4}>

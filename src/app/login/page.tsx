@@ -19,7 +19,8 @@ import {
 } from "@mui/material";
 import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 function Copyright(props: any) {
   return (
@@ -64,15 +65,21 @@ export default function Login() {
         const user = response.data;
         cookies.set("token", user.data.accessToken);
         cookies.set("username", user.data.username);
-        router.push("/admin");
+
+        toast.success("Login successful");
+
+        setTimeout(() => {
+          router.push("/admin");
+        }, 1000);
       } else {
-        console.error("Đăng nhập thất bại:", response.statusText);
-        alert("failed");
+        toast.error("Login failed");
       }
     } catch (error) {
-      console.error("Lỗi khi đăng nhập:", error);
+      toast.error("Login failed");
     }
   };
+
+  useEffect(() => {}, []);
 
   return (
     <ThemeProvider theme={defaultTheme}>
