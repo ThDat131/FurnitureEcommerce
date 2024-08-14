@@ -10,7 +10,7 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect } from "react";
 import Carousel from "react-material-ui-carousel";
 import theme from "../theme";
 
@@ -69,6 +69,8 @@ export default function RecruitmentComponent() {
     }
     return renderItems;
   };
+
+  useEffect(() => {}, []);
 
   return (
     <ThemeProvider theme={recruitmentTheme}>

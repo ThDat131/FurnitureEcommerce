@@ -3,9 +3,12 @@ import { Grid, ThemeProvider } from "@mui/material";
 import theme from "../theme";
 import Footer from "@/components/Footer";
 import Blog from "./Blog";
+import { useEffect } from "react";
 
 const Activity = () => {
   const activityTheme = theme;
+
+  useEffect(() => {}, []);
 
   return (
     <ThemeProvider theme={activityTheme}>

@@ -12,6 +12,7 @@ import lineTopLeft from '../../assets/images/introduce/topleft.png';
 import lineTopRight from '../../assets/images/introduce/topright.png';
 import PurpleBackground from '@/components/PurpleBackground';
 import theme from '../theme';
+import { useEffect } from 'react';
 
 function Item({ isSmallScreen }: any) {
   console.log(isSmallScreen);
@@ -161,7 +162,7 @@ function Item4({ isSmallScreen }: any) {
           sx={{ marginTop: 2, marginBottom: 2, color: '#B8ADF8' }}
           textAlign={'center'}
         >
-          DỊCH VỤ SAU TRIỄN LÃM (LƯU KHO, TÌM KIẾM KHÁCH HÀNG)
+          DỊCH VỤ SAU TRIỂN LÃM (LƯU KHO, TÌM KIẾM KHÁCH HÀNG)
         </Typography>
       </Grid>
       <Image
@@ -213,6 +214,8 @@ function RowItem2({ isSmallScreen }: any) {
 
 export default function Introduce() {
   const isSmallScreen = useMediaQuery('(max-width:700px)');
+
+  useEffect(() => {}, []);
 
   return (
     <Box>

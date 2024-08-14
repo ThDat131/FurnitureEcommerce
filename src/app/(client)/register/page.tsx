@@ -16,6 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import './register.css'
+import { useEffect } from "react";
 
 function Copyright(props: any) {
   return (
@@ -46,6 +47,8 @@ export default function Register() {
       password: data.get("password"),
     });
   };
+
+  useEffect(() => {}, []);
 
   return (
     <ThemeProvider theme={defaultTheme} >

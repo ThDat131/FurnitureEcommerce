@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { useCookies } from "next-client-cookies";
 import MenuContent from "./MenuContent";
 import OptionsMenu from "./OptionsMenu";
+import { useEffect } from "react";
 
 const drawerWidth = 240;
 
@@ -20,6 +21,8 @@ const Drawer = styled(MuiDrawer)({
     boxSizing: "border-box",
   },
 });
+
+useEffect(() => {}, []);
 
 export default function SideMenu() {
   const cookies = useCookies();

@@ -6,9 +6,9 @@ import {
   Stack,
   ThemeProvider,
 } from "@mui/material";
-import Box from '@mui/material/Box';
-import { alpha } from '@mui/material/styles';
-import { useState } from "react";
+import Box from "@mui/material/Box";
+import { alpha } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import Header from "./dashboard/components/Header";
 import MainGrid from "./dashboard/components/MainGrid";
 import Navbar from "./dashboard/components/Navbar";
@@ -28,6 +28,8 @@ export default function Home() {
   const toggleCustomTheme = () => {
     setShowCustomTheme((prev) => !prev);
   };
+
+  useEffect(() => {}, []);
 
   return (
     <main>

@@ -10,7 +10,7 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../dashboard/components/Header";
 import Navbar from "../dashboard/components/Navbar";
 import SideMenu from "../dashboard/components/SideMenu";
@@ -26,6 +26,7 @@ export default function User() {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
+  useEffect(() => {}, []);
 
   return (
     <main>

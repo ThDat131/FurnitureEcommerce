@@ -1,48 +1,55 @@
-import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
-import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
-import LogoutIcon from '@mui/icons-material/Logout';
-import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
-import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Stack from '@mui/material/Stack';
-import { usePathname, useRouter } from 'next/navigation';
-import path from 'path';
-import * as React from 'react';
+import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
+import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import LogoutIcon from "@mui/icons-material/Logout";
+import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
+import { useCookies } from "next-client-cookies";
+import { usePathname, useRouter } from "next/navigation";
+import * as React from "react";
 
 const mainListItems = [
-  { text: 'Home', icon: <HomeRoundedIcon />, path: '/admin' },
-  { text: 'User', icon: <PeopleRoundedIcon />, path: '/admin/user' },
+  { text: "Home", icon: <HomeRoundedIcon />, path: "/admin" },
+  { text: "User", icon: <PeopleRoundedIcon />, path: "/admin/user" },
   {
-    text: 'Product',
+    text: "Product",
     icon: <ProductionQuantityLimitsIcon />,
-    path: '/admin/product',
+    path: "/admin/product",
   },
   {
-    text: 'Category',
+    text: "Category",
     icon: <AssignmentRoundedIcon />,
-    path: '/admin/category',
+    path: "/admin/category",
   },
 ];
 
 const secondaryListItems = [
-  { text: 'Settings', icon: <SettingsRoundedIcon />, path: '/setting' },
-  { text: 'About', icon: <InfoRoundedIcon />, path: '/about' },
-  { text: 'Feedback', icon: <HelpRoundedIcon />, path: '/feedback' },
-  { text: 'Log out', icon: <LogoutIcon />, path: '/login' },
+  { text: "Settings", icon: <SettingsRoundedIcon />, path: "/setting" },
+  { text: "About", icon: <InfoRoundedIcon />, path: "/about" },
+  { text: "Feedback", icon: <HelpRoundedIcon />, path: "/feedback" },
+  { text: "Log out", icon: <LogoutIcon />, path: "/login" },
 ];
 
 export default function MenuContent() {
   const router = useRouter();
   const pathname = usePathname();
 
+  const cookies = useCookies();
+
   const handleListItemClick = (path: string) => {
+    if (path === "/login") {
+      cookies.remove("token");
+      cookies.remove("username");
+    }
+
     router.push(path);
   };
 
@@ -52,10 +59,10 @@ export default function MenuContent() {
   }, [pathname]);
 
   return (
-    <Stack sx={{ flexGrow: 1, p: 1, justifyContent: 'space-between' }}>
+    <Stack sx={{ flexGrow: 1, p: 1, justifyContent: "space-between" }}>
       <List dense>
         {mainListItems.map((item, index) => (
-          <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+          <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
               selected={selectedIndex === index}
               onClick={() => handleListItemClick(item.path)}
@@ -69,7 +76,7 @@ export default function MenuContent() {
 
       <List dense>
         {secondaryListItems.map((item, index) => (
-          <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+          <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton onClick={() => handleListItemClick(item.path)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />

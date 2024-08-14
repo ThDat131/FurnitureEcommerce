@@ -1,18 +1,19 @@
 "use client";
 import {
   Box,
-  createTheme,
   Grid,
   ThemeProvider,
   Typography,
   useMediaQuery,
 } from "@mui/material";
+import Image from "next/image";
 import packageimg from "../../../assets/images/package.png";
 import warehouseImg from "../../../assets/images/warehouse.png";
-import Image from "next/image";
+import theme from "../../theme";
+import { useEffect } from "react";
 
 export default function StorageService() {
-  const theme = createTheme();
+  const storageTheme = theme;
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   theme.typography.h4 = {
@@ -25,8 +26,10 @@ export default function StorageService() {
     },
   };
 
+  useEffect(() => {}, []);
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={storageTheme}>
       <Box>
         <Grid
           xs={12}
@@ -34,11 +37,9 @@ export default function StorageService() {
           justifyContent={"space-evenly"}
           alignItems={"center"}
           sx={{
-            backgroundColor: "#000",
-            marginTop: 12,
-            marginBottom: isMobile ? 2 : 12,
-            paddingBottom: 6,
-            paddingTop: 6,
+            backgroundColor: storageTheme.palette.primary.main,
+            paddingTop: 12,
+            paddingBottom: isMobile ? 2 : 12,
           }}
         >
           <Grid item xs={12} md={3} sx={{ position: "relative" }}>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { CookiesProvider } from "next-client-cookies/server";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,6 +34,7 @@ export default function RootLayout({
       </head>
       <body>
         <CookiesProvider>{children}</CookiesProvider>
+        <ToastContainer />
       </body>
     </html>
   );

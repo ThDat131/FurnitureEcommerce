@@ -12,9 +12,13 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import contactImg from "../../assets/images/contact.png";
 import Image from "next/image";
 import theme from "../theme";
+import { useEffect } from "react";
 
 const Contact = () => {
   const contactTheme = theme;
+
+  useEffect(() => {}, []);
+
   return (
     <ThemeProvider theme={contactTheme}>
       <Box sx={{ backgroundColor: '#fff' }}>

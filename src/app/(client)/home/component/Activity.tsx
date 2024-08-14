@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import activity from "../../../assets/images/activity.png";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Activity() {
   const theme = createTheme();
@@ -23,6 +24,8 @@ export default function Activity() {
       fontSize: "2.4rem",
     },
   };
+
+  useEffect(() => {}, []);
 
   return (
     <ThemeProvider theme={theme}>
