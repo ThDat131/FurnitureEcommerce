@@ -10,6 +10,7 @@ import {
   createTheme,
   CssBaseline,
   FormControlLabel,
+  FormHelperText,
   Grid,
   Link,
   Paper,
@@ -46,11 +47,21 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  // Validate inputs
+  const isUsernameValid = username.trim() !== "";
+  const isPasswordValid = password.trim() !== "";
+
+  const [usernameError, setUsernameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+
   const router = useRouter();
   const cookies = useCookies();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    setUsernameError(!isUsernameValid);
+    setPasswordError(!isPasswordValid);
 
     const data = new FormData(event.currentTarget);
     const username = data.get("username") as string;
@@ -135,6 +146,11 @@ export default function Login() {
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
               />
+              {usernameError && (
+                <FormHelperText id="username-error-text" error>
+                  Username is required.
+                </FormHelperText>
+              )}
               <TextField
                 margin="normal"
                 required
@@ -147,6 +163,11 @@ export default function Login() {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
+              {passwordError && (
+                <FormHelperText id="password-error-text" error>
+                  Password is required.
+                </FormHelperText>
+              )}
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
@@ -156,7 +177,6 @@ export default function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={() => console.log("test")}
               >
                 Sign In
               </Button>
