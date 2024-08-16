@@ -1,6 +1,9 @@
 import blog1Img from "./assets/images/blog1.jpg";
 import blog2Img from "./assets/images/blog2.jpg";
 import blog3Img from "./assets/images/blog3.jpg";
+import grpupP1Img from "./assets/images/groupProduct/gP1.png";
+import grpupP2Img from "./assets/images/groupProduct/gP2.png";
+import grpupP3Img from "./assets/images/groupProduct/gP3.png";
 
 export const staticUser = [
   {
@@ -154,5 +157,26 @@ export const blogs = [
     title: "Tối đa hóa cơ hội với các giải pháp triển lãm hấp dẫn",
     subtitle:
       "Chúng tôi giúp bạn tạo ra những trải nghiệm sống động thu hút khách hàng cho bạn.",
+  },
+];
+
+export const groupProduct = [
+  {
+    id: 1,
+    img: grpupP1Img,
+    title: "Đèn chiếu biển số nhà",
+    idProduct: "Mã sản phẩm",
+  },
+  {
+    id: 2,
+    img: grpupP2Img,
+    title: "Đèn chiếu biển số nhà",
+    idProduct: "CL-CPD 1004",
+  },
+  {
+    id: 3,
+    img: grpupP3Img,
+    title: "Đèn chiếu biển số nhà",
+    idProduct: "CL-CPD 3004",
   },
 ];

@@ -1,4 +1,5 @@
 "use client";
+import theme from "@/app/(client)/theme";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import HomeIcon from "@mui/icons-material/Home";
@@ -6,6 +7,7 @@ import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import MenuIcon from "@mui/icons-material/Menu";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 import PhoneIcon from "@mui/icons-material/Phone";
+import PolicyIcon from "@mui/icons-material/Policy";
 import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
 import WorkIcon from "@mui/icons-material/Work";
 import {
@@ -24,12 +26,11 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import LanguageButton from "./LanguageButton";
-import theme from "@/app/(client)/theme";
-import Image from "next/image";
 import logo from "../app/assets/images/logoHeader.jpg";
+import LanguageButton from "./LanguageButton";
 
 const StyledAppBar = styled(AppBar)({
   width: "100%",
@@ -58,7 +59,7 @@ const MenuItem = styled(Typography)({
     backgroundColor: "#fff",
     borderRadius: "10px",
   },
-  fontSize: "1.5rem",
+  fontSize: "1.2rem",
   "@media (max-width: 1010px)": {
     fontSize: 0,
   },
@@ -100,6 +101,11 @@ const sideMenu = [
     name: "HOẠT ĐỘNG",
     icon: <LocalActivityIcon />,
     path: "/activity",
+  },
+  {
+    name: "CHÍNH SÁCH",
+    icon: <PolicyIcon />,
+    path: "/policy",
   },
   {
     name: "LIÊN HỆ",
@@ -144,8 +150,20 @@ const Header = () => {
           flexWrap={"nowrap"}
           xs={12}
         >
-          <Grid item xs={6} md={1} container justifyContent={"center"} alignItems={"center"}>
-            <Image src={logo} alt="logo" layout="responsive" style={{ borderRadius: 6 }}/>
+          <Grid
+            item
+            xs={6}
+            md={1}
+            container
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Image
+              src={logo}
+              alt="logo"
+              layout="responsive"
+              style={{ borderRadius: 6 }}
+            />
           </Grid>
           <Grid
             item
@@ -216,6 +234,19 @@ const Header = () => {
                 variant="body1"
               >
                 HOẠT ĐỘNG
+              </MenuItem>
+            </Grid>
+            <Grid item>
+              <MenuItem
+                className={
+                  usePathname() === "/policy" && isScreenLarge
+                    ? "selected"
+                    : ""
+                }
+                onClick={() => router.push("/policy")}
+                variant="body1"
+              >
+                CHÍNH SÁCH
               </MenuItem>
             </Grid>
             <Grid item>

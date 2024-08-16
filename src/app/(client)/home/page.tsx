@@ -10,6 +10,7 @@ import StorageService from "./component/StorageService";
 import TrendingProduct from "./component/TrendingProduct";
 import Welcome from "./component/Welcome";
 import Service from "./component/Service";
+import Soulution from "./component/Solution";
 
 const Home = () => {
   return (
@@ -41,6 +42,9 @@ const Home = () => {
         </Grid>
         <Grid item xs={12}>
           <Blog />
+        </Grid>
+        <Grid item xs={12}>
+          <Soulution />
         </Grid>
       </Grid>
       <Grid xs={12}>
