@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { CookiesProvider } from "next-client-cookies/server";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
@@ -32,9 +31,8 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning={true}>
         <CookiesProvider>{children}</CookiesProvider>
-        <ToastContainer />
       </body>
     </html>
   );

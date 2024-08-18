@@ -14,8 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <Header />
       <body>
+        <Header />
         <Grid item xs={12}>
           {children}
         </Grid>

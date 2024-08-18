@@ -57,7 +57,6 @@ export default function SideMenu() {
         <Avatar
           sizes="small"
           alt="Riley Carter"
-          src="/static/images/avatar/7.jpg"
           sx={{ width: 36, height: 36 }}
         />
         <Box sx={{ mr: "auto" }}>
@@ -66,9 +65,6 @@ export default function SideMenu() {
             sx={{ fontWeight: 500, lineHeight: "16px" }}
           >
             {cookies.get("username")}
-          </Typography>
-          <Typography variant="caption" sx={{ color: "text.secondary" }}>
-            user email
           </Typography>
         </Box>
         <OptionsMenu />

@@ -14,7 +14,7 @@ import SideMenu from "../dashboard/components/SideMenu";
 import Navbar from "../dashboard/components/Navbar";
 import Header from "../dashboard/components/Header";
 import ToggleCustomTheme from "../dashboard/internals/components/ToggleCustomTheme";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import getDashboardTheme from "../dashboard/theme/getDashboardTheme";
 import MainUser from "./component/MainUser";
 import AddIcon from "@mui/icons-material/Add";
@@ -32,8 +32,6 @@ export default function User() {
   const toggleCustomTheme = () => {
     setShowCustomTheme((prev) => !prev);
   };
-
-  useEffect(() => {}, []);
 
   return (
     <main>
