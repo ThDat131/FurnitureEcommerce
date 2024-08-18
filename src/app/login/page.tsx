@@ -21,7 +21,7 @@ import {
 import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 function Copyright(props: any) {
   return (
@@ -197,6 +197,7 @@ export default function Login() {
           </Box>
         </Grid>
       </Grid>
+      <ToastContainer />
     </ThemeProvider>
   );
 }

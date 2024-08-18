@@ -1,9 +1,16 @@
+import { ICategory } from '../categories/categories.interface';
+
+interface IImage {
+  url: string;
+  id: string;
+}
+
 export interface IProduct {
-  _id: string;
+  _id?: string;
   name: string;
   description: string;
-  images: string[];
+  images: IImage[];
   price: number;
   stock: number;
-  categoryId: string;
+  categoryId: string | ICategory;
 }

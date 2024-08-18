@@ -17,8 +17,7 @@ import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
 
 const mainListItems = [
-  { text: "Home", icon: <HomeRoundedIcon />, path: "/admin" },
-  { text: "User", icon: <PeopleRoundedIcon />, path: "/admin/user" },
+  { text: 'Home', icon: <HomeRoundedIcon />, path: '/admin' },
   {
     text: "Product",
     icon: <ProductionQuantityLimitsIcon />,
@@ -29,13 +28,6 @@ const mainListItems = [
     icon: <AssignmentRoundedIcon />,
     path: "/admin/category",
   },
-];
-
-const secondaryListItems = [
-  { text: "Settings", icon: <SettingsRoundedIcon />, path: "/setting" },
-  { text: "About", icon: <InfoRoundedIcon />, path: "/about" },
-  { text: "Feedback", icon: <HelpRoundedIcon />, path: "/feedback" },
-  { text: "Log out", icon: <LogoutIcon />, path: "/login" },
 ];
 
 export default function MenuContent() {
@@ -67,17 +59,6 @@ export default function MenuContent() {
               selected={selectedIndex === index}
               onClick={() => handleListItemClick(item.path)}
             >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-
-      <List dense>
-        {secondaryListItems.map((item, index) => (
-          <ListItem key={index} disablePadding sx={{ display: "block" }}>
-            <ListItemButton onClick={() => handleListItemClick(item.path)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>

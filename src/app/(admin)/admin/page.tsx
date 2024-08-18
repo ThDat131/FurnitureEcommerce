@@ -5,6 +5,7 @@ import {
   PaletteMode,
   Stack,
   ThemeProvider,
+  Typography,
 } from "@mui/material";
 import Box from "@mui/material/Box";
 import { alpha } from "@mui/material/styles";
@@ -17,23 +18,15 @@ import getDashboardTheme from "./dashboard/theme/getDashboardTheme";
 
 export default function Home() {
   const [mode, setMode] = useState<PaletteMode>("light");
-  const [showCustomTheme, setShowCustomTheme] = useState(true);
   const dashboardTheme = createTheme(getDashboardTheme(mode));
-  const defaultTheme = createTheme({ palette: { mode } });
 
   const toggleColorMode = () => {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
-  const toggleCustomTheme = () => {
-    setShowCustomTheme((prev) => !prev);
-  };
-
-  useEffect(() => {}, []);
-
   return (
     <main>
-      <ThemeProvider theme={showCustomTheme ? dashboardTheme : defaultTheme}>
+      <ThemeProvider theme={dashboardTheme}>
         <CssBaseline />
         <Box sx={{ display: "flex" }}>
           <SideMenu />
@@ -60,6 +53,11 @@ export default function Home() {
               }}
             >
               <Header mode={mode} toggleColorMode={toggleColorMode} />
+              <Typography
+                variant="h4"
+              >
+                Chào mừng đến với trang Quản trị
+              </Typography>
               {/* <MainGrid /> */}
             </Stack>
           </Box>

@@ -115,6 +115,7 @@ const sideMenu = [
 ];
 
 const Header = () => {
+  const pathName = usePathname();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -176,7 +177,7 @@ const Header = () => {
             <Grid item>
               <MenuItem
                 className={
-                  usePathname() === "/home" && isScreenLarge ? "selected" : ""
+                  pathName === "/home" && isScreenLarge ? "selected" : ""
                 }
                 onClick={() => router.push("/home")}
                 variant="body1"
@@ -187,7 +188,7 @@ const Header = () => {
             <Grid item>
               <MenuItem
                 className={
-                  usePathname() === "/products" && isScreenLarge
+                  pathName === "/products" && isScreenLarge
                     ? "selected"
                     : ""
                 }
@@ -200,7 +201,7 @@ const Header = () => {
             <Grid item>
               <MenuItem
                 className={
-                  usePathname() === "/service" && isScreenLarge
+                  pathName === "/service" && isScreenLarge
                     ? "selected"
                     : ""
                 }
@@ -213,7 +214,7 @@ const Header = () => {
             <Grid item>
               <MenuItem
                 className={
-                  usePathname() === "/recruitment" && isScreenLarge
+                  pathName === "/recruitment" && isScreenLarge
                     ? "selected"
                     : ""
                 }
@@ -226,7 +227,7 @@ const Header = () => {
             <Grid item>
               <MenuItem
                 className={
-                  usePathname() === "/activity" && isScreenLarge
+                  pathName === "/activity" && isScreenLarge
                     ? "selected"
                     : ""
                 }
@@ -239,7 +240,7 @@ const Header = () => {
             <Grid item>
               <MenuItem
                 className={
-                  usePathname() === "/policy" && isScreenLarge
+                  pathName === "/policy" && isScreenLarge
                     ? "selected"
                     : ""
                 }
@@ -252,7 +253,7 @@ const Header = () => {
             <Grid item>
               <MenuItem
                 className={
-                  usePathname() === "/contact" && isScreenLarge
+                  pathName === "/contact" && isScreenLarge
                     ? "selected"
                     : ""
                 }

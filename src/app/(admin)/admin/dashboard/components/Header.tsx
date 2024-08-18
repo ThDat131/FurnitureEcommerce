@@ -27,7 +27,7 @@ export default function Header({ mode, toggleColorMode }: HeaderProps) {
       }}
       spacing={2}
     >
-      <NavbarBreadcrumbs />
+      {/* <NavbarBreadcrumbs /> */}
       {/* <Stack direction="row" sx={{ gap: 1 }}>
         <Search />
         <CustomDatePicker />
