@@ -2,8 +2,8 @@
 import { Grid, ThemeProvider } from "@mui/material";
 import theme from "../theme";
 import Footer from "@/components/Footer";
-import Blog from "./Blog";
 import { useEffect } from "react";
+import Blog from "./component/Blog";
 
 const Activity = () => {
   const activityTheme = theme;
@@ -13,16 +13,14 @@ const Activity = () => {
   return (
     <ThemeProvider theme={activityTheme}>
       <Grid
-        item
         container
         justifyContent={"center"}
         xs={12}
         alignItems={"center"}
-        my={3}
+        sx={{ backgroundColor: activityTheme.palette.primary.contrastText }}
       >
         <Grid xs={10} item>
-          <Blog directionImg={"right"}/>
-          <Blog directionImg={"left"}/>
+          <Blog directionImg={"left"} />
         </Grid>
       </Grid>
       <Footer />
