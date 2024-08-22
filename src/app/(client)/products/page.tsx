@@ -22,8 +22,8 @@ import GearSvg from "./components/gear-svg";
 import PotentialProductBox from "./components/potential-product-box";
 import BookIcon from "../../assets/images/icon/book.png";
 import Image from "next/image";
-import Blog from "../activity/Blog";
 import Footer from "@/components/Footer";
+import Blog from "../activity/component/Blog";
 
 const Products = () => {
   useEffect(() => {}, []);

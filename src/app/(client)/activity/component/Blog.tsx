@@ -7,8 +7,8 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import activityImg from "../../assets/images/Furniture-login.jpg";
-import theme from "../theme";
+import activityImg from "../../../assets/images/Furniture-login.jpg";
+import theme from "../../theme";
 
 export default function Blog({ directionImg }: any) {
   const blogTheme = theme;
