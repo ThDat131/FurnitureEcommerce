@@ -70,7 +70,7 @@ export default function ServiceDetail() {
           </Grid>
         </Grid>
 
-        <Grid xs={6} item>
+        <Grid xs={10} item>
           <Typography
             variant="h4"
             fontWeight={"bold"}
@@ -92,12 +92,12 @@ export default function ServiceDetail() {
             chất lượng cao để đáp ứng mọi nhu cầu triển lãm của bạn. Từ thiết bị
             chiếu sáng đến hệ thống nguồn điện, chúng tôi đều hỗ trợ bạn.
           </Typography>
-          <Grid xs={6}>
+          <Grid md={6} xs={12}>
             <Image src={blog1} alt="" layout="responsive" />
           </Grid>
         </Grid>
 
-        <Grid xs={6} item>
+        <Grid xs={12} item>
           <Typography
             variant="h4"
             fontWeight={"bold"}
@@ -127,7 +127,7 @@ export default function ServiceDetail() {
             justifyContent={"space-between"}
             sx={{ paddingTop: 4, paddingBottom: 4 }}
           >
-            <Grid xs={4} item container>
+            <Grid md={4} xs={12} item container>
               <Grid
                 xs={12}
                 item
@@ -158,7 +158,13 @@ export default function ServiceDetail() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid xs={4} item container>
+            <Grid
+              md={4}
+              xs={12}
+              item
+              container
+              sx={{ paddingTop: 4, paddingBottom: 4 }}
+            >
               <Grid
                 xs={12}
                 item
@@ -189,7 +195,7 @@ export default function ServiceDetail() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid xs={4} item container>
+            <Grid md={4} xs={12} item container>
               <Grid
                 xs={12}
                 item
@@ -223,7 +229,7 @@ export default function ServiceDetail() {
           </Grid>
 
           <Grid xs={12} container item justifyContent={"center"}>
-            <Grid xs={6} item>
+            <Grid xs={12} item>
               <Typography
                 variant="h4"
                 fontWeight={"bold"}
@@ -235,7 +241,7 @@ export default function ServiceDetail() {
               </Typography>
             </Grid>
             <Grid xs={12} container item justifyContent={"space-evenly"}>
-              <Grid xs={3} item>
+              <Grid md={3} xs={12} item>
                 <Image src={blog1} alt="icon" layout="responsive" />
                 <Typography
                   variant="h6"
@@ -254,7 +260,12 @@ export default function ServiceDetail() {
                   từ yêu cầu đến giao hàng và thiết lập.
                 </Typography>
               </Grid>
-              <Grid xs={3} item>
+              <Grid
+                md={3}
+                xs={12}
+                item
+                sx={{ paddingBottom: 4, paddingTop: 4 }}
+              >
                 <Image src={blog1} alt="icon" layout="responsive" />
                 <Typography
                   variant="h6"
@@ -273,7 +284,7 @@ export default function ServiceDetail() {
                   từ yêu cầu đến giao hàng và thiết lập.
                 </Typography>
               </Grid>
-              <Grid xs={3} item>
+              <Grid md={3} xs={12} item>
                 <Image src={blog1} alt="icon" layout="responsive" />
                 <Typography
                   variant="h6"
@@ -295,7 +306,7 @@ export default function ServiceDetail() {
             </Grid>
           </Grid>
 
-          <Grid xs={6} item>
+          <Grid xs={12} item>
             <Typography
               variant="h4"
               fontWeight={"bold"}
@@ -319,7 +330,7 @@ export default function ServiceDetail() {
             thiết bị hàng đầu của chúng tôi đảm bảo sự kiện diễn ra suôn sẻ và
             thành công.
           </Typography>
-          <Grid xs={6}>
+          <Grid md={6} xs={12}>
             <Image src={blog1} alt="" layout="responsive" />
           </Grid>
           <Grid
@@ -329,7 +340,7 @@ export default function ServiceDetail() {
             justifyContent={"space-evenly"}
             sx={{ paddingTop: 4, paddingBottom: 4 }}
           >
-            <Grid xs={4} item container>
+            <Grid md={4} xs={12} item container sx={{ paddingBottom: 4 }}>
               <Grid
                 xs={12}
                 item
@@ -360,7 +371,7 @@ export default function ServiceDetail() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid xs={4} item container>
+            <Grid md={4} xs={12} item container>
               <Grid
                 xs={12}
                 item
@@ -394,7 +405,7 @@ export default function ServiceDetail() {
           </Grid>
         </Grid>
 
-        <Grid xs={12} sx={{ paddingTop: 6, paddingBottom: 6 }}>
+        <Grid xs={10} sx={{ paddingTop: 6, paddingBottom: 6 }}>
           <Typography
             variant="h4"
             textAlign={"center"}

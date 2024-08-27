@@ -38,7 +38,7 @@ export default function Group() {
             sx={{ mt: 6, mb: 6 }}
           >
             {groupProduct.map((group) => (
-              <Grid xs={3}>
+              <Grid xs={12} md={3} sx={{ paddingBottom: 4 }}>
                 <Card elevation={24}>
                   <CardActionArea>
                     <CardMedia

@@ -34,7 +34,8 @@ import LanguageButton from "./LanguageButton";
 
 const StyledAppBar = styled(AppBar)({
   width: "100%",
-  backgroundColor: theme.palette.primary.main,
+  // backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.primary.contrastText,
   padding: "16px",
   zIndex: 1,
 });
@@ -46,7 +47,8 @@ const StyledToolbar = styled(Toolbar)({
 });
 
 const MenuItem = styled(Typography)({
-  color: "white",
+  // color: "white",
+  color: theme.palette.primary.main,
   fontWeight: "bold",
   textDecoration: "none",
   "&:hover": {
@@ -54,9 +56,11 @@ const MenuItem = styled(Typography)({
   },
   cursor: "pointer",
   "&.selected": {
-    color: "#3F0071",
+    // color: "#3F0071",
+    color: theme.palette.primary.contrastText,
     padding: "10px",
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
+    backgroundColor: theme.palette.primary.main,
     borderRadius: "10px",
   },
   fontSize: "1.2rem",

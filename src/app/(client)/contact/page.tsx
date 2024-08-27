@@ -121,7 +121,7 @@ const Contact = () => {
             justifyContent={"space-evenly"}
             sx={{ pt: 6, pb: 6 }}
           >
-            <Grid xs={12}>
+            <Grid xs={10} item>
               <Typography
                 variant="h4"
                 color={theme.palette.primary.main}
@@ -139,7 +139,7 @@ const Contact = () => {
                 CHÚNG TÔI SẼ LIÊN HỆ BẠN SỚM NHẤT CÓ THỂ
               </Typography>
             </Grid>
-            <Grid xs={12} container justifyContent={"center"}>
+            <Grid xs={10} item container justifyContent={"center"}>
               <Grid xs={10} md={5} item container justifyContent={"center"}>
                 <Image
                   src={contactImg}
@@ -150,7 +150,7 @@ const Contact = () => {
                 />
               </Grid>
             </Grid>
-            <Grid xs={12}>
+            <Grid xs={10} item>
               <Typography
                 variant="h4"
                 color={theme.palette.primary.main}

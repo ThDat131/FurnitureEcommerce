@@ -247,7 +247,7 @@ export default function RecruitmentDetail() {
           justifyContent={"center"}
           sx={{ paddingTop: 4, paddingBottom: 4 }}
         >
-          <Grid xs={4} item container>
+          <Grid md={4} xs={12} item container sx={{ paddingBottom: {xs: 4, md: 0} }}>
             <Grid
               xs={12}
               item
@@ -286,7 +286,7 @@ export default function RecruitmentDetail() {
               </Typography>
             </Grid>
           </Grid>
-          <Grid xs={4} item container>
+          <Grid md={4} xs={12} item container>
             <Grid
               xs={12}
               item
