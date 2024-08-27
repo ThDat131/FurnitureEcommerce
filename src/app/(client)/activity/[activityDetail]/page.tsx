@@ -3,6 +3,7 @@ import { Grid, ThemeProvider, Typography } from "@mui/material";
 import theme from "../../theme";
 import Image from "next/image";
 import activityImg from "../../../assets/images/blog1.jpg";
+import Footer from "@/components/Footer";
 
 export default function ActivityDetail() {
   return (
@@ -44,7 +45,7 @@ export default function ActivityDetail() {
             hoạch cho những dự án sắp tới.
           </Typography>
           <Grid item container xs={12} justifyContent={"space-between"}>
-            <Grid xs={5} item>
+            <Grid md={5} xs={12} item sx={{ order: { xs: 2, md: 1 } }}>
               <Typography
                 variant="h6"
                 color={theme.palette.primary.main}
@@ -86,12 +87,13 @@ export default function ActivityDetail() {
                 hội trao đổi ý kiến, học hỏi và phát triển cùng nhau.
               </Typography>
             </Grid>
-            <Grid xs={5} item>
+            <Grid md={5} xs={12} item sx={{ order: { xs: 1, md: 2 } }}>
               <Image src={activityImg} alt="" layout="responsive" />
             </Grid>
           </Grid>
         </Grid>
       </Grid>
+      <Footer />
     </ThemeProvider>
   );
 }

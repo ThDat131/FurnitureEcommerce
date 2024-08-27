@@ -44,7 +44,7 @@ export default function Contact() {
           justifyContent={"center"}
           sx={{ paddingTop: 4, paddingBottom: 4 }}
         >
-          <Grid xs={4} item container>
+          <Grid xs={12} sm={4} item container sx={{ paddingBottom: { sm: 0, xs: 4 } }}>
             <Grid
               xs={12}
               item
@@ -83,7 +83,7 @@ export default function Contact() {
               </Typography>
             </Grid>
           </Grid>
-          <Grid xs={4} item container>
+          <Grid xs={12} sm={4} item container sx={{ paddingBottom: { sm: 0, xs: 4 } }}>
             <Grid
               xs={12}
               item
@@ -122,7 +122,7 @@ export default function Contact() {
               </Typography>
             </Grid>
           </Grid>
-          <Grid xs={4} item container>
+          <Grid xs={12} sm={4} item container sx={{ paddingBottom: { sm: 0, xs: 4 } }}>
             <Grid
               xs={12}
               item

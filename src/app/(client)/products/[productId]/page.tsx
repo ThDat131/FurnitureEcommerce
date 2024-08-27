@@ -1,8 +1,11 @@
 "use client";
+import { groupProduct } from "@/app/static";
+import Fancybox from "@/components/FancyBox";
+import Footer from "@/components/Footer";
 import { Grid, ThemeProvider, Typography } from "@mui/material";
-import theme from "../../theme";
 import Image from "next/image";
-import img from "../../../assets/images/blog1.jpg";
+import Carousel from "react-material-ui-carousel";
+import theme from "../../theme";
 
 export default function ProductDetail() {
   return (
@@ -12,7 +15,10 @@ export default function ProductDetail() {
         xs={12}
         justifyContent={"center"}
         minHeight={"calc(100vh - 113px)"}
-        sx={{ backgroundColor: theme.palette.primary.contrastText }}
+        sx={{
+          backgroundColor: theme.palette.primary.contrastText,
+          paddingBottom: 10,
+        }}
       >
         <Typography
           variant="h4"
@@ -24,10 +30,32 @@ export default function ProductDetail() {
           {"Đèn chiếu biển số nhà".toUpperCase()}
         </Typography>
         <Grid xs={10} container item justifyContent={"space-between"}>
-          <Grid xs={5} item>
-            <Image src={img} alt="" layout="responsive" />
+          <Grid xs={12} md={5} item>
+            <Fancybox
+              options={{
+                Carousel: {
+                  infinite: false,
+                },
+              }}
+            >
+              <Carousel>
+                {groupProduct.map((product) => (
+                  <div key={product.img.src}>
+                    <a data-fancybox="gallery" href={product.img.src}>
+                      <Image
+                        src={product.img.src}
+                        alt=""
+                        layout="responsive"
+                        width={100}
+                        height={100}
+                      />
+                    </a>
+                  </div>
+                ))}
+              </Carousel>
+            </Fancybox>
           </Grid>
-          <Grid xs={5} item>
+          <Grid xs={12} md={5} item>
             <Typography variant="h4" color={theme.palette.primary.main}>
               Mã sản phẩm
             </Typography>
@@ -41,6 +69,7 @@ export default function ProductDetail() {
           </Grid>
         </Grid>
       </Grid>
+      <Footer />
     </ThemeProvider>
   );
 }

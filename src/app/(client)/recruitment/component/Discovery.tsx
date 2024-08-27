@@ -56,7 +56,14 @@ export default function Discovery() {
           justifyContent={"space-between"}
           sx={{ paddingBottom: 6 }}
         >
-          <Grid xs={5} item container justifyContent={"center"}>
+          <Grid
+            xs={12}
+            sm={5}
+            item
+            container
+            justifyContent={"center"}
+            sx={{ paddingBottom: { xs: 4, sm: 2 } }}
+          >
             <Grid xs={12} container justifyContent={"center"}>
               <Image
                 src={hatImg}
@@ -83,7 +90,14 @@ export default function Discovery() {
               ngành thông qua chương trình thực tập của chúng tôi.
             </Typography>
           </Grid>
-          <Grid xs={5} item container justifyContent={"center"}>
+          <Grid
+            xs={12}
+            sm={5}
+            item
+            container
+            justifyContent={"center"}
+            sx={{ paddingBottom: { xs: 4, sm: 2 } }}
+          >
             <Grid xs={12} container justifyContent={"center"}>
               <Image
                 src={clockkImg}
@@ -148,14 +162,16 @@ export default function Discovery() {
           alignItems={"center"}
         >
           <Grid
-            xs={4}
+            sm={4}
+            xs={12}
             container
             item
-            borderRadius={"50%"}
-            height={400}
-            width={400}
+            borderRadius={10}
             alignItems={"center"}
-            sx={{ backgroundColor: theme.palette.primary.main }}
+            sx={{
+              backgroundColor: theme.palette.primary.main,
+              padding: 4,
+            }}
           >
             <Typography
               variant={"h4"}
@@ -188,7 +204,13 @@ export default function Discovery() {
           justifyContent={"space-evenly"}
           alignItems={"center"}
         >
-          <Grid xs={6} item container justifyContent={"center"}>
+          <Grid
+            xs={6}
+            item
+            container
+            justifyContent={"center"}
+            sx={{ order: { xs: 2, sm: 1 } }}
+          >
             <Image src={handImg} alt="" width={100} />
             <Typography
               variant={"h6"}
@@ -202,14 +224,18 @@ export default function Discovery() {
             </Typography>
           </Grid>
           <Grid
-            xs={4}
+            sm={4}
+            xs={12}
             container
             item
-            borderRadius={"50%"}
-            height={400}
-            width={400}
+            borderRadius={10}
             alignItems={"center"}
-            sx={{ backgroundColor: theme.palette.primary.main }}
+            sx={{
+              backgroundColor: theme.palette.primary.main,
+              padding: 4,
+              order: { xs: 1, sm: 2 },
+            }}
+            order={1}
           >
             <Typography
               variant={"h4"}
@@ -231,14 +257,13 @@ export default function Discovery() {
           alignItems={"center"}
         >
           <Grid
-            xs={4}
+            sm={4}
+            xs={12}
             container
             item
-            borderRadius={"50%"}
-            height={400}
-            width={400}
+            borderRadius={10}
             alignItems={"center"}
-            sx={{ backgroundColor: theme.palette.primary.main }}
+            sx={{ backgroundColor: theme.palette.primary.main, padding: 4 }}
           >
             <Typography
               variant={"h4"}

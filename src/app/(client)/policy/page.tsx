@@ -30,8 +30,8 @@ export default function Policy() {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            paddingTop: 16,
-            paddingBottom: 16,
+            paddingTop: { xs: 4, md: 16 },
+            paddingBottom: { xs: 4, md: 16 },
           }}
         >
           <Grid xs={8} item>
@@ -40,7 +40,11 @@ export default function Policy() {
               fontWeight={"bold"}
               textAlign={"center"}
               color={theme.palette.primary.main}
-              sx={{ paddingTop: 4, paddingBottom: 4 }}
+              sx={{
+                paddingTop: 4,
+                paddingBottom: 4,
+                fontSize: { xs: "0.6rem", sm: "2.125rem" },
+              }}
             >
               CÙNG NHAU NÂNG CAO THÀNH CÔNG
             </Typography>
@@ -50,7 +54,10 @@ export default function Policy() {
               variant="h6"
               textAlign={"center"}
               color={theme.palette.primary.main}
-              sx={{ paddingBottom: 4 }}
+              sx={{
+                fontSize: { xs: "0.55rem", sm: "1.25rem" },
+                paddingBottom: 4,
+              }}
             >
               Tại ePioneer, chúng tôi chuyên cung cấp các giải pháp sáng tạo và
               chất lượng, cùng nhau nâng cao thành công.
@@ -74,7 +81,7 @@ export default function Policy() {
           </Typography>
         </Grid>
 
-        <Grid xs={12}>
+        <Grid xs={10} item>
           <Typography
             variant="h4"
             fontWeight={"bold"}
@@ -85,7 +92,7 @@ export default function Policy() {
             {"Nguồn hàng chất lượng với giá cả phải chăng".toUpperCase()}
           </Typography>
         </Grid>
-        <Grid xs={6} item>
+        <Grid xs={10} md={6} item>
           <Image alt="" src={blog} layout="responsive" />
         </Grid>
         <Grid xs={10} item>
@@ -121,7 +128,13 @@ export default function Policy() {
             justifyContent={"space-evenly"}
             sx={{ paddingTop: 4, paddingBottom: 4 }}
           >
-            <Grid xs={4} item container>
+            <Grid
+              md={4}
+              xs={12}
+              item
+              container
+              sx={{ paddingBottom: { md: 0, xs: 4 } }}
+            >
               <Grid
                 xs={12}
                 item
@@ -152,7 +165,7 @@ export default function Policy() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid xs={4} item container>
+            <Grid md={4} xs={12} item container>
               <Grid
                 xs={12}
                 item
@@ -203,7 +216,13 @@ export default function Policy() {
             justifyContent={"space-evenly"}
             sx={{ paddingTop: 4, paddingBottom: 4 }}
           >
-            <Grid xs={4} item container>
+            <Grid
+              md={4}
+              xs={12}
+              item
+              container
+              sx={{ paddingBottom: { md: 0, xs: 4 } }}
+            >
               <Grid
                 xs={12}
                 item
@@ -234,7 +253,7 @@ export default function Policy() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid xs={4} item container>
+            <Grid md={4} xs={12} item container>
               <Grid
                 xs={12}
                 item
@@ -298,7 +317,7 @@ export default function Policy() {
           </Typography>
 
           <Grid xs={12} container item justifyContent={"center"}>
-            <Grid xs={6} item>
+            <Grid md={6} xs={12} item>
               <Image alt="" src={blog} layout="responsive" />
             </Grid>
           </Grid>
@@ -338,7 +357,13 @@ export default function Policy() {
             justifyContent={"space-evenly"}
             sx={{ paddingTop: 4, paddingBottom: 4 }}
           >
-            <Grid xs={4} item container>
+            <Grid
+              md={4}
+              xs={12}
+              item
+              container
+              sx={{ paddingBottom: { md: 0, xs: 4 } }}
+            >
               <Grid
                 xs={12}
                 item
@@ -369,7 +394,7 @@ export default function Policy() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid xs={4} item container>
+            <Grid md={4} xs={12} item container>
               <Grid
                 xs={12}
                 item
@@ -410,8 +435,8 @@ export default function Policy() {
             textAlign={"center"}
             color={theme.palette.primary.contrastText}
             sx={{
-              paddingTop: 8,
-              paddingBottom: 8,
+              paddingTop: { xs: 4, md: 8 },
+              paddingBottom: { xs: 4, md: 8 },
               backgroundColor: theme.palette.primary.main,
               borderRadius: 8,
               marginTop: 8,
@@ -439,7 +464,7 @@ export default function Policy() {
           alignItems={"center"}
           sx={{ paddingTop: 10, paddingBottom: 10 }}
         >
-          <Grid item xs={5}>
+          <Grid item md={5} xs={12}>
             <Typography
               variant="h4"
               textAlign={"center"}
@@ -457,7 +482,7 @@ export default function Policy() {
               Khám phá cách chúng tôi có thể nâng cao trải nghiệm của bạn.
             </Typography>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item md={5} xs={12}>
             <Image alt="" src={peopleStonkImg} layout="responsive" />
           </Grid>
         </Grid>
