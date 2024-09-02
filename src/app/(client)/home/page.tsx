@@ -11,6 +11,12 @@ import TrendingProduct from "./component/TrendingProduct";
 import Welcome from "./component/Welcome";
 import Service from "./component/Service";
 import Soulution from "./component/Solution";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Home',
+  description: ' EPIONEER Home Page',
+}
 
 const Home = () => {
   return (

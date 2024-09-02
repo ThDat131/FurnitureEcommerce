@@ -12,5 +12,6 @@ export interface IProduct {
   images: IImage[];
   price: number;
   stock: number;
-  categoryId: string | ICategory;
+  // categoryId: string | ICategory;
+  categoryId: ICategory;
 }
