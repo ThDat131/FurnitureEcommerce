@@ -1,3 +1,4 @@
+"use client"
 import { Divider, Grid, ThemeProvider, Typography } from "@mui/material";
 import theme from "../../theme";
 import teamWorkImg from "../../../assets/images/teamWork.jpg";

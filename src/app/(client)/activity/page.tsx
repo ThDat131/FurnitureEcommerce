@@ -1,31 +1,13 @@
-"use client";
-import { Grid, ThemeProvider } from "@mui/material";
-import theme from "../theme";
-import Footer from "@/components/Footer";
-import { useEffect } from "react";
-import Blog from "./component/Blog";
+import ActivityComponent from "./component/ActivityComponent";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Activity',
+  description: 'EPIONEER Activity',
+}
 
 const Activity = () => {
-  const activityTheme = theme;
-
-  useEffect(() => {}, []);
-
-  return (
-    <ThemeProvider theme={activityTheme}>
-      <Grid
-        container
-        justifyContent={"center"}
-        xs={12}
-        alignItems={"center"}
-        sx={{ backgroundColor: activityTheme.palette.primary.contrastText }}
-      >
-        <Grid xs={10} item>
-          <Blog directionImg={"left"} />
-        </Grid>
-      </Grid>
-      <Footer />
-    </ThemeProvider>
-  );
+  return <ActivityComponent />;
 };
 
 export default Activity;
