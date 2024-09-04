@@ -1,15 +1,16 @@
-import slugify from "slugify";
+import slugify from 'slugify';
 
-const prefix = "api";
+const prefix = 'api';
 
 export const ApiPathEnum = {
-  Product: `${prefix}/products`,
-  Login: `${prefix}/auth/sign-in`,
-  Category: `${prefix}/categories`,
-  Files: `${prefix}/files`,
+    Product: `${prefix}/products`,
+    Login: `${prefix}/auth/sign-in`,
+    Category: `${prefix}/categories`,
+    Files: `${prefix}/files`,
+    JobAds: `${prefix}/job-ads`,
 };
 
 export const convertSlug = (str: string) => {
-  if (!str) return "";
-  return slugify(str, { lower: true, locale: "vi" });
+    if (!str) return '';
+    return slugify(str, { lower: true, locale: 'vi' });
 };

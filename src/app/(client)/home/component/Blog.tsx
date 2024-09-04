@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   Card,
   CardActionArea,
@@ -7,13 +7,13 @@ import {
   Grid,
   ThemeProvider,
   Typography,
-} from "@mui/material";
-import theme from "../../theme";
-import { blogs } from "@/app/static";
-import { useEffect } from "react";
+} from '@mui/material';
+import theme from '../../theme';
+import { blogs } from '@/app/static';
+import { useEffect } from 'react';
 
 export default function Blog() {
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <ThemeProvider theme={theme}>

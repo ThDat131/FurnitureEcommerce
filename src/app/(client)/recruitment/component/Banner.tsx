@@ -1,7 +1,7 @@
-"use client";
-import { Box, Grid, ThemeProvider, Typography } from "@mui/material";
-import backgroundImg from "../../../assets/images/recruitment.jpg";
-import theme from "../../theme";
+'use client';
+import { Box, Grid, ThemeProvider, Typography } from '@mui/material';
+import backgroundImg from '../../../assets/images/recruitment.jpg';
+import theme from '../../theme';
 
 export default function Banner() {
   return (
