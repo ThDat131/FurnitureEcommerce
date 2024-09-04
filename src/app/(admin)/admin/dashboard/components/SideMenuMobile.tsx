@@ -15,66 +15,73 @@ import MenuContent from './MenuContent';
 import CardAlert from './CardAlert';
 
 interface SideMenuMobileProps {
-  open: boolean | undefined;
-  toggleDrawer: (newOpen: boolean) => () => void;
-  mode: PaletteMode;
-  toggleColorMode: () => void;
+    open: boolean | undefined;
+    toggleDrawer: (newOpen: boolean) => () => void;
+    mode: PaletteMode;
+    toggleColorMode: () => void;
 }
 
 export default function SideMenuMobile({
-  open,
-  toggleDrawer,
-  mode,
-  toggleColorMode,
+    open,
+    toggleDrawer,
+    mode,
+    toggleColorMode,
 }: SideMenuMobileProps) {
-  return (
-    <Drawer
-      anchor="right"
-      open={open}
-      onClose={toggleDrawer(false)}
-      sx={{
-        [`& .${drawerClasses.paper}`]: {
-          backgroundImage: 'none',
-          backgroundColor: 'background.paper',
-        },
-      }}
-    >
-      <Stack
-        sx={{
-          maxWidth: '70dvw',
-          height: '100%',
-        }}
-      >
-        <Stack direction="row" sx={{ p: 2, pb: 0, gap: 1 }}>
-          <Stack
-            direction="row"
-            sx={{ gap: 1, alignItems: 'center', flexGrow: 1, p: 1 }}
-          >
-            <Avatar
-              sizes="small"
-              alt="Riley Carter"
-              sx={{ width: 24, height: 24 }}
-            />
-            <Typography component="p" variant="h6">
-              Riley Carter
-            </Typography>
-          </Stack>
-          <MenuButton showBadge>
-            <NotificationsRoundedIcon />
-          </MenuButton>
-          <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
-        </Stack>
-        <Divider />
-        <Stack sx={{ flexGrow: 1 }}>
-          <MenuContent />
-          <Divider />
-        </Stack>
-        <Stack sx={{ p: 2 }}>
-          <Button variant="outlined" fullWidth startIcon={<LogoutRoundedIcon />}>
-            Logout
-          </Button>
-        </Stack>
-      </Stack>
-    </Drawer>
-  );
+    return (
+        <Drawer
+            anchor="right"
+            open={open}
+            onClose={toggleDrawer(false)}
+            sx={{
+                [`& .${drawerClasses.paper}`]: {
+                    backgroundImage: 'none',
+                    backgroundColor: 'background.paper',
+                },
+            }}
+        >
+            <Stack
+                sx={{
+                    maxWidth: '70dvw',
+                    height: '100%',
+                }}
+            >
+                <Stack direction="row" sx={{ p: 2, pb: 0, gap: 1 }}>
+                    <Stack
+                        direction="row"
+                        sx={{ gap: 1, alignItems: 'center', flexGrow: 1, p: 1 }}
+                    >
+                        <Avatar
+                            sizes="small"
+                            alt="Riley Carter"
+                            sx={{ width: 24, height: 24 }}
+                        />
+                        <Typography component="p" variant="h6">
+                            Riley Carter
+                        </Typography>
+                    </Stack>
+                    <MenuButton showBadge>
+                        <NotificationsRoundedIcon />
+                    </MenuButton>
+                    <ToggleColorMode
+                        mode={mode}
+                        toggleColorMode={toggleColorMode}
+                    />
+                </Stack>
+                <Divider />
+                <Stack sx={{ flexGrow: 1 }}>
+                    <MenuContent />
+                    <Divider />
+                </Stack>
+                <Stack sx={{ p: 2 }}>
+                    <Button
+                        variant="outlined"
+                        fullWidth
+                        startIcon={<LogoutRoundedIcon />}
+                    >
+                        Logout
+                    </Button>
+                </Stack>
+            </Stack>
+        </Drawer>
+    );
 }

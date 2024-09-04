@@ -10,25 +10,25 @@ import MenuButton from './MenuButton';
 import Search from './Search';
 
 interface HeaderProps {
-  mode: PaletteMode;
-  toggleColorMode: () => void;
+    mode: PaletteMode;
+    toggleColorMode: () => void;
 }
 
 export default function Header({ mode, toggleColorMode }: HeaderProps) {
-  return (
-    <Stack
-      direction="row"
-      sx={{
-        display: { xs: 'none', md: 'flex' },
-        width: '100%',
-        alignItems: { xs: 'flex-start', md: 'center' },
-        justifyContent: 'space-between',
-        maxWidth: { sm: '100%', md: '1700px' },
-      }}
-      spacing={2}
-    >
-      {/* <NavbarBreadcrumbs /> */}
-      {/* <Stack direction="row" sx={{ gap: 1 }}>
+    return (
+        <Stack
+            direction="row"
+            sx={{
+                display: { xs: 'none', md: 'flex' },
+                width: '100%',
+                alignItems: { xs: 'flex-start', md: 'center' },
+                justifyContent: 'space-between',
+                maxWidth: { sm: '100%', md: '1700px' },
+            }}
+            spacing={2}
+        >
+            {/* <NavbarBreadcrumbs /> */}
+            {/* <Stack direction="row" sx={{ gap: 1 }}>
         <Search />
         <CustomDatePicker />
         <MenuButton showBadge aria-label="Open notifications">
@@ -40,6 +40,6 @@ export default function Header({ mode, toggleColorMode }: HeaderProps) {
           data-screenshot="toggle-mode"
         />
       </Stack> */}
-    </Stack>
-  );
+        </Stack>
+    );
 }

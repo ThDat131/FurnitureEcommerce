@@ -13,7 +13,7 @@ export default function Discovery() {
     <ThemeProvider theme={theme}>
       <Grid
         container
-        justifyContent={"center"}
+        justifyContent={'center'}
         xs={12}
         sx={{ backgroundColor: theme.palette.primary.contrastText }}
       >
@@ -21,27 +21,28 @@ export default function Discovery() {
           <Typography
             variant="h4"
             color={theme.palette.primary.main}
-            textAlign={"center"}
-            fontWeight={"bold"}
+            textAlign={'center'}
+            fontWeight={'bold'}
             sx={{ paddingTop: 4, paddingBottom: 4 }}
           >
-            {"Khám phá những cơ hội thú vị dành cho sinh viên và người mới tốt nghiệp".toUpperCase()}
+            {'Khám phá những cơ hội thú vị dành cho sinh viên và người mới tốt nghiệp'.toUpperCase()}
           </Typography>
         </Grid>
         <Grid xs={10} item>
           <Typography
             variant="h6"
             color={theme.palette.primary.main}
-            textAlign={"justify"}
+            textAlign={'justify'}
           >
-            Tại ePioneer, chúng tôi tin vào việc nuôi dưỡng tài năng trẻ và cung
-            cấp cho họ những cơ hội giá trị để khởi nghiệp. Cho dù bạn là sinh
-            viên đang tìm kiếm cơ hội thực tập hay là sinh viên mới tốt nghiệp
-            đang tìm kiếm việc làm toàn thời gian, chúng tôi đều có nhiều cơ hội
+            Tại ePioneer, chúng tôi tin vào việc nuôi dưỡng tài năng
+            trẻ và cung cấp cho họ những cơ hội giá trị để khởi
+            nghiệp. Cho dù bạn là sinh viên đang tìm kiếm cơ hội
+            thực tập hay là sinh viên mới tốt nghiệp đang tìm kiếm
+            việc làm toàn thời gian, chúng tôi đều có nhiều cơ hội
             thú vị đang chờ bạn.
           </Typography>
         </Grid>
-        <Grid xs={8} item justifyContent={"center"}>
+        <Grid xs={8} item justifyContent={'center'}>
           <Image
             src={teamWorkImg}
             alt="photo"
@@ -127,29 +128,30 @@ export default function Discovery() {
           </Grid>
         </Grid>
 
-        <Grid xs={12} container justifyContent={"center"}>
+        <Grid xs={12} container justifyContent={'center'}>
           <Grid xs={8} item>
             <Typography
               variant="h4"
               color={theme.palette.primary.main}
-              textAlign={"center"}
-              fontWeight={"bold"}
+              textAlign={'center'}
+              fontWeight={'bold'}
               sx={{ paddingTop: 4, paddingBottom: 4 }}
             >
-              {"Cố vấn, trải nghiệm thực tế và phát triển nghề nghiệp".toUpperCase()}
+              {'Cố vấn, trải nghiệm thực tế và phát triển nghề nghiệp'.toUpperCase()}
             </Typography>
           </Grid>
           <Grid xs={10} item>
             <Typography
               variant="h6"
               color={theme.palette.primary.main}
-              textAlign={"justify"}
+              textAlign={'justify'}
               sx={{ mb: 8 }}
             >
-              Tại ePioneer, chúng tôi tin vào việc nuôi dưỡng tài năng trẻ và
-              cung cấp cho họ những cơ hội giá trị để khởi nghiệp. Cho dù bạn là
-              sinh viên đang tìm kiếm cơ hội thực tập hay là sinh viên mới tốt
-              nghiệp đang tìm kiếm việc làm toàn thời gian, chúng tôi đều có
+              Tại ePioneer, chúng tôi tin vào việc nuôi dưỡng tài
+              năng trẻ và cung cấp cho họ những cơ hội giá trị để
+              khởi nghiệp. Cho dù bạn là sinh viên đang tìm kiếm
+              cơ hội thực tập hay là sinh viên mới tốt nghiệp đang
+              tìm kiếm việc làm toàn thời gian, chúng tôi đều có
               nhiều cơ hội thú vị đang chờ bạn.
             </Typography>
           </Grid>

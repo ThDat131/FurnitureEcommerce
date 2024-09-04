@@ -1,41 +1,44 @@
-"use client";
-import { Grid, ThemeProvider, Typography } from "@mui/material";
-import Image from "next/image";
-import emailImg from "../../../assets/images/icon/emailIcon.png";
-import locationImg from "../../../assets/images/icon/locationIcon.png";
-import phoneImg from "../../../assets/images/icon/phoneIcon.png";
-import theme from "../../theme";
+'use client';
+import { Grid, ThemeProvider, Typography } from '@mui/material';
+import Image from 'next/image';
+import emailImg from '../../../assets/images/icon/emailIcon.png';
+import locationImg from '../../../assets/images/icon/locationIcon.png';
+import phoneImg from '../../../assets/images/icon/phoneIcon.png';
+import theme from '../../theme';
 
 export default function Contact() {
-  return (
-    <ThemeProvider theme={theme}>
-      <Grid
-        container
-        justifyContent={"center"}
-        sx={{ backgroundColor: theme.palette.primary.contrastText, paddingBottom: 4 }}
-      >
-        <Grid xs={12} item>
-          <Typography
-            variant="h4"
-            color={theme.palette.primary.main}
-            textAlign={"center"}
-            fontWeight={"bold"}
-            sx={{ paddingTop: 8, paddingBottom: 2 }}
-          >
-            {"Liên hệ nhân sự".toUpperCase()}
-          </Typography>
-        </Grid>
-        <Grid xs={8} item>
-          <Typography
-            variant="h6"
-            color={theme.palette.primary.main}
-            textAlign={"center"}
-            fontWeight={"bold"}
-          >
-            Nếu có thêm thắc mắc, vui lòng liên hệ với bộ phận nhân sự của chúng
-            tôi.
-          </Typography>
-        </Grid>
+    return (
+        <ThemeProvider theme={theme}>
+            <Grid
+                container
+                justifyContent={'center'}
+                sx={{
+                    backgroundColor: theme.palette.primary.contrastText,
+                    paddingBottom: 4,
+                }}
+            >
+                <Grid xs={12} item>
+                    <Typography
+                        variant="h4"
+                        color={theme.palette.primary.main}
+                        textAlign={'center'}
+                        fontWeight={'bold'}
+                        sx={{ paddingTop: 8, paddingBottom: 2 }}
+                    >
+                        {'Liên hệ nhân sự'.toUpperCase()}
+                    </Typography>
+                </Grid>
+                <Grid xs={8} item>
+                    <Typography
+                        variant="h6"
+                        color={theme.palette.primary.main}
+                        textAlign={'center'}
+                        fontWeight={'bold'}
+                    >
+                        Nếu có thêm thắc mắc, vui lòng liên hệ với bộ phận nhân
+                        sự của chúng tôi.
+                    </Typography>
+                </Grid>
 
         <Grid
           xs={10}

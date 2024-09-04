@@ -1,16 +1,16 @@
-"use client";
-import { groupProduct } from "@/app/static";
-import Footer from "@/components/Footer";
+'use client';
+import { groupProduct } from '@/app/static';
+import Footer from '@/components/Footer';
 import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Grid,
-  ThemeProvider,
-  Typography,
-} from "@mui/material";
-import theme from "../theme";
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia,
+    Grid,
+    ThemeProvider,
+    Typography,
+} from '@mui/material';
+import theme from '../theme';
 
 export default function Group() {
   return (
