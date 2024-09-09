@@ -1,11 +1,7 @@
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
-import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
-import LogoutIcon from '@mui/icons-material/Logout';
-import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import ContactsIcon from '@mui/icons-material/Contacts';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -34,13 +30,16 @@ const mainListItems = [
         icon: <GroupIcon />,
         path: '/admin/job-ads',
     },
+    {
+        text: 'Liên hệ',
+        icon: <ContactsIcon />,
+        path: '/admin/contact',
+    },
 ];
 
 export default function MenuContent() {
     const router = useRouter();
     const pathname = usePathname();
-
-    const cookies = useCookies();
 
     const handleListItemClick = (path: string) => {
         router.push(path);
