@@ -1,14 +1,9 @@
-import AddHomeIcon from '@mui/icons-material/AddHome';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
-import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import ContactsIcon from '@mui/icons-material/Contacts';
 import GroupIcon from '@mui/icons-material/Group';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ImageIcon from '@mui/icons-material/Image';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
-import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
-import { Collapse } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -40,6 +35,9 @@ const mainListItems = [
         text: 'Banner',
         icon: <ImageIcon />,
         path: '/admin/banner',
+    }, {        text: 'Liên hệ',
+        icon: <ContactsIcon />,
+        path: '/admin/contact',
     },
 ];
 

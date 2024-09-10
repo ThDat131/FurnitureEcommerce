@@ -50,7 +50,7 @@ const CategoryDialog: React.FC<CategoryDialogProps> = ({
 
     const config = {
         headers: {
-            Authorization: cookie.get('token'),
+            Authorization: `Bearer ${cookie.get('token')}`,
         },
     };
 
