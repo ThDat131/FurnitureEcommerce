@@ -23,29 +23,33 @@ import {
 import { useFormik } from 'formik';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-interface ProductDialogProps {
+interface DialogProps {
     open: boolean;
     setOpen: Dispatch<SetStateAction<boolean>>;
     setReload: Dispatch<SetStateAction<boolean>>;
     reload: boolean;
-    product?: IProduct;
+    banner?: IBanner;
+    getBanner: (name: string) => void;
 }
 
-const BannerDialog: React.FC<ProductDialogProps> = ({
+const BannerDialog: React.FC<DialogProps> = ({
     open,
     setOpen,
     setReload,
     reload,
+    banner,
+    getBanner,
 }) => {
     const [uploadLoading, setUploadLoading] = useState(false);
-    const [banner, setBanner] = useState<IBanner>();
+
+    console.log('banner: ', banner);
 
     const handleClose = () => {
         setOpen(false);
     };
 
     const onSubmit = () => {
-        updateBanner(formik.values);
+        updateBanner();
 
         handleClose();
     };
@@ -58,30 +62,7 @@ const BannerDialog: React.FC<ProductDialogProps> = ({
         enableReinitialize: true,
     });
 
-    const getBanner = (name: string) => {
-        axios.get(`${ApiPathEnum.Banner}?name=${name}`).then((res) => {
-            if (res.status === 200) {
-                setBanner(res.data.data[0]);
-            }
-        });
-    };
-
-    // const createBanner = () => {
-    //     const newBanner: IBanner = {
-    //         name: 'bannerImg',
-    //         image: {
-    //             id: formik.values.images.id,
-    //             url: formik.values.images.url,
-    //         },
-    //     };
-    //     axios.post(ApiPathEnum.Banner, banner).then((res) => {
-    //         if (res.status === 201) {
-    //             setReload(!reload);
-    //         }
-    //     });
-    // };
-
-    const updateBanner = (value: any) => {
+    const updateBanner = () => {
         const editBanner: IBanner = {
             _id: banner?._id,
             name: banner?.name || 'bannerImg',
@@ -95,6 +76,7 @@ const BannerDialog: React.FC<ProductDialogProps> = ({
             .then((res) => {
                 if (res.status === 200) {
                     setReload(!reload);
+                    getBanner('');
                 }
             });
     };
@@ -126,10 +108,6 @@ const BannerDialog: React.FC<ProductDialogProps> = ({
                 });
         }
     };
-
-    useEffect(() => {
-        getBanner('homeBannerImg');
-    }, []);
 
     return (
         <Dialog open={open} onClose={handleClose} maxWidth={'sm'} fullWidth>

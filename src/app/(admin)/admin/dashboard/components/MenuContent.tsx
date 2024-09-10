@@ -35,7 +35,9 @@ const mainListItems = [
         text: 'Banner',
         icon: <ImageIcon />,
         path: '/admin/banner',
-    }, {        text: 'Liên hệ',
+    },
+    {
+        text: 'Liên hệ',
         icon: <ContactsIcon />,
         path: '/admin/contact',
     },

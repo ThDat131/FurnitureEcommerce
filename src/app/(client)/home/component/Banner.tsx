@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import bannerImg from '../../../assets/images/bannerFurniture.jpg';
 import theme from '../../theme';
 
 interface TabPanelProps {
