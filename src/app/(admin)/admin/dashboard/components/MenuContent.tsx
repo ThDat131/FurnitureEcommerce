@@ -1,11 +1,14 @@
+import AddHomeIcon from '@mui/icons-material/AddHome';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
-import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import GroupIcon from '@mui/icons-material/Group';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
-import LogoutIcon from '@mui/icons-material/Logout';
-import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
+import ImageIcon from '@mui/icons-material/Image';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
+import { Collapse } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -14,7 +17,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import { useCookies } from 'next-client-cookies';
 import { usePathname, useRouter } from 'next/navigation';
-import GroupIcon from '@mui/icons-material/Group';
 import * as React from 'react';
 
 const mainListItems = [
@@ -34,13 +36,19 @@ const mainListItems = [
         icon: <GroupIcon />,
         path: '/admin/job-ads',
     },
+    {
+        text: 'Banner',
+        icon: <ImageIcon />,
+        path: '/admin/banner',
+    },
 ];
 
 export default function MenuContent() {
     const router = useRouter();
     const pathname = usePathname();
-
     const cookies = useCookies();
+
+    const [open, setOpen] = React.useState(false);
 
     const handleListItemClick = (path: string) => {
         router.push(path);

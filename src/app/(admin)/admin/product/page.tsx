@@ -1,16 +1,21 @@
 'use client';
+import { ApiPathEnum } from '@/api/api.path.enum';
+import axios from '@/api/axios.instance';
+import { ICategory } from '@/types/categories/categories.interface';
+import { IProduct } from '@/types/products/products.interface';
+import { ApiResponse } from '@/types/utils/api-response.interface';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import {
     alpha,
     Box,
     Button,
     createTheme,
-    CssBaseline,
-    PaletteMode,
-    Stack,
-    ThemeProvider,
-    Typography,
     IconButton,
+    PaletteMode,
     Paper,
+    Stack,
     Table,
     TableBody,
     TableCell,
@@ -18,21 +23,14 @@ import {
     TableHead,
     TablePagination,
     TableRow,
+    Typography,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Header from '../dashboard/components/Header';
 import Navbar from '../dashboard/components/Navbar';
 import SideMenu from '../dashboard/components/SideMenu';
 import getDashboardTheme from '../dashboard/theme/getDashboardTheme';
-import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import { IProduct } from '@/types/products/products.interface';
-import axios from '@/api/axios.instance';
-import { ApiResponse } from '@/types/utils/api-response.interface';
-import { ApiPathEnum } from '@/api/api.path.enum';
 import ProductDialog from './component/ProductDialog';
-import { ICategory } from '@/types/categories/categories.interface';
 
 export default function User() {
     const [mode, setMode] = useState<PaletteMode>('light');
