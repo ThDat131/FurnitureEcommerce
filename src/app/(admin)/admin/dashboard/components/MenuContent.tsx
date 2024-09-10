@@ -1,7 +1,9 @@
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import ContactsIcon from '@mui/icons-material/Contacts';
+import GroupIcon from '@mui/icons-material/Group';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import ImageIcon from '@mui/icons-material/Image';
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -10,7 +12,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import { useCookies } from 'next-client-cookies';
 import { usePathname, useRouter } from 'next/navigation';
-import GroupIcon from '@mui/icons-material/Group';
 import * as React from 'react';
 
 const mainListItems = [
@@ -31,6 +32,11 @@ const mainListItems = [
         path: '/admin/job-ads',
     },
     {
+        text: 'Banner',
+        icon: <ImageIcon />,
+        path: '/admin/banner',
+    },
+    {
         text: 'Liên hệ',
         icon: <ContactsIcon />,
         path: '/admin/contact',
@@ -40,6 +46,9 @@ const mainListItems = [
 export default function MenuContent() {
     const router = useRouter();
     const pathname = usePathname();
+    const cookies = useCookies();
+
+    const [open, setOpen] = React.useState(false);
 
     const handleListItemClick = (path: string) => {
         router.push(path);

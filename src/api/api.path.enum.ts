@@ -8,7 +8,8 @@ export const ApiPathEnum = {
     Category: `${prefix}/categories`,
     Files: `${prefix}/files`,
     JobAds: `${prefix}/job-ads`,
-    Contact: `${prefix}/contacts`
+    Banner: `${prefix}/banners`,
+    Contact: `${prefix}/contacts`,
 };
 
 export const convertSlug = (str: string) => {
