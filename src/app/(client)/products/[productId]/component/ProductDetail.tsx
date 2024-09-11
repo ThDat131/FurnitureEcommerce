@@ -137,7 +137,7 @@ export default function ProductDetail() {
                 color={theme.palette.primary.main}
                 sx={{ paddingBottom: 4 }}
               >
-                <b>Danh mục:</b> {product?.categoryId._id}
+                {/* <b>Danh mục:</b> {product?.categoryId._id} */}
               </Typography>
               <Chip
                 label={category?.name}

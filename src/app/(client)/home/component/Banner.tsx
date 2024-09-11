@@ -24,7 +24,6 @@ export default function Banner() {
         axios.get(`${ApiPathEnum.Banner}?name=homeBannerImg`).then((res) => {
             if (res.status === 200) {
                 setBanner(res.data.data[0]);
-                console.log('data: ', res.data.data[0])
             }
         });
     };

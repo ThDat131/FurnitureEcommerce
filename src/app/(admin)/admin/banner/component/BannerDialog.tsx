@@ -42,8 +42,6 @@ const BannerDialog: React.FC<DialogProps> = ({
 }) => {
     const [uploadLoading, setUploadLoading] = useState(false);
 
-    console.log('banner: ', banner);
-
     const handleClose = () => {
         setOpen(false);
     };

@@ -36,7 +36,6 @@ export default function BannerEdit() {
         axios.get(`${ApiPathEnum.Banner}?name=${name}`).then((res) => {
             if (res.status === 200) {
                 setBanners(res.data.data);
-                console.log('data: ', res.data.data);
             }
         });
     };
