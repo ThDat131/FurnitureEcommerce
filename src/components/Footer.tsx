@@ -100,12 +100,13 @@ export default function Footer() {
                             justifyContent={'center'}
                             sx={{ mt: 4, mb: 4 }}
                         >
-                            <Image
-                                src={logo}
-                                alt="logo"
-                                layout="responsive"
-                                style={{ maxWidth: 200 }}
-                            />
+                            <Box
+                                position={'relative'}
+                                height={'5rem'}
+                                width={'14rem'}
+                            >
+                                <Image src={logo} alt="logo" fill sizes='100%' />
+                            </Box>
                         </Grid>
                         <Grid
                             xs={12}

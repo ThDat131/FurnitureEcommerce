@@ -1,15 +1,21 @@
 'use client';
-import { items } from '@/app/static';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Grid, Paper, ThemeProvider, Typography } from '@mui/material';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import theme from '../../theme';
+import axios from '@/api/axios.instance';
+import { ApiPathEnum, convertSlug } from '@/api/api.path.enum';
+import { ApiResponse } from '@/types/utils/api-response.interface';
+import { IJobAds } from '@/types/job-ads/job-ads.interface';
+import DOMPurify from 'dompurify';
+import { useRouter } from 'next/navigation';
 
-function Item({ item, isMobile }: any) {
+function Item({ item }: { item: IJobAds }) {
     const [hovered, setHovered] = useState(false);
+    const router = useRouter();
 
     return (
         <Paper>
@@ -25,7 +31,7 @@ function Item({ item, isMobile }: any) {
                         sx={{
                             color: '#401d59',
                             marginBottom: '30px',
-                            textAlign: isMobile ? 'center' : 'right',
+                            textAlign: 'center',
                             fontWeight: 'bold',
                         }}
                     >
@@ -39,9 +45,15 @@ function Item({ item, isMobile }: any) {
                             textAlign: 'justify',
                             marginBottom: 2,
                         }}
-                    >
-                        {item.description}
-                    </Typography>
+                        dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(
+                                item?.jobDescription as string,
+                                {
+                                    USE_PROFILES: { html: true },
+                                },
+                            ),
+                        }}
+                    ></Typography>
                 </Grid>
                 <Grid
                     xs={10}
@@ -56,8 +68,8 @@ function Item({ item, isMobile }: any) {
                     onMouseLeave={() => setHovered(false)}
                 >
                     <Image
-                        src={item.img}
-                        alt={item.alt}
+                        src={item.image?.url || ''}
+                        alt={item.name}
                         unoptimized
                         layout="responsive"
                         width={300}
@@ -69,6 +81,11 @@ function Item({ item, isMobile }: any) {
                                 ? 'brightness(0.7)'
                                 : 'brightness(1)',
                         }}
+                        onClick={() =>
+                            router.push(
+                                `/recruitment/${convertSlug(item.name)}-${item._id}`,
+                            )
+                        }
                     />
                     {hovered && (
                         <Typography
@@ -94,6 +111,16 @@ function Item({ item, isMobile }: any) {
 }
 
 export default function RecruitmentComponent() {
+    const [jobAdsList, setJobAdsList] = useState<IJobAds[]>([]);
+
+    useEffect(() => {
+        axios.get<ApiResponse<IJobAds[]>>(ApiPathEnum.JobAds).then((res) => {
+            if (res.status === 200) {
+                setJobAdsList(res.data.data as IJobAds[]);
+            }
+        });
+    }, []);
+
     return (
         <ThemeProvider theme={theme}>
             <Grid
@@ -107,7 +134,7 @@ export default function RecruitmentComponent() {
                     color={theme.palette.primary.main}
                     textAlign={'center'}
                     fontWeight={'bold'}
-                    sx={{ paddingTop: 4, paddingBottom: 2 }}
+                    sx={{ paddingBottom: 2 }}
                 >
                     THÔNG TIN TUYỂN DỤNG
                 </Typography>
@@ -115,7 +142,7 @@ export default function RecruitmentComponent() {
                     NextIcon={<ChevronRightIcon />}
                     PrevIcon={<ChevronLeftIcon />}
                 >
-                    {items.map((item, i) => (
+                    {jobAdsList.map((item, i) => (
                         <Item key={i} item={item} />
                     ))}
                 </Carousel>

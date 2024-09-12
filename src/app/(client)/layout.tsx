@@ -13,13 +13,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body>
-                <Header />
-                <Grid item xs={12}>
-                    {children}
-                </Grid>
-            </body>
-        </html>
+        <>
+            <Header />
+            <Grid item xs={12}>
+                {children}
+            </Grid>
+        </>
     );
 }
