@@ -22,8 +22,8 @@ const ProductBox = ({ data, type }: { data: any; type: any }) => {
         <Link
             href={
                 type === 'product'
-                    ? `/products/${convertSlug(data.name)}-${data._id}.html`
-                    : `/productFilter?category=${convertSlug(data.name)}-${data._id}.html`
+                    ? `/products/${convertSlug(data.name)}-${data._id}`
+                    : `/productFilter?category=${convertSlug(data.name)}-${data._id}`
             }
         >
             <Card

@@ -16,8 +16,8 @@ export default function Service() {
             <Grid
                 sx={{
                     backgroundColor: theme.palette.primary.contrastText,
-                    paddingTop: 12,
-                    paddingBottom: 12,
+                    paddingTop: 6,
+                    paddingBottom: 6,
                 }}
             >
                 <Grid xs={12} container justifyContent={'space-evenly'}>

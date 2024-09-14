@@ -23,7 +23,7 @@ export default function Discovery() {
             color={theme.palette.primary.main}
             textAlign={'center'}
             fontWeight={'bold'}
-            sx={{ paddingTop: 4, paddingBottom: 4 }}
+            sx={{ paddingTop: 6, paddingBottom: 2 }}
           >
             {'Khám phá những cơ hội thú vị dành cho sinh viên và người mới tốt nghiệp'.toUpperCase()}
           </Typography>
@@ -135,7 +135,7 @@ export default function Discovery() {
               color={theme.palette.primary.main}
               textAlign={'center'}
               fontWeight={'bold'}
-              sx={{ paddingTop: 4, paddingBottom: 4 }}
+              sx={{ paddingBottom: 4 }}
             >
               {'Cố vấn, trải nghiệm thực tế và phát triển nghề nghiệp'.toUpperCase()}
             </Typography>

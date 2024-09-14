@@ -47,7 +47,7 @@ export default function Soulution() {
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
-                        mt: 4,
+                        mt: 6,
                         paddingTop: 10,
                         paddingBottom: 10,
                     }}

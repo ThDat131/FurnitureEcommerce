@@ -23,7 +23,7 @@ export default function Contact() {
                         color={theme.palette.primary.main}
                         textAlign={'center'}
                         fontWeight={'bold'}
-                        sx={{ paddingTop: 8, paddingBottom: 2 }}
+                        sx={{ paddingTop: 6, paddingBottom: 2 }}
                     >
                         {'Liên hệ nhân sự'.toUpperCase()}
                     </Typography>

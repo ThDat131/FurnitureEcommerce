@@ -21,11 +21,12 @@ export default function Welcome() {
                     paddingBottom: 6,
                 }}
             >
-                <Grid xs={5} item>
+                <Grid md={5} xs={12} item>
                     <Image src={toolImg} alt="" layout="responsive" />
                 </Grid>
                 <Grid
-                    xs={5}
+                    md={5}
+                    xs={12}
                     item
                     container
                     justifyContent={'center'}

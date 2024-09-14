@@ -20,7 +20,6 @@ export default function Blog() {
       <Grid
         xs={12}
         sx={{
-          paddingTop: 6,
           paddingBottom: 6,
           backgroundColor: theme.palette.primary.contrastText,
         }}

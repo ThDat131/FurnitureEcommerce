@@ -27,6 +27,63 @@ const theme = responsiveFontSizes(
                 contrastText: '#fff',
             },
         },
+        typography: {
+            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+            h1: {
+                fontSize: '2.5rem',
+                '@media (max-width:1200px)': {
+                    fontSize: '2rem',
+                },
+                '@media (max-width:600px)': {
+                    fontSize: '1.75rem',
+                },
+            },
+            h2: {
+                fontSize: '2rem',
+                '@media (max-width:1200px)': {
+                    fontSize: '1.75rem',
+                },
+                '@media (max-width:600px)': {
+                    fontSize: '1.5rem',
+                },
+            },
+            h4: {
+                fontSize: '1.5rem',
+                '@media (max-width:1200px)': {
+                    fontSize: '1.25rem',
+                },
+                '@media (max-width:600px)': {
+                    fontSize: '1rem',
+                },
+            },
+            h6: {
+                fontSize: '1.125rem',
+                '@media (max-width:1200px)': {
+                    fontSize: '1rem',
+                },
+                '@media (max-width:600px)': {
+                    fontSize: '0.875rem',
+                },
+            },
+            body1: {
+                fontSize: '1rem',
+                '@media (max-width:1200px)': {
+                    fontSize: '0.875rem',
+                },
+                '@media (max-width:600px)': {
+                    fontSize: '0.75rem',
+                },
+            },
+            body2: {
+                fontSize: '0.875rem',
+                '@media (max-width:1200px)': {
+                    fontSize: '0.75rem',
+                },
+                '@media (max-width:600px)': {
+                    fontSize: '0.625rem',
+                },
+            },
+        },
         components: {
             MuiCssBaseline: {
                 styleOverrides: {
