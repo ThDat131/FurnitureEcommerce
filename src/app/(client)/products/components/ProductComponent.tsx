@@ -171,32 +171,6 @@ export default function ProductComponent() {
                                 >
                                     {showProductsCarousel().map((x) => x)}
                                 </Carousel>
-                                <Grid item xs={12} mt={4}>
-                                    <Link
-                                        href={`/productFilter?isNew=true.html`}
-                                    >
-                                        <Typography
-                                            variant="subtitle2"
-                                            textAlign={'center'}
-                                        >
-                                            <i>
-                                                <u>
-                                                    <Grid
-                                                        item
-                                                        container
-                                                        alignItems={'center'}
-                                                        justifyContent={
-                                                            'center'
-                                                        }
-                                                    >
-                                                        Xem thêm{' '}
-                                                        <ArrowRightAltIcon />
-                                                    </Grid>
-                                                </u>
-                                            </i>
-                                        </Typography>
-                                    </Link>
-                                </Grid>
                             </Grid>
                         </Grid>
                         <Grid
@@ -272,28 +246,6 @@ export default function ProductComponent() {
                         <Blog directionImg={'right'} />
                         <Blog directionImg={'left'} />
                         <Blog directionImg={'right'} />
-                        <Grid item xs={12} mt={4}>
-                            <Link href={`/productFilter?isPotential=true.html`}>
-                                <Typography
-                                    variant="subtitle2"
-                                    textAlign={'center'}
-                                    color={theme.palette.primary.main}
-                                >
-                                    <i>
-                                        <u>
-                                            <Grid
-                                                item
-                                                container
-                                                alignItems={'center'}
-                                                justifyContent={'center'}
-                                            >
-                                                Xem thêm <ArrowRightAltIcon />
-                                            </Grid>
-                                        </u>
-                                    </i>
-                                </Typography>
-                            </Link>
-                        </Grid>
                     </Grid>
                     <Grid
                         item

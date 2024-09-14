@@ -13,14 +13,13 @@ import Carousel from "react-material-ui-carousel";
 import theme from "../../../theme";
 import { ICategory } from "@/types/categories/categories.interface";
 
-export default function ProductDetail() {
+export default function ProductDetail({data}: any) {
   const pathname = usePathname();
 
   const [product, setProduct] = useState<IProduct>();
   const [category, setCategory] = useState<ICategory>();
 
-  const pathSplit = pathname.split(".html");
-  const idProduct = pathSplit[0].split("-")[pathSplit[0].split("-").length - 1];
+  const idProduct = pathname.split("-")[pathname.split("-").length - 1];
 
   const getProducts = async () => {
     try {

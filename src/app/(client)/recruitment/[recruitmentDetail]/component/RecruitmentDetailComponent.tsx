@@ -1,9 +1,5 @@
 'use client';
-import {
-    Grid,
-    ThemeProvider,
-    Typography,
-} from '@mui/material';
+import { Grid, ThemeProvider, Typography } from '@mui/material';
 import Image from 'next/image';
 import emailImg from '../../../../assets/images/icon/emailIcon.png';
 import phoneImg from '../../../../assets/images/icon/phoneIcon.png';
@@ -68,6 +64,7 @@ export default function RecruitmentDetailComponent() {
                         1. Thông tin vị trí:
                     </Typography>
                     <Typography
+                        color={theme.palette.primary.main}
                         dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(
                                 jobAds?.positionInformation as string,
@@ -88,6 +85,7 @@ export default function RecruitmentDetailComponent() {
                         2. Mô tả công việc:
                     </Typography>
                     <Typography
+                        color={theme.palette.primary.main}
                         dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(
                                 jobAds?.jobDescription as string,
@@ -108,6 +106,7 @@ export default function RecruitmentDetailComponent() {
                         3. Yêu cầu công việc:
                     </Typography>
                     <Typography
+                        color={theme.palette.primary.main}
                         dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(
                                 jobAds?.requirement as string,
@@ -128,6 +127,7 @@ export default function RecruitmentDetailComponent() {
                         4. Lương và phúc lợi:
                     </Typography>
                     <Typography
+                        color={theme.palette.primary.main}
                         dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(
                                 jobAds?.salaryInformation as string,

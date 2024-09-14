@@ -8,14 +8,11 @@ import { IProduct } from '@/types/products/products.interface';
 import {
     Divider,
     FormControl,
-    FormControlLabel,
-    FormGroup,
     Grid,
     InputLabel,
     MenuItem,
     Select,
     SelectChangeEvent,
-    Switch,
     ThemeProvider,
     Typography,
 } from '@mui/material';
@@ -30,39 +27,42 @@ const AllProductComponent = () => {
     const [products, setProducts] = useState<IProduct[]>();
     const [categories, setCategories] = useState<ICategory[]>();
     const [categoryId, setCategoryId] = useState('');
-    const [isNew, setIsNew] = useState(
-        searchParams.get('isNew')?.split('.html')[0] === 'true' ? true : false,
-    );
-    const [isPotential, setIsPotential] = useState(
-        searchParams.get('isPotential')?.split('.html')[0] === 'true'
-            ? true
-            : false,
-    );
+    const [title, setTitle] = useState<string>();
 
-    let categoryIdParam;
+    let categoryIdParam: any;
 
     const searchCategory = searchParams.get('category');
 
     if (searchCategory) {
-        categoryIdParam = searchCategory?.split('-')[1].split('.html')[0];
+        categoryIdParam = searchCategory?.split('-')[1];
     }
-
-    const handleIsNewChange = (event: any) => {
-        setIsNew(event.target.checked);
-    };
-
-    const handleIsPotentialChange = (event: any) => {
-        setIsPotential(event.target.checked);
-    };
 
     const handleSelectChange = (event: SelectChangeEvent) => {
         setCategoryId(event.target.value);
+
+        const selectedCategory = categories?.find(
+            (category) => category._id === event.target.value,
+        );
+
+        selectedCategory
+            ? setTitle(selectedCategory.name)
+            : setTitle('tất cả sản phẩm');
+    };
+
+    const getTitle = () => {
+        !title && getCurrentCategory();
+    };
+
+    const getCurrentCategory = () => {
+        axios
+            .get(`${ApiPathEnum.Category}/${categoryIdParam}`)
+            .then((res) => setTitle(res.data.data.name));
     };
 
     const getProductByFilter = () => {
         axios
             .get(
-                `${ApiPathEnum.Product}?category=${categoryId.trim()}&isNew=${isNew}&isPotential=${isPotential}`,
+                `${ApiPathEnum.Product}?category=${categoryId ? categoryId.trim() : (categoryIdParam as string)}`,
             )
             .then((res) => setProducts(res.data.data));
     };
@@ -76,7 +76,8 @@ const AllProductComponent = () => {
     useEffect(() => {
         getProductByFilter();
         getCategory();
-    }, [isNew, isPotential, categoryId]);
+        getTitle();
+    }, [categoryId]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -98,7 +99,7 @@ const AllProductComponent = () => {
                             fontWeight={'bold'}
                             textAlign={'center'}
                         >
-                            SẢN PHẨM
+                            {title?.toUpperCase()}
                         </Typography>
                     </Grid>
                     <FormControl sx={{ width: 200, mr: 4 }}>
@@ -123,33 +124,6 @@ const AllProductComponent = () => {
                             ))}
                         </Select>
                     </FormControl>
-                    <FormGroup>
-                        <Grid container alignItems={'center'} item>
-                            <FormControlLabel
-                                control={
-                                    <Switch
-                                        checked={isNew}
-                                        onChange={handleIsNewChange}
-                                    />
-                                }
-                                label="Sản phẩm mới"
-                                color="primary"
-                                value={isNew}
-                                sx={{ color: theme.palette.primary.main }}
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Switch
-                                        checked={isPotential}
-                                        onChange={handleIsPotentialChange}
-                                    />
-                                }
-                                label="Sản phẩm tiềm năng"
-                                color="primary"
-                                sx={{ color: theme.palette.primary.main }}
-                            />
-                        </Grid>
-                    </FormGroup>
                     <Grid xs={12} sx={{ paddingTop: 2, paddingBottom: 2 }}>
                         <Divider />
                     </Grid>

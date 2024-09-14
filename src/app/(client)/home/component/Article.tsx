@@ -8,26 +8,6 @@ import theme from '../../theme';
 export default function Article() {
     const [hovered, setHovered] = useState(false);
 
-    theme.typography.h4 = {
-        fontSize: '1.2rem',
-        '@media (min-width:600px)': {
-            fontSize: '1.5rem',
-        },
-        [theme.breakpoints.up('md')]: {
-            fontSize: '2.4rem',
-        },
-    };
-
-    theme.typography.subtitle1 = {
-        fontSize: '1.2rem',
-        '@media (min-width:600px)': {
-            fontSize: '1rem',
-        },
-        [theme.breakpoints.up('md')]: {
-            fontSize: '1.2rem',
-        },
-    };
-
     useEffect(() => {}, []);
 
     return (
@@ -92,32 +72,7 @@ export default function Article() {
                         src={articleImg}
                         alt="Banner"
                         layout="responsive"
-                        style={{
-                            transition: 'transform 0.3s ease, filter 0.3s ease',
-                            transform: hovered ? 'scale(1.1)' : 'scale(1)',
-                            filter: hovered
-                                ? 'brightness(0.7)'
-                                : 'brightness(1)',
-                        }}
                     />
-                    {hovered && (
-                        <Typography
-                            variant="h4"
-                            sx={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                color: '#EFE1CE',
-                                textShadow: '0 0 5px black',
-                                zIndex: 1,
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                            }}
-                        >
-                            Chi tiết
-                        </Typography>
-                    )}
                 </Grid>
             </Grid>
         </ThemeProvider>
