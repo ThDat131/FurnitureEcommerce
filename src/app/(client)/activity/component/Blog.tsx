@@ -8,10 +8,9 @@ import {
     Typography,
 } from '@mui/material';
 import Image from 'next/image';
-import activityImg from '../../../assets/images/Furniture-login.jpg';
 import theme from '../../theme';
 
-export default function Blog({ directionImg }: any) {
+export default function Blog({ directionImg, data }: any) {
     const blogTheme = theme;
     return (
         <ThemeProvider theme={blogTheme}>
@@ -25,7 +24,8 @@ export default function Blog({ directionImg }: any) {
                             sx={{ p: 2 }}
                         >
                             <Grid
-                                xs={4}
+                                xs={12}
+                                md={4}
                                 item
                                 sx={{
                                     borderRadius: 8,
@@ -34,13 +34,14 @@ export default function Blog({ directionImg }: any) {
                                 }}
                             >
                                 <Image
-                                    src={activityImg}
+                                    src={data.img}
                                     alt="Image"
                                     layout="responsive"
                                 />
                             </Grid>
                             <Grid
-                                xs={6}
+                                md={6}
+                                xs={12}
                                 item
                                 sx={{ order: directionImg === 'right' ? 0 : 1 }}
                             >
@@ -49,11 +50,11 @@ export default function Blog({ directionImg }: any) {
                                     color={blogTheme.palette.primary.main}
                                     textAlign={'center'}
                                 >
-                                    TIÊU ĐỀ
+                                    {data.title.toUpperCase()}
                                 </Typography>
                                 <Divider />
                                 <Typography
-                                    variant="subtitle1"
+                                    variant="h5"
                                     color={blogTheme.palette.primary.main}
                                     sx={{
                                         fontFamily: 'HelveticaNeue',
@@ -62,7 +63,7 @@ export default function Blog({ directionImg }: any) {
                                         marginBottom: 2,
                                     }}
                                 >
-                                    Mô tả
+                                    {data.subtitle}
                                 </Typography>
                             </Grid>
                         </Grid>
