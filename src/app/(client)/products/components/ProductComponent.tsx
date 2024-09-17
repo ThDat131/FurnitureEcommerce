@@ -1,5 +1,5 @@
 'use client';
-import { ApiPathEnum } from '@/api/api.path.enum';
+import { ApiPathEnum, convertSlug } from '@/api/api.path.enum';
 import axios from '@/api/axios.instance';
 import { items } from '@/app/static';
 import Footer from '@/components/Footer';
@@ -48,6 +48,8 @@ export default function ProductComponent() {
     };
 
     const [products, setProducts] = useState<IProduct[]>();
+    const [newProducts, setNewProducts] = useState<IProduct[]>();
+    const [potentialProducts, setPotentialProducts] = useState<IProduct[]>();
     const [categories, setCategories] = useState<ICategory[]>();
 
     const getProducts = () => {
@@ -56,6 +58,29 @@ export default function ProductComponent() {
                 setProducts(res.data.data as IProduct[]);
             }
         });
+    };
+
+    const getNewProduct = () => {
+        axios
+            .get<ApiResponse<IProduct[]>>(`${ApiPathEnum.Product}?isNew=true`)
+            .then((res) => {
+                if (res.status === 200) {
+                    setNewProducts(res.data.data as IProduct[]);
+                    console.log(res.data.data);
+                }
+            });
+    };
+
+    const getPotentialProduct = () => {
+        axios
+            .get<
+                ApiResponse<IProduct[]>
+            >(`${ApiPathEnum.Product}?isPotential=true`)
+            .then((res) => {
+                if (res.status === 200) {
+                    setPotentialProducts(res.data.data as IProduct[]);
+                }
+            });
     };
 
     const getCategories = () => {
@@ -70,48 +95,66 @@ export default function ProductComponent() {
 
     const showProductsCarousel = () => {
         const renderItems = [];
-        for (let i = 0; i < items.length; i += sliderItems) {
-            if (i % sliderItems === 0) {
-                renderItems.push(
-                    <Grid
-                        container
-                        xs={12}
-                        p={5}
-                        spacing={2}
-                        key={`carousel-item-${i}`}
-                    >
-                        {items.slice(i, i + sliderItems).map((item: any) => (
-                            <Grid item xs={4} key={item.id}>
-                                <Card key={item.name} variant="outlined">
-                                    <CardMedia
-                                        component="img"
-                                        height="300"
-                                        image={item.img}
-                                        alt={item.alt}
-                                    />
-                                    <CardContent>
-                                        <Stack
-                                            direction={'row'}
-                                            justifyContent={'center'}
+        if (newProducts)
+            for (let i = 0; i < newProducts.length; i += sliderItems) {
+                if (i % sliderItems === 0) {
+                    renderItems.push(
+                        <Grid
+                            container
+                            xs={12}
+                            p={5}
+                            spacing={2}
+                            key={`carousel-item-${i}`}
+                        >
+                            {newProducts
+                                ?.slice(i, i + sliderItems)
+                                .map((item: any) => (
+                                    <Grid item xs={4} key={item.id}>
+                                        <Link
+                                            href={`/products/${convertSlug(item.name)}-${item._id}`}
                                         >
-                                            <Typography sx={styleProductTitle}>
-                                                {item.name}
-                                            </Typography>
-                                        </Stack>
-                                    </CardContent>
-                                </Card>
-                            </Grid>
-                        ))}
-                    </Grid>,
-                );
+                                            <Card
+                                                key={item._id}
+                                                variant="outlined"
+                                            >
+                                                <CardMedia
+                                                    component="img"
+                                                    height="300"
+                                                    image={item.images[0].url}
+                                                    alt={item.name}
+                                                />
+                                                <CardContent>
+                                                    <Stack
+                                                        direction={'row'}
+                                                        justifyContent={
+                                                            'center'
+                                                        }
+                                                    >
+                                                        <Typography
+                                                            sx={
+                                                                styleProductTitle
+                                                            }
+                                                        >
+                                                            {item.name}
+                                                        </Typography>
+                                                    </Stack>
+                                                </CardContent>
+                                            </Card>
+                                        </Link>
+                                    </Grid>
+                                ))}
+                        </Grid>,
+                    );
+                }
             }
-        }
 
         return renderItems;
     };
 
     useEffect(() => {
         getProducts();
+        getNewProduct();
+        getPotentialProduct();
         getCategories();
     }, []);
 
@@ -243,9 +286,18 @@ export default function ProductComponent() {
                         <Typography sx={styleTitle}>
                             GIỚI THIỆU SẢN PHẨM TIỀM NĂNG
                         </Typography>
-                        <Blog directionImg={'right'} />
-                        <Blog directionImg={'left'} />
-                        <Blog directionImg={'right'} />
+                        {potentialProducts?.map((product) => (
+                            <Link
+                                href={`/products/${convertSlug(product.name)}-${product._id}`}
+                            >
+                                <Blog
+                                    directionImg={'left'}
+                                    data={product}
+                                    type={'PRODUCT'}
+                                    key={product._id}
+                                />
+                            </Link>
+                        ))}
                     </Grid>
                     <Grid
                         item

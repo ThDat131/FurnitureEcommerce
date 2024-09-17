@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import PurpleBackground from "@/components/PurpleBackground";
 import { Grid } from "@mui/material";
 import Head from "next/head";
-import { items } from "../../static";
 import Article from "./component/Article";
 import Banner from "./component/Banner";
 import Blog from "./component/Blog";
@@ -37,7 +36,7 @@ const Home = () => {
                     <Welcome />
                 </Grid>
                 <Grid item xs={12}>
-                    <TrendingProduct items={items} />
+                    <TrendingProduct />
                 </Grid>
                 <Grid item xs={12}>
                     <Service />

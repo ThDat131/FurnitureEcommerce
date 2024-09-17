@@ -2,6 +2,9 @@ import activity1 from './assets/images/activity/joinExhibition.png';
 import activity2 from './assets/images/activity/meeting.png';
 import activity3 from './assets/images/activity/storage.png';
 import activity4 from './assets/images/activity/welcomeEp.png';
+import blog1Img from './assets/images/blog1.jpg';
+import blog2Img from './assets/images/blog2.jpg';
+import blog3Img from './assets/images/blog3.jpg';
 
 export const items = [
     {
@@ -122,5 +125,29 @@ export const activities = [
             mainTypography:
                 '<p>Trong một ngày nắng đẹp, ánh nắng len lỏi qua cửa sổ và chiếu sáng khắp không gian kho hàng của công ty&nbsp;ePioneer. Nhóm kiểm tra kho hàng đang chuẩn bị cho một phiên kiểm tra đặc biệt. Điều đặc biệt ở đây không chỉ là việc kiểm tra số lượng và chất lượng hàng hóa, mà còn là cách chúng tôi thực hiện nhiệm vụ này. Không chỉ làm việc chăm chỉ mà còn tạo ra một không khí sôi động và hào hứng cùng với khẩu hiệu&nbsp;"Chăm sóc từng sản phẩm, tin cậy từng khối hàng".</p><p>Mỗi sản phẩm được&nbsp;ePioneer&nbsp;cẩn thận kiểm tra từ mã số, thôngtin sản phẩm cho đến chất lượng và số lượng. Nhóm kĩ thuật viên &nbsp;không chỉ làm việc một cách chuyên nghiệp màcòn tạo ra một môi trường tích cực và động viên lẫn nhau. Họ truyền cảm hứngcho nhau bằng cách động viên và khen ngợi khi thấy ai đó hoàn thành tốt công việc của mình.</p><p>Khi kết thúc phiên kiểm tra, kết quả kiểm tra sẽ được ghi nhận và báo cáo.</p><p>Như vậy, hoạt động kiểm tra kho hàng không chỉl à công việc hàng ngày mà còn là dịp để tạo ra sự gắn kết và đoàn kết trong đội ngũ. Đó chính là bí quyết của &nbsp;ePioneer&nbsp;trong việc duy trì chất lượngvà sự tin cậy trong quản lý hàng tồn kho của mình.</p>',
         },
+    },
+];
+
+export const blogs = [
+    {
+        id: 1,
+        img: blog1Img,
+        title: 'Tạo ra những trải nghiệm triển lãm đáng nhớ',
+        subtitle:
+            'Đội ngũ chuyên gia của chúng tôi đảm bảo thực hiện liền mạch và mang lại kết quả đặc biệt.',
+    },
+    {
+        id: 2,
+        img: blog2Img,
+        title: 'Biến đổi không gian để triển lãm thành công',
+        subtitle:
+            'Chúng tôi cung cấp dịch vụ toàn diện từ thiết kế đến lắp đặt.',
+    },
+    {
+        id: 3,
+        img: blog3Img,
+        title: 'Tối đa hóa cơ hội với các giải pháp triển lãm hấp dẫn',
+        subtitle:
+            'Chúng tôi giúp bạn tạo ra những trải nghiệm sống động thu hút khách hàng cho bạn.',
     },
 ];
