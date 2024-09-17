@@ -10,7 +10,7 @@ import {
 import Image from 'next/image';
 import theme from '../../theme';
 
-export default function Blog({ directionImg, data }: any) {
+export default function Blog({ directionImg, data, type }: any) {
     const blogTheme = theme;
     return (
         <ThemeProvider theme={blogTheme}>
@@ -34,9 +34,11 @@ export default function Blog({ directionImg, data }: any) {
                                 }}
                             >
                                 <Image
-                                    src={data.img}
+                                    src={type==='PRODUCT' ? data.images[0].url : data.img}
                                     alt="Image"
                                     layout="responsive"
+                                    width={100}
+                                    height={100}
                                 />
                             </Grid>
                             <Grid
@@ -50,7 +52,7 @@ export default function Blog({ directionImg, data }: any) {
                                     color={blogTheme.palette.primary.main}
                                     textAlign={'center'}
                                 >
-                                    {data.title.toUpperCase()}
+                                    {type==='PRODUCT' ? data.name.toUpperCase() : data.title.toUpperCase()}
                                 </Typography>
                                 <Divider />
                                 <Typography
@@ -63,7 +65,7 @@ export default function Blog({ directionImg, data }: any) {
                                         marginBottom: 2,
                                     }}
                                 >
-                                    {data.subtitle}
+                                    {type==='PRODUCT' ? data.description : data.subtitle}
                                 </Typography>
                             </Grid>
                         </Grid>

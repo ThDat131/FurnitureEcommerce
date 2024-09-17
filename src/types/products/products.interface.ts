@@ -6,7 +6,7 @@ export interface IImage {
 }
 
 export interface IBanner {
-    _id?: string,
+    _id?: string;
     name: string;
     image: IImage;
 }
@@ -19,4 +19,6 @@ export interface IProduct {
     price: number;
     stock: number;
     categoryId: string | ICategory;
+    isNew: boolean;
+    isPotential: boolean;
 }

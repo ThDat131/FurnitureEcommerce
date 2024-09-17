@@ -20,6 +20,8 @@ import {
     IconButton,
     ListItemAvatar,
     Avatar,
+    FormControlLabel,
+    Switch,
 } from '@mui/material';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
@@ -33,8 +35,8 @@ import {
     maximum255Character,
     maximum50Character,
     moreThanZero,
-    requiredText
-} from "@/types/common/notification.constant";
+    requiredText,
+} from '@/types/common/notification.constant';
 
 interface ProductDialogProps {
     open: boolean;
@@ -117,6 +119,8 @@ const ProductDialog: React.FC<ProductDialogProps> = ({
                 type === 'CREATE'
                     ? ''
                     : (product?.categoryId as ICategory)?._id,
+            isNew: type === 'CREATE' ? false : product?.isNew,
+            isPotential: type === 'CREATE' ? false : product?.isPotential,
         } as IProduct,
         onSubmit,
         enableReinitialize: true,
@@ -227,24 +231,6 @@ const ProductDialog: React.FC<ProductDialogProps> = ({
                             onChange={handleUploadImage}
                         />
                     </LoadingButton>
-                    {/*                 
-                <TextField
-                    sx={{ my: 1 }}
-                    id="name"
-                    label="Hình ảnh"
-                    name="images"
-                    fullWidth
-                    value={formik.values.images}
-                    onChange={formik.handleChange}
-                    error={
-                        formik.touched.images &&
-                        Boolean(formik.errors.images)
-                    }
-                    helperText={
-                        formik.touched.images &&
-                        formik.errors.images
-                    }
-                /> */}
                     <List>
                         {formik.values.images.map((x) => (
                             <ListItem
@@ -307,7 +293,7 @@ const ProductDialog: React.FC<ProductDialogProps> = ({
                         }
                         helperText={formik.touched.stock && formik.errors.stock}
                     />
-                    <FormControl fullWidth sx={{ mt: 1 }}>
+                    <FormControl fullWidth sx={{ mt: 1, mb: 1 }}>
                         <InputLabel id="category">Nhóm sản phẩm</InputLabel>
                         <Select
                             labelId="category"
@@ -323,6 +309,26 @@ const ProductDialog: React.FC<ProductDialogProps> = ({
                             ))}
                         </Select>
                     </FormControl>
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                checked={formik.values.isNew}
+                                onChange={formik.handleChange}
+                                name="isNew"
+                            />
+                        }
+                        label="Sản phẩm mới"
+                    />
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                checked={formik.values.isPotential}
+                                onChange={formik.handleChange}
+                                name="isPotential"
+                            />
+                        }
+                        label="Sản phẩm tiềm năng"
+                    />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Hủy bỏ</Button>

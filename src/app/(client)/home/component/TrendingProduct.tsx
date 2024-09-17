@@ -14,6 +14,12 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import shape from '../../../assets/images/shape/waveImg.png';
+import axios from '@/api/axios.instance';
+import { ApiResponse } from '@/types/utils/api-response.interface';
+import { IProduct } from '@/types/products/products.interface';
+import { ApiPathEnum, convertSlug } from '@/api/api.path.enum';
+import theme from '../../theme';
+import Link from 'next/link';
 
 interface TrendingProductProps {
     items: any[];
@@ -66,83 +72,76 @@ function Item({ item, isMobile }: any) {
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
                 >
-                    <Image
-                        src={item.img}
-                        alt={item.alt}
-                        unoptimized
-                        layout="responsive"
-                        width={300}
-                        height={300}
-                        style={{
-                            transition: 'transform 0.3s ease, filter 0.3s ease',
-                            transform: hovered ? 'scale(1.1)' : 'scale(1)',
-                            filter: hovered
-                                ? 'brightness(0.7)'
-                                : 'brightness(1)',
-                        }}
-                    />
-                    {hovered && (
-                        <Typography
-                            variant="h4"
-                            sx={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                color: '#EFE1CE',
-                                zIndex: 1,
-                                textAlign: 'center',
-                                fontWeight: 'bold',
+                    <Link
+                        href={`/products/${convertSlug(item.name)}-${item._id}`}
+                    >
+                        <Image
+                            src={item.images[0].url}
+                            alt={item.alt}
+                            layout="responsive"
+                            width={300}
+                            height={300}
+                            style={{
+                                transition:
+                                    'transform 0.3s ease, filter 0.3s ease',
+                                transform: hovered ? 'scale(1.1)' : 'scale(1)',
+                                filter: hovered
+                                    ? 'brightness(0.7)'
+                                    : 'brightness(1)',
                             }}
-                        >
-                            Chi tiết
-                        </Typography>
-                    )}
+                        />
+                        {hovered && (
+                            <Typography
+                                variant="h4"
+                                sx={{
+                                    position: 'absolute',
+                                    top: '50%',
+                                    left: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                    color: '#EFE1CE',
+                                    zIndex: 1,
+                                    textAlign: 'center',
+                                    fontWeight: 'bold',
+                                }}
+                            >
+                                Chi tiết
+                            </Typography>
+                        )}
+                    </Link>
                 </Grid>
             </Grid>
         </Paper>
     );
 }
 
-export default function TrendingProduct({ items }: TrendingProductProps) {
-    const theme = createTheme();
+export default function TrendingProduct() {
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    useEffect(() => {}, []);
+    const [newProduct, setNewProducts] = useState<IProduct[]>();
 
-    theme.typography.h4 = {
-        fontSize: '1.2rem',
-        '@media (min-width:600px)': {
-            fontSize: '1.5rem',
-        },
-        [theme.breakpoints.up('md')]: {
-            fontSize: '2.4rem',
-        },
+    const getNewProduct = () => {
+        axios
+            .get<ApiResponse<IProduct[]>>(`${ApiPathEnum.Product}?isNew=true`)
+            .then((res) => {
+                if (res.status === 200) {
+                    setNewProducts(res.data.data as IProduct[]);
+                    console.log(res.data.data);
+                }
+            });
     };
 
-    theme.typography.h5 = {
-        fontSize: '1rem',
-        '@media (min-width:600px)': {
-            fontSize: '1.5rem',
-        },
-        [theme.breakpoints.up('md')]: {
-            fontSize: '2rem',
-        },
-    };
-
-    theme.typography.subtitle1 = {
-        fontSize: '1.2rem',
-        '@media (min-width:600px)': {
-            fontSize: '1rem',
-        },
-        [theme.breakpoints.up('md')]: {
-            fontSize: '1.2rem',
-        },
-    };
+    useEffect(() => {
+        getNewProduct();
+    });
 
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={{ backgroundColor: '#fff', color: '#401d59' }}>
+            <Box
+                sx={{
+                    backgroundColor: theme.palette.primary.contrastText,
+                    color: theme.palette.primary.main,
+                }}
+            >
                 <Grid container justifyContent={'center'} alignItems={'center'}>
                     <Image
                         src={shape}
@@ -172,8 +171,8 @@ export default function TrendingProduct({ items }: TrendingProductProps) {
                         NextIcon={<ChevronRightIcon />}
                         PrevIcon={<ChevronLeftIcon />}
                     >
-                        {items.map((item, i) => (
-                            <Item key={i} item={item} isMobile={isMobile} />
+                        {newProduct?.map((product, i) => (
+                            <Item key={i} item={product} isMobile={isMobile} />
                         ))}
                     </Carousel>
                 </Grid>
