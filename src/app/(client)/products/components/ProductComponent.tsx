@@ -286,18 +286,20 @@ export default function ProductComponent() {
                         <Typography sx={styleTitle}>
                             GIỚI THIỆU SẢN PHẨM TIỀM NĂNG
                         </Typography>
-                        {potentialProducts?.map((product) => (
-                            <Link
-                                href={`/products/${convertSlug(product.name)}-${product._id}`}
-                            >
-                                <Blog
-                                    directionImg={'left'}
-                                    data={product}
-                                    type={'PRODUCT'}
-                                    key={product._id}
-                                />
-                            </Link>
-                        ))}
+                        <Grid item xs={12}>
+                            {potentialProducts?.map((product) => (
+                                <Link
+                                    href={`/products/${convertSlug(product.name)}-${product._id}`}
+                                >
+                                    <Blog
+                                        directionImg={'left'}
+                                        data={product}
+                                        type={'PRODUCT'}
+                                        key={product._id}
+                                    />
+                                </Link>
+                            ))}
+                        </Grid>
                     </Grid>
                     <Grid
                         item

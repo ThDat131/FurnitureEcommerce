@@ -312,13 +312,13 @@ const Header = () => {
                     {!isScreenLarge && open && (
                         <Drawer
                             sx={{
-                                width: drawerWidth,
-                                flexShrink: 0,
+                                position: 'absolute',
                                 '& .MuiDrawer-paper': {
                                     width: drawerWidth,
+                                    position: 'absolute',
                                 },
                             }}
-                            variant="persistent"
+                            variant="temporary"
                             anchor="right"
                             open={open}
                         >

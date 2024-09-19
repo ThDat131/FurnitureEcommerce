@@ -1,118 +1,20 @@
 'use client';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { ApiPathEnum } from '@/api/api.path.enum';
+import axios from '@/api/axios.instance';
+import { IProduct } from '@/types/products/products.interface';
+import { ApiResponse } from '@/types/utils/api-response.interface';
 import {
     Box,
-    createTheme,
     Grid,
-    Paper,
     ThemeProvider,
     Typography,
-    useMediaQuery,
+    useMediaQuery
 } from '@mui/material';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import Carousel from 'react-material-ui-carousel';
 import shape from '../../../assets/images/shape/waveImg.png';
-import axios from '@/api/axios.instance';
-import { ApiResponse } from '@/types/utils/api-response.interface';
-import { IProduct } from '@/types/products/products.interface';
-import { ApiPathEnum, convertSlug } from '@/api/api.path.enum';
+import ProductBox from '../../products/components/product-box';
 import theme from '../../theme';
-import Link from 'next/link';
-
-interface TrendingProductProps {
-    items: any[];
-}
-
-function Item({ item, isMobile }: any) {
-    const [hovered, setHovered] = useState(false);
-
-    return (
-        <Paper>
-            <Grid
-                xs={12}
-                container
-                justifyContent={'space-evenly'}
-                alignItems={'center'}
-            >
-                <Grid xs={10} md={4}>
-                    <Typography
-                        variant="h4"
-                        sx={{
-                            color: '#401d59',
-                            marginBottom: '30px',
-                            textAlign: isMobile ? 'center' : 'right',
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        <i>{item.name.toUpperCase()}</i>
-                    </Typography>
-                    <Typography
-                        variant="subtitle1"
-                        sx={{
-                            color: '#401d59',
-                            fontWeight: 'lighter',
-                            textAlign: 'justify',
-                            marginBottom: 2,
-                        }}
-                    >
-                        {item.description}
-                    </Typography>
-                </Grid>
-                <Grid
-                    xs={10}
-                    md={6}
-                    sx={{
-                        borderRadius: 8,
-                        overflow: 'hidden',
-                        position: 'relative',
-                        cursor: 'pointer',
-                    }}
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
-                >
-                    <Link
-                        href={`/products/${convertSlug(item.name)}-${item._id}`}
-                    >
-                        <Image
-                            src={item.images[0].url}
-                            alt={item.alt}
-                            layout="responsive"
-                            width={300}
-                            height={300}
-                            style={{
-                                transition:
-                                    'transform 0.3s ease, filter 0.3s ease',
-                                transform: hovered ? 'scale(1.1)' : 'scale(1)',
-                                filter: hovered
-                                    ? 'brightness(0.7)'
-                                    : 'brightness(1)',
-                            }}
-                        />
-                        {hovered && (
-                            <Typography
-                                variant="h4"
-                                sx={{
-                                    position: 'absolute',
-                                    top: '50%',
-                                    left: '50%',
-                                    transform: 'translate(-50%, -50%)',
-                                    color: '#EFE1CE',
-                                    zIndex: 1,
-                                    textAlign: 'center',
-                                    fontWeight: 'bold',
-                                }}
-                            >
-                                Chi tiết
-                            </Typography>
-                        )}
-                    </Link>
-                </Grid>
-            </Grid>
-        </Paper>
-    );
-}
 
 export default function TrendingProduct() {
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -125,14 +27,13 @@ export default function TrendingProduct() {
             .then((res) => {
                 if (res.status === 200) {
                     setNewProducts(res.data.data as IProduct[]);
-                    console.log(res.data.data);
                 }
             });
     };
 
     useEffect(() => {
         getNewProduct();
-    });
+    }, []);
 
     return (
         <ThemeProvider theme={theme}>
@@ -166,15 +67,27 @@ export default function TrendingProduct() {
                         style={{ transform: 'scaleX(-1)' }}
                     />
                 </Grid>
-                <Grid xs={12} justifyContent={'center'} alignItems={'center'}>
-                    <Carousel
-                        NextIcon={<ChevronRightIcon />}
-                        PrevIcon={<ChevronLeftIcon />}
+
+                <Grid
+                    xs={12}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                    item
+                    container
+                >
+                    <Grid
+                        item
+                        container
+                        xs={10}
+                        justifyContent={'space-evenly'}
+                        spacing={2}
                     >
-                        {newProduct?.map((product, i) => (
-                            <Item key={i} item={product} isMobile={isMobile} />
+                        {newProduct?.map((product) => (
+                            <Grid item xs={12} md={6} lg={3} key={product._id}>
+                                <ProductBox data={product} type={'product'} />
+                            </Grid>
                         ))}
-                    </Carousel>
+                    </Grid>
                 </Grid>
             </Box>
         </ThemeProvider>

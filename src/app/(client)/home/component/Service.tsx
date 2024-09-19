@@ -1,5 +1,5 @@
 'use client';
-import { Grid, ThemeProvider, Typography } from '@mui/material';
+import { Grid, ThemeProvider, Typography, useMediaQuery } from '@mui/material';
 import theme from '../../theme';
 import article1Img from '../../../assets/images/article1.png';
 import article2Img from '../../../assets/images/article2.png';
@@ -9,6 +9,8 @@ import DoneIcon from '@mui/icons-material/Done';
 import { useEffect } from 'react';
 
 export default function Service() {
+    const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
+
     useEffect(() => {}, []);
 
     return (
@@ -34,7 +36,13 @@ export default function Service() {
                                 transform: 'translate(-50%, -50%)',
                             }}
                         />
-                        <Image src={outlineImg} alt="" layout="responsive" />
+                        {isLargeScreen && (
+                            <Image
+                                src={outlineImg}
+                                alt=""
+                                layout="responsive"
+                            />
+                        )}
                     </Grid>
                     <Grid xs={5} item container alignContent={'center'}>
                         <Grid item xs={12}>
@@ -42,7 +50,7 @@ export default function Service() {
                                 variant="h4"
                                 textAlign={'left'}
                                 color={theme.palette.primary.main}
-                                sx={{ mb: 6 }}
+                                sx={{ mb: { xs: 0, md: 4 } }}
                             >
                                 DỊCH VỤ CHO THUÊ THIẾT BỊ
                             </Typography>
@@ -52,7 +60,7 @@ export default function Service() {
                             container
                             direction={'row'}
                             alignItems={'center'}
-                            sx={{ mt: 4 }}
+                            sx={{ mt: { xs: 0, md: 4 } }}
                             justifyContent={'left'}
                         >
                             <DoneIcon color="primary" fontSize="medium" />
@@ -70,7 +78,7 @@ export default function Service() {
                             container
                             direction={'row'}
                             alignItems={'center'}
-                            sx={{ mt: 4 }}
+                            sx={{ mt: { xs: 0, md: 4 } }}
                             justifyContent={'left'}
                         >
                             <DoneIcon color="primary" />
@@ -89,7 +97,7 @@ export default function Service() {
                             direction={'row'}
                             alignItems={'center'}
                             justifyContent={'left'}
-                            sx={{ mt: 4 }}
+                            sx={{ mt: { xs: 0, md: 4 } }}
                         >
                             <DoneIcon color="primary" />
                             <Typography
@@ -103,14 +111,14 @@ export default function Service() {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid xs={12} container justifyContent={'space-evenly'}>
+                <Grid xs={12} container justifyContent={'space-evenly'} sx={{ mt: 4 }}>
                     <Grid xs={5} item container alignContent={'center'}>
                         <Grid item xs={12}>
                             <Typography
                                 variant="h4"
                                 textAlign={'right'}
                                 color={theme.palette.primary.main}
-                                sx={{ mb: 6 }}
+                                sx={{ mb: { xs: 0, md: 6 } }}
                             >
                                 DỊCH VỤ SAU TRIỄN LÃM, HỘI CHỢ
                             </Typography>
@@ -120,7 +128,7 @@ export default function Service() {
                             container
                             direction={'row'}
                             alignItems={'center'}
-                            sx={{ mt: 4 }}
+                            sx={{ mt: { xs: 0, md: 4 } }}
                             justifyContent={'right'}
                         >
                             <Typography
@@ -137,7 +145,7 @@ export default function Service() {
                             container
                             direction={'row'}
                             alignItems={'center'}
-                            sx={{ mt: 4 }}
+                            sx={{ mt: { xs: 0, md: 4 } }}
                             justifyContent={'right'}
                         >
                             <Typography
@@ -155,7 +163,7 @@ export default function Service() {
                             direction={'row'}
                             alignItems={'center'}
                             justifyContent={'right'}
-                            sx={{ mt: 4 }}
+                            sx={{ mt: { xs: 0, md: 4 } }}
                         >
                             <Typography
                                 variant="h6"
@@ -180,7 +188,13 @@ export default function Service() {
                                 transform: 'translate(-50%, -50%)',
                             }}
                         />
-                        <Image src={outlineImg} alt="" layout="responsive" />
+                        {isLargeScreen && (
+                            <Image
+                                src={outlineImg}
+                                alt=""
+                                layout="responsive"
+                            />
+                        )}
                     </Grid>
                 </Grid>
             </Grid>
