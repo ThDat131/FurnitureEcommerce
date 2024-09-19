@@ -42,7 +42,7 @@ export default function Blog() {
           sx={{ mt: 6, mb: 6 }}
         >
           {blogs.map((blog) => (
-            <Grid xs={3} key={blog.id}>
+            <Grid xs={10} md={3} key={blog.id} sx={{ mt: { xs: 4, md: 0 } }}>
               <Card elevation={24}>
                 <CardActionArea>
                   <CardMedia

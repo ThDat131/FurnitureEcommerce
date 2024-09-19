@@ -37,8 +37,9 @@ export default function Blog({ directionImg, data, type }: any) {
                                     src={type==='PRODUCT' ? data.images[0].url : data.img}
                                     alt="Image"
                                     layout="responsive"
-                                    width={100}
-                                    height={100}
+                                    width={300}
+                                    height={300}
+                                    style={{ maxHeight: 600, objectFit: "contain" }}
                                 />
                             </Grid>
                             <Grid
