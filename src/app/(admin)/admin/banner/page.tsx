@@ -33,11 +33,13 @@ export default function BannerEdit() {
     const dashboardTheme = createTheme(getDashboardTheme(mode));
 
     const getBanner = (name: string) => {
-        axios.get(`${ApiPathEnum.Banner}?name=${name}`).then((res) => {
-            if (res.status === 200) {
-                setBanners(res.data.data);
-            }
-        });
+        axios
+            .get(`${ApiPathEnum.Banner}`, { params: { name } })
+            .then((res) => {
+                if (res.status === 200) {
+                    setBanners(res.data.data);
+                }
+            });
     };
 
     const toggleColorMode = () => {

@@ -62,7 +62,7 @@ const AllProductComponent = () => {
     const getProductByFilter = () => {
         axios
             .get(
-                `${ApiPathEnum.Product}?category=${categoryId ? categoryId.trim() : (categoryIdParam as string)}`,
+                `${ApiPathEnum.Product}`, { params: { category: categoryId ? categoryId.trim() : (categoryIdParam as string) } },
             )
             .then((res) => setProducts(res.data.data));
     };

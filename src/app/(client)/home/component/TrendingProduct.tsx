@@ -8,7 +8,7 @@ import {
     Grid,
     ThemeProvider,
     Typography,
-    useMediaQuery
+    useMediaQuery,
 } from '@mui/material';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -23,7 +23,9 @@ export default function TrendingProduct() {
 
     const getNewProduct = () => {
         axios
-            .get<ApiResponse<IProduct[]>>(`${ApiPathEnum.Product}?isNew=true`)
+            .get<
+                ApiResponse<IProduct[]>
+            >(`${ApiPathEnum.Product}`, { params: { isNew: true } })
             .then((res) => {
                 if (res.status === 200) {
                     setNewProducts(res.data.data as IProduct[]);

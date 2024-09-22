@@ -20,7 +20,7 @@ export default function PolicyComponent() {
     const [banner, setBanner] = useState<IBanner>();
 
     const getBanner = (name: string) => {
-        axios.get(`${ApiPathEnum.Banner}?name=${name}`).then((res) => {
+        axios.get(`${ApiPathEnum.Banner}`, { params: { name } }).then((res) => {
             if (res.status === 200) {
                 setBanner(res.data.data[0]);
             }
