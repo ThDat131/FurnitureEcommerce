@@ -2,7 +2,6 @@
 import PurpleBackground from '@/components/PurpleBackground';
 import { Box, Grid, Typography, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
-import { useEffect } from 'react';
 import lineBottomLeft from '../../assets/images/introduce/bottomleft.png';
 import lineBottomRight from '../../assets/images/introduce/bottomright.png';
 import boxImg from '../../assets/images/introduce/box.png';
@@ -11,8 +10,10 @@ import settingImg from '../../assets/images/introduce/setting.png';
 import toolImg from '../../assets/images/introduce/tool.png';
 import lineTopLeft from '../../assets/images/introduce/topleft.png';
 import lineTopRight from '../../assets/images/introduce/topright.png';
+import { useTranslation } from 'react-i18next';
 
 function Item({ isSmallScreen }: any) {
+    const { t } = useTranslation();
     return (
         <Grid
             xs={12}
@@ -39,7 +40,7 @@ function Item({ isSmallScreen }: any) {
                         color: '#B8ADF8',
                     }}
                 >
-                    HOÀNG HOÁ, SẢN PHẨM THƯƠNG MẠI
+                    {t('introduce.commercialProduct').toUpperCase()}
                 </Typography>
             </Grid>
             <Image
@@ -58,6 +59,8 @@ function Item({ isSmallScreen }: any) {
 }
 
 function Item2({ isSmallScreen }: any) {
+    const { t } = useTranslation();
+
     return (
         <Grid
             xs={12}
@@ -81,7 +84,9 @@ function Item2({ isSmallScreen }: any) {
                     textAlign={'center'}
                     sx={{ marginTop: 2, color: '#B8ADF8' }}
                 >
-                    CHO THUÊ THIẾT BỊ HỘI CHỢ, TRIỂN LÃM
+                    {t(
+                        'introduce.fairAndExhibitionEquipmentRental',
+                    ).toUpperCase()}
                 </Typography>
             </Grid>
             <Image
@@ -100,6 +105,8 @@ function Item2({ isSmallScreen }: any) {
 }
 
 function Item3({ isSmallScreen }: any) {
+    const { t } = useTranslation();
+
     return (
         <Grid
             xs={12}
@@ -117,7 +124,9 @@ function Item3({ isSmallScreen }: any) {
                     textAlign={'center'}
                     sx={{ marginTop: 2, marginBottom: 2, color: '#B8ADF8' }}
                 >
-                    THI CÔNG LẮP ĐẶT ĐÈN CHIẾU SÁNG, NGUỒN ĐIỆN
+                    {t(
+                        'introduce.constructionAndInstallationOfLightingAndPowerSources',
+                    ).toUpperCase()}
                 </Typography>
             </Grid>
             <Image
@@ -142,6 +151,8 @@ function Item3({ isSmallScreen }: any) {
 }
 
 function Item4({ isSmallScreen }: any) {
+    const { t } = useTranslation();
+
     return (
         <Grid
             xs={12}
@@ -159,7 +170,7 @@ function Item4({ isSmallScreen }: any) {
                     sx={{ marginTop: 2, marginBottom: 2, color: '#B8ADF8' }}
                     textAlign={'center'}
                 >
-                    DỊCH VỤ SAU TRIỂN LÃM (LƯU KHO, TÌM KIẾM KHÁCH HÀNG)
+                    {`${t('introduce.postExhibitionServices').toUpperCase()}, (${t('introduce.storage').toUpperCase()}, ${t('introduce.customerSearch')})`.toUpperCase()}
                 </Typography>
             </Grid>
             <Image
@@ -211,8 +222,7 @@ function RowItem2({ isSmallScreen }: any) {
 
 export default function Introduce() {
     const isSmallScreen = useMediaQuery('(max-width:700px)');
-
-    useEffect(() => {}, []);
+    const { t } = useTranslation();
 
     return (
         <Box>

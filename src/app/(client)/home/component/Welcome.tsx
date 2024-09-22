@@ -4,10 +4,10 @@ import theme from '../../theme';
 import toolImg from '../../../assets/images/articleTool.png';
 import logoImg from '../../../assets/images/articleLogo.jpg';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Welcome() {
-    useEffect(() => {}, []);
+    const {t} = useTranslation()
 
     return (
         <ThemeProvider theme={theme}>
@@ -22,7 +22,7 @@ export default function Welcome() {
                 }}
             >
                 <Grid md={5} xs={12} item>
-                    <Image src={toolImg} alt="" layout="responsive" />
+                    <Image src={toolImg} alt="tool" layout="responsive" />
                 </Grid>
                 <Grid
                     md={5}
@@ -43,7 +43,7 @@ export default function Welcome() {
                                 padding: 2,
                             }}
                         >
-                            CHÀO MỪNG ĐẾN EPIONEER
+                            {t('home.welcome').toUpperCase()}
                         </Typography>
                     </Grid>
                     <Grid xs={12} item>
@@ -52,13 +52,12 @@ export default function Welcome() {
                             color={theme.palette.primary.main}
                             textAlign={'center'}
                         >
-                            Chúng tôi cung cấp các giải pháp sáng tạo và chất
-                            lượng
+                            {t('home.weProvideCreativeSolution')}
                         </Typography>
                     </Grid>
                     <Grid xs={1.5} item>
-                        <Image src={logoImg} alt="" layout="responsive" />
-                    </Grid>
+                        <Image src={logoImg} alt="sample" layout="responsive" />
+                    </Grid>0
                 </Grid>
             </Grid>
         </ThemeProvider>

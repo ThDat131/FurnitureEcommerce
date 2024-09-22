@@ -31,10 +31,10 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import logo from '../app/assets/images/logoHeader.jpg';
 import LanguageButton from './LanguageButton';
+import { useTranslation } from 'react-i18next';
 
 const StyledAppBar = styled(AppBar)({
     width: '100%',
-    // backgroundColor: theme.palette.primary.main,
     backgroundColor: theme.palette.primary.contrastText,
     padding: '16px',
     zIndex: 1,
@@ -80,51 +80,51 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-start',
 }));
 
-const sideMenu = [
-    {
-        name: 'TRANG CHỦ',
-        icon: <HomeIcon />,
-        path: '/home',
-    },
-    {
-        name: 'SẢN PHẨM',
-        icon: <ProductionQuantityLimitsIcon />,
-        path: '/products',
-    },
-    {
-        name: 'DỊCH VỤ',
-        icon: <MiscellaneousServicesIcon />,
-        path: '/service',
-    },
-    {
-        name: 'TUYỂN DỤNG',
-        icon: <WorkIcon />,
-        path: '/recruitment',
-    },
-    {
-        name: 'HOẠT ĐỘNG',
-        icon: <LocalActivityIcon />,
-        path: '/activity',
-    },
-    {
-        name: 'CHÍNH SÁCH',
-        icon: <PolicyIcon />,
-        path: '/policy',
-    },
-    {
-        name: 'LIÊN HỆ',
-        icon: <PhoneIcon />,
-        path: '/contact',
-    },
-];
-
 const Header = () => {
+    const { t } = useTranslation();
     const pathName = usePathname();
-    // const theme = useTheme();
     const [open, setOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     const router = useRouter();
     const isScreenLarge = useMediaQuery('(min-width:1010px)');
+
+    const sideMenu = [
+        {
+            name: t('header.home').toUpperCase(),
+            icon: <HomeIcon />,
+            path: '/home',
+        },
+        {
+            name: t('header.product').toUpperCase(),
+            icon: <ProductionQuantityLimitsIcon />,
+            path: '/products',
+        },
+        {
+            name: t('header.service').toUpperCase(),
+            icon: <MiscellaneousServicesIcon />,
+            path: '/service',
+        },
+        {
+            name: t('header.recruit').toUpperCase(),
+            icon: <WorkIcon />,
+            path: '/recruitment',
+        },
+        {
+            name: t('header.activity').toUpperCase(),
+            icon: <LocalActivityIcon />,
+            path: '/activity',
+        },
+        {
+            name: t('header.policy').toUpperCase(),
+            icon: <PolicyIcon />,
+            path: '/policy',
+        },
+        {
+            name: t('header.contact').toUpperCase(),
+            icon: <PhoneIcon />,
+            path: '/contact',
+        },
+    ];
 
     useEffect(() => {
         setMounted(true);
@@ -190,7 +190,7 @@ const Header = () => {
                                     onClick={() => router.push('/home')}
                                     variant="body1"
                                 >
-                                    TRANG CHỦ
+                                    {t('header.home').toUpperCase()}
                                 </MenuItem>
                             </Grid>
                             <Grid item>
@@ -204,7 +204,7 @@ const Header = () => {
                                     onClick={() => router.push('/products')}
                                     variant="body1"
                                 >
-                                    SẢN PHẨM
+                                    {t('header.product').toUpperCase()}
                                 </MenuItem>
                             </Grid>
                             <Grid item>
@@ -217,7 +217,7 @@ const Header = () => {
                                     onClick={() => router.push('/service')}
                                     variant="body1"
                                 >
-                                    DỊCH VỤ
+                                    {t('header.service').toUpperCase()}
                                 </MenuItem>
                             </Grid>
                             <Grid item>
@@ -231,7 +231,7 @@ const Header = () => {
                                     onClick={() => router.push('/recruitment')}
                                     variant="body1"
                                 >
-                                    TUYỂN DỤNG
+                                    {t('header.recruit').toUpperCase()}
                                 </MenuItem>
                             </Grid>
                             <Grid item>
@@ -245,7 +245,7 @@ const Header = () => {
                                     onClick={() => router.push('/activity')}
                                     variant="body1"
                                 >
-                                    HOẠT ĐỘNG
+                                    {t('header.activity').toUpperCase()}
                                 </MenuItem>
                             </Grid>
                             <Grid item>
@@ -258,7 +258,7 @@ const Header = () => {
                                     onClick={() => router.push('/policy')}
                                     variant="body1"
                                 >
-                                    CHÍNH SÁCH
+                                    {t('header.policy').toUpperCase()}
                                 </MenuItem>
                             </Grid>
                             <Grid item>
@@ -271,7 +271,7 @@ const Header = () => {
                                     onClick={() => router.push('/contact')}
                                     variant="body1"
                                 >
-                                    LIÊN HỆ
+                                    {t('header.contact').toUpperCase()}
                                 </MenuItem>
                             </Grid>
                         </Grid>

@@ -15,8 +15,10 @@ import shieldImg from '../../../assets/images/icon/shield.png';
 import tradeImg from '../../../assets/images/icon/trade.png';
 import peopleStonkImg from '../../../assets/images/peopleStonk.png';
 import theme from '../../theme';
+import { useTranslation } from 'react-i18next';
 
 export default function PolicyComponent() {
+    const { t } = useTranslation();
     const [banner, setBanner] = useState<IBanner>();
 
     const getBanner = (name: string) => {
@@ -30,6 +32,7 @@ export default function PolicyComponent() {
     useEffect(() => {
         getBanner('policyBannerImg');
     }, []);
+
     return (
         <ThemeProvider theme={theme}>
             <Grid
@@ -89,13 +92,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingBottom: 4 }}
                     >
-                        Công ty Epioneer là một công ty thương mại và dịch vụ
-                        với tiêu chí đem lại sự cải tiến, hiện đại trong các sản
-                        phẩm về điện cho người tiêu dùng. Chúng tôi luôn cố gắng
-                        hết sức để đi đầu trong lĩnh vực này với các sản phẩm
-                        tiên tiến, tiện dụng. Để mở rộng thị trường và nhằm đảm
-                        bảo chất lượng sản phẩm, công ty Epioneer đang tìm kiếm
-                        các đối tác, đại lý với các chính sách, ưu đãi.
+                        {t('policy.policyDescription')}
                     </Typography>
                 </Grid>
 
@@ -107,7 +104,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 8, paddingBottom: 4 }}
                     >
-                        {'Nguồn hàng chất lượng với giá cả phải chăng'.toUpperCase()}
+                        {t('policy.qualityGoodsAndWellPrice').toUpperCase()}
                     </Typography>
                 </Grid>
                 <Grid xs={10} md={6} item>
@@ -120,13 +117,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 4 }}
                     >
-                        Công ty Epioneer là một công ty thương mại và dịch vụ
-                        với tiêu chí đem lại sự cải tiến, hiện đại trong các sản
-                        phẩm về điện cho người tiêu dùng. Chúng tôi luôn cố gắng
-                        hết sức để đi đầu trong lĩnh vực này với các sản phẩm
-                        tiên tiến, tiện dụng. Để mở rộng thị trường và nhằm đảm
-                        bảo chất lượng sản phẩm, công ty Epioneer đang tìm kiếm
-                        các đối tác, đại lý với các chính sách, ưu đãi.
+                        {t('policy.qualityGoodsAndWellPriceDescription')}
                     </Typography>
                 </Grid>
 
@@ -138,7 +129,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 8, paddingBottom: 2 }}
                     >
-                        CHÍNH SÁCH CHUNG
+                        {t('policy.generalPolicy').toUpperCase()}
                     </Typography>
                     <Grid
                         xs={12}
@@ -179,7 +170,9 @@ export default function PolicyComponent() {
                                     textAlign={'center'}
                                     fontWeight={'bold'}
                                 >
-                                    Vận chuyển và thời gian giao hàng
+                                    {t(
+                                        'policy.shippingAndDeliveryTime',
+                                    ).toUpperCase()}
                                 </Typography>
                             </Grid>
                             <Grid
@@ -193,9 +186,9 @@ export default function PolicyComponent() {
                                     color={theme.palette.primary.main}
                                     textAlign={'center'}
                                 >
-                                    Hãy tin tưởng vào thiết bị cho thuê đáng tin
-                                    cậy của ePioneer để mang lại hiệu suất và
-                                    chức năng vượt trội.
+                                    {t(
+                                        'policy.shippingAndDeliveryTimeDescription',
+                                    )}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -221,7 +214,7 @@ export default function PolicyComponent() {
                                     textAlign={'center'}
                                     fontWeight={'bold'}
                                 >
-                                    Bảo hành
+                                    {t('policy.guarantee').toUpperCase()}
                                 </Typography>
                             </Grid>
                             <Grid
@@ -235,9 +228,7 @@ export default function PolicyComponent() {
                                     color={theme.palette.primary.main}
                                     textAlign={'center'}
                                 >
-                                    Các tùy chọn cho thuê linh hoạt của chúng
-                                    tôi cho phép bạn tùy chỉnh thiết lập triển
-                                    lãm theo nhu cầu cụ thể của mình.
+                                    {t('policy.guaranteeDescription')}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -252,7 +243,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 8, paddingBottom: 2 }}
                     >
-                        CHÍNH SÁCH THANH TOÁN
+                        {t('policy.paymentPolicy').toUpperCase()}
                     </Typography>
                     <Grid
                         xs={12}
@@ -293,7 +284,9 @@ export default function PolicyComponent() {
                                     textAlign={'center'}
                                     fontWeight={'bold'}
                                 >
-                                    Vận chuyển và thời gian giao hàng
+                                    {t(
+                                        'policy.shippingAndDeliveryTime',
+                                    ).toUpperCase()}
                                 </Typography>
                             </Grid>
                             <Grid
@@ -307,9 +300,9 @@ export default function PolicyComponent() {
                                     color={theme.palette.primary.main}
                                     textAlign={'center'}
                                 >
-                                    Hãy tin tưởng vào thiết bị cho thuê đáng tin
-                                    cậy của ePioneer để mang lại hiệu suất và
-                                    chức năng vượt trội.
+                                    {t(
+                                        'policy.shippingAndDeliveryTimeDescription',
+                                    )}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -335,7 +328,7 @@ export default function PolicyComponent() {
                                     textAlign={'center'}
                                     fontWeight={'bold'}
                                 >
-                                    Bảo hành
+                                    {t('policy.guarantee').toUpperCase()}
                                 </Typography>
                             </Grid>
                             <Grid
@@ -349,9 +342,9 @@ export default function PolicyComponent() {
                                     color={theme.palette.primary.main}
                                     textAlign={'center'}
                                 >
-                                    Các tùy chọn cho thuê linh hoạt của chúng
-                                    tôi cho phép bạn tùy chỉnh thiết lập triển
-                                    lãm theo nhu cầu cụ thể của mình.
+                                    {t(
+                                        'policy.guaranteeDescription',
+                                    ).toUpperCase()}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -366,7 +359,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 8, paddingBottom: 2 }}
                     >
-                        CHÍNH SÁCH HỖ TRỢ
+                        {t('policy.supportPolicy').toUpperCase()}
                     </Typography>
                     <Typography
                         variant="h5"
@@ -374,7 +367,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingBottom: 2 }}
                     >
-                        Hỗ trợ về PR - Marketing
+                        {t('policy.prMarketingSupport')}
                     </Typography>
                     <Typography
                         variant="h6"
@@ -382,10 +375,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingBottom: 2 }}
                     >
-                        Quý đại lý sẽ được hỗ trợ kỹ thuật qua điện thoại, qua
-                        email, hoặc hỗ trợ kỹ thuật trực tiếp tại chỗ khi có yêu
-                        cầu.Quý đại lý sẽ được chúng tôi tư vấn và hỗ trợ về
-                        giải pháp và kỹ thuật khi có yêu cầu.
+                        {t('policy.prMarketingSupportContent')}
                     </Typography>
 
                     <Grid xs={12} container item justifyContent={'center'}>
@@ -400,7 +390,7 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 8, paddingBottom: 2 }}
                     >
-                        Hỗ trợ về kỹ thuật, giải pháp
+                        {t('policy.technicalSupport')}
                     </Typography>
                     <Typography
                         variant="h6"
@@ -408,19 +398,15 @@ export default function PolicyComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingBottom: 2 }}
                     >
-                        Quý đại lý sẽ được hỗ trợ kỹ thuật qua điện thoại, qua
-                        email, hoặc hỗ trợ kỹ thuật trực tiếp tại chỗ khi có yêu
-                        cầu.Quý đại lý sẽ được chúng tôi tư vấn và hỗ trợ về
-                        giải pháp và kỹ thuật khi có yêu cầu.
+                        {t('policy.technicalSupportContent')}
                     </Typography>
-
                     <Typography
                         variant="h5"
                         fontWeight={'bold'}
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 8, paddingBottom: 2 }}
                     >
-                        Hỗ trợ về kỹ thuật, giải pháp
+                        {t('policy.technicalSupport')}
                     </Typography>
 
                     <Grid
@@ -458,7 +444,7 @@ export default function PolicyComponent() {
                                     textAlign={'center'}
                                     fontWeight={'bold'}
                                 >
-                                    Đổi hàng
+                                    {t('policy.changeGoods').toUpperCase()}
                                 </Typography>
                             </Grid>
                             <Grid
@@ -472,9 +458,7 @@ export default function PolicyComponent() {
                                     color={theme.palette.primary.main}
                                     textAlign={'center'}
                                 >
-                                    Trong vòng 07 ngày kể từ giao hàng. Quý đại
-                                    lý sẽ được đổi hàng mới nếu sản phẩm được
-                                    xác định lỗi từ nhà sản xuất.
+                                    {t('policy.changeGoodsContent')}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -500,7 +484,7 @@ export default function PolicyComponent() {
                                     textAlign={'center'}
                                     fontWeight={'bold'}
                                 >
-                                    Bảo hành
+                                    {t('policy.guarantee').toUpperCase()}
                                 </Typography>
                             </Grid>
                             <Grid
@@ -514,9 +498,7 @@ export default function PolicyComponent() {
                                     color={theme.palette.primary.main}
                                     textAlign={'center'}
                                 >
-                                    Các tùy chọn cho thuê linh hoạt của chúng
-                                    tôi cho phép bạn tùy chỉnh thiết lập triển
-                                    lãm theo nhu cầu cụ thể của mình.
+                                    {t('policy.guaranteeContent')}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -538,8 +520,9 @@ export default function PolicyComponent() {
                             marginBottom: 4,
                         }}
                     >
-                        ĐẠI LÝ KINH DOANH PHÁT TRIỂN LÀ NIỀM HẠNH PHÚC CỦA CHÚNG
-                        TÔI
+                        {t(
+                            'policy.developingAgencyIsOurHappiness',
+                        ).toUpperCase()}
                     </Typography>
 
                     <Typography
@@ -547,8 +530,7 @@ export default function PolicyComponent() {
                         textAlign={'center'}
                         color={theme.palette.primary.main}
                     >
-                        Chúng tôi rất mong muốn cùng Quý Đại lý hợp tác để trao
-                        nhau cơ hội kinh doanh, cùng nhau phát triển vững mạnh.
+                        {t('policy.weWantToCooperate')}
                     </Typography>
                 </Grid>
 
@@ -568,16 +550,16 @@ export default function PolicyComponent() {
                             color={theme.palette.primary.main}
                             sx={{ paddingBottom: 4 }}
                         >
-                            Khám phá các giải pháp sáng tạo và chất lượng của
-                            chúng tôi
+                            {t(
+                                'policy.discoverOurInnovativeAndQualitySolutions',
+                            )}
                         </Typography>
                         <Typography
                             variant="h6"
                             textAlign={'center'}
                             color={theme.palette.primary.main}
                         >
-                            Khám phá cách chúng tôi có thể nâng cao trải nghiệm
-                            của bạn.
+                            {t('policy.exploreHowWeCanEnhanceYourExperience')}
                         </Typography>
                     </Grid>
                     <Grid item md={5} xs={12}>

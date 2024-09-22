@@ -1,0 +1,13 @@
+{
+  "introduce": {
+    "commercialProduct": "Hàng hóa, sản phẩm thương mại",
+    "fairAndExhibitionEquipmentRental": "Cho thuê thiết bị hội chợ, triễn lãm",
+    "constructionAndInstallationOfLightingAndPowerSources": "Thi công lắp đặt đèn chiếu sáng, nguồn điện",
+    "postExhibitionServices": "Dịch vụ sau triển lãm",
+    "storage": "Lưu kho",
+    "customerSearch": "Tìm kiếm khách hàng"
+  },
+  "header": {
+    "home": "Home"
+  }
+}

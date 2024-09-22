@@ -1,14 +1,15 @@
 'use client';
 import { activities } from '@/app/static';
 import Footer from '@/components/Footer';
-import { Grid, ThemeProvider, Typography } from '@mui/material';
+import { Box, Grid, ThemeProvider, Typography } from '@mui/material';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import defaultImg from '../../../../assets/images/activity/meeting.png';
 import theme from '../../../theme';
+import { useTranslation } from 'react-i18next';
 
 export default function ActivityDetailComponent() {
+    const { t } = useTranslation();
     const path = usePathname();
 
     const activityId = path.split('-')[path.split('-').length - 1];
@@ -45,7 +46,7 @@ export default function ActivityDetailComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 4, paddingBottom: 4 }}
                     >
-                        HOẠT ĐỘNG CÔNG TY
+                        {t('activity.companyActivity')}
                     </Typography>
                 </Grid>
                 <Grid item xs={10} container>
@@ -55,14 +56,14 @@ export default function ActivityDetailComponent() {
                         color={theme.palette.primary.main}
                         sx={{ paddingTop: 4, paddingBottom: 4 }}
                     >
-                        {currentActivity.title}
+                        {t(`${currentActivity.title}`)}
                     </Typography>
                     <Typography
                         variant="h6"
                         color={theme.palette.primary.main}
                         textAlign={'justify'}
                     >
-                        {currentActivity.description?.firstTypography}
+                        {t(`${currentActivity.description?.firstTypography}`)}
                     </Typography>
                     <Grid
                         item
@@ -81,8 +82,9 @@ export default function ActivityDetailComponent() {
                                 color={theme.palette.primary.main}
                                 textAlign={'justify'}
                                 dangerouslySetInnerHTML={{
-                                    __html: currentActivity.description
-                                        ?.mainTypography,
+                                    __html: t(
+                                        `${currentActivity.description?.mainTypography}`,
+                                    ),
                                 }}
                             ></Typography>
                         </Grid>
@@ -92,17 +94,20 @@ export default function ActivityDetailComponent() {
                             item
                             sx={{ order: { xs: 1, md: 2 } }}
                         >
-                            <Image
-                                src={
-                                    currentActivity.img
-                                        ? currentActivity.img
-                                        : defaultImg
-                                }
-                                alt=""
-                                layout="responsive"
-                                width={100}
-                                height={100}
-                            />
+                            <Box position={'relative'} width={1} height={1}>
+                                <Image
+                                    src={
+                                        currentActivity?.img ??
+                                        '/images/activity/welcomeEp.png'
+                                    }
+                                    alt="welcome"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    style={{
+                                        objectFit: 'cover',
+                                    }}
+                                />
+                            </Box>
                         </Grid>
                     </Grid>
                 </Grid>
