@@ -1,0 +1,13 @@
+{
+    "introduce": {
+        "commercialProduct": "Goods, commercial products",
+        "fairAndExhibitionEquipmentRental": "Fair and exhibition equipment rental",
+        "constructionAndInstallationOfLightingAndPowerSources": "Construction and installation of lighting and power sources",
+        "postExhibitionServices": "After show service",
+        "storage": "Storage",
+        "customerSearch": "Find customers"
+    },
+    "header": {
+        "home": "Home"
+    }
+}

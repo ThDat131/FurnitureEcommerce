@@ -1,4 +1,5 @@
 import {
+    Box,
     Card,
     CardActionArea,
     Divider,
@@ -9,9 +10,12 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import theme from '../../theme';
+import { useTranslation } from 'react-i18next';
 
 export default function Blog({ directionImg, data, type }: any) {
     const blogTheme = theme;
+    const { t } = useTranslation();
+
     return (
         <ThemeProvider theme={blogTheme}>
             <Paper elevation={24} sx={{ mt: 4, mb: 4 }}>
@@ -22,6 +26,7 @@ export default function Blog({ directionImg, data, type }: any) {
                             container
                             justifyContent={'space-evenly'}
                             sx={{ p: 2 }}
+                            minHeight={'400px'}
                         >
                             <Grid
                                 xs={12}
@@ -33,14 +38,27 @@ export default function Blog({ directionImg, data, type }: any) {
                                     order: directionImg === 'right' ? 1 : 0,
                                 }}
                             >
-                                <Image
-                                    src={type==='PRODUCT' ? data.images[0].url : data.img}
-                                    alt="Image"
-                                    layout="responsive"
-                                    width={300}
-                                    height={300}
-                                    style={{ maxHeight: 600, objectFit: "contain" }}
-                                />
+                                <Box
+                                    sx={{
+                                        position: 'relative',
+                                        width: 1,
+                                        height: 1,
+                                    }}
+                                >
+                                    <Image
+                                        src={
+                                            type === 'PRODUCT'
+                                                ? data.images[0].url
+                                                : data.img
+                                        }
+                                        alt="Image"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        style={{
+                                            objectFit: 'cover',
+                                        }}
+                                    />
+                                </Box>
                             </Grid>
                             <Grid
                                 md={6}

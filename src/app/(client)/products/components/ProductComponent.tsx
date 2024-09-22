@@ -20,18 +20,20 @@ import {
     useMediaQuery,
 } from '@mui/material';
 import Image from 'next/image';
-import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import BookIcon from '../../../assets/images/icon/book.png';
 import Blog from '../../activity/component/Blog';
-import theme from '../../theme';
 import GearSvg from './gear-svg';
 import ProductBox from './product-box';
+import theme from '../../theme';
+import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 
 export default function ProductComponent() {
     const isDownMdScreen = useMediaQuery(theme.breakpoints.down('md'));
     const sliderItems = isDownMdScreen ? 1 : 3;
+    const { t } = useTranslation();
 
     const styleTitle: CSSProperties = {
         fontFamily: 'Kanit',
@@ -191,7 +193,7 @@ export default function ProductComponent() {
                                 </svg>
                             </Grid>
                             <Typography sx={styleTitle}>
-                                SẢN PHẨM MỚI
+                                {t('product.newProduct')}
                             </Typography>
                         </Grid>
                         <Grid item container xs={12}>
@@ -254,7 +256,7 @@ export default function ProductComponent() {
                                 </svg>
                             </Grid>
                             <Typography sx={styleTitle}>
-                                NHÓM SẢN PHẨM
+                                {t('product.groupProduct')}
                             </Typography>
                         </Grid>
                         <Grid item container xs={12} spacing={2}>
@@ -292,7 +294,7 @@ export default function ProductComponent() {
                             <GearSvg />
                         </Grid>
                         <Typography sx={styleTitle}>
-                            GIỚI THIỆU SẢN PHẨM TIỀM NĂNG
+                            {t('product.introducePotentialProduct')}
                         </Typography>
                         <Grid item xs={12}>
                             {potentialProducts?.map((product) => (
@@ -343,7 +345,7 @@ export default function ProductComponent() {
                             >
                                 <Image alt="book" src={BookIcon} />
                                 <Typography sx={styleTitle}>
-                                    CHÍNH SÁCH DÀNH CHO ĐẠI LÝ
+                                    {t('product.policyForAgency')}
                                 </Typography>
                             </Stack>
                             <Box>
@@ -354,18 +356,7 @@ export default function ProductComponent() {
                                         fontSize: 20,
                                     }}
                                 >
-                                    NỘI DUNG MẪU Sản phẩm hết hạn bảo hành (Vui
-                                    lòng tra cứu thời hạn bảo qua số 0979 227
-                                    227). Sản phẩm đã bị thay đổi, sửa chữa
-                                    không thuộc các Trung Tâm Bảo Hành Ủy Quyền
-                                    của Hãng. Sản phẩm lắp đặt, bảo trì, sử dụng
-                                    không đúng theo hướng dẫn của Nhà sản xuất
-                                    gây ra hư hỏng. Sản phẩm trong tình trạng bị
-                                    khóa tài khoản cá nhân như: Tài khoản khóa
-                                    máy/màn hình, khóa tài khoản trực tuyến
-                                    Gmail, iCloud… Khách hàng sử dụng phần mềm,
-                                    ứng dụng không chính Hãng, không bản quyền.
-                                    Màn hình có từ bốn (04) điểm chết trở lên
+                                    {t('product.policyDetail')}
                                 </Typography>
                             </Box>
                         </Grid>

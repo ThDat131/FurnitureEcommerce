@@ -11,8 +11,10 @@ import packageimg from '../../../assets/images/package.png';
 import warehouseImg from '../../../assets/images/warehouse.png';
 import theme from '../../theme';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function StorageService() {
+    const { t } = useTranslation();
     const storageTheme = theme;
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -69,7 +71,7 @@ export default function StorageService() {
                                 mt: isMobile ? 10 : 0,
                             }}
                         >
-                            DỊCH VỤ LƯU KHO
+                            {t('home.storageService').toUpperCase()}
                         </Typography>
                         <Typography
                             variant="subtitle1"
@@ -81,13 +83,7 @@ export default function StorageService() {
                                 marginTop: 4,
                             }}
                         >
-                            Quản lý hàng tồn kho hiệu quả là bài toán nan giải
-                            của nhiều doanh nghiệp. Với dịch vụ lưu kho chuyên
-                            nghiệp, bạn có thể giải phóng không gian, tiết kiệm
-                            chi phí và tập trung vào phát triển kinh doanh cốt
-                            lõi. Chúng tôi cung cấp đa dạng loại hình kho bãi,
-                            từ kho thường đến kho lạnh, kho ngoại quan, đáp ứng
-                            mọi nhu cầu lưu trữ của bạn.
+                            {t('home.storageContent1')}
                         </Typography>
                         <Typography
                             variant="subtitle1"
@@ -99,13 +95,7 @@ export default function StorageService() {
                                 marginTop: 4,
                             }}
                         >
-                            Hàng hóa của bạn sẽ được bảo quản trong môi trường
-                            đạt chuẩn, với hệ thống an ninh 24/7 và quy trình
-                            quản lý chặt chẽ. Đội ngũ nhân viên giàu kinh nghiệm
-                            luôn sẵn sàng hỗ trợ bạn từ khâu tiếp nhận đến giao
-                            hàng nhanh chóng, chính xác. Tối ưu hóa quy trình
-                            logistics, giảm thiểu rủi ro và nâng cao hiệu quả
-                            kinh doanh chưa bao giờ dễ dàng đến thế!
+                            {t('home.storageContent2')}
                         </Typography>
                     </Grid>
                     <Grid

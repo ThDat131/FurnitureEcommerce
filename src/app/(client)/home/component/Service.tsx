@@ -1,17 +1,13 @@
 'use client';
-import { Grid, ThemeProvider, Typography, useMediaQuery } from '@mui/material';
+import { Box, Grid, ThemeProvider, Typography } from '@mui/material';
 import theme from '../../theme';
-import article1Img from '../../../assets/images/article1.png';
-import article2Img from '../../../assets/images/article2.png';
-import outlineImg from '../../../assets/images/Hexagonoutline.png';
 import Image from 'next/image';
 import DoneIcon from '@mui/icons-material/Done';
-import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import './style.scss';
 
 export default function Service() {
-    const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
-
-    useEffect(() => {}, []);
+    const { t } = useTranslation();
 
     return (
         <ThemeProvider theme={theme}>
@@ -23,26 +19,36 @@ export default function Service() {
                 }}
             >
                 <Grid xs={12} container justifyContent={'space-evenly'}>
-                    <Grid xs={5} item sx={{ position: 'relative' }}>
-                        <Image
-                            src={article1Img}
-                            alt=""
-                            layout="responsive"
-                            style={{
-                                maxWidth: 500,
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                            }}
-                        />
-                        {isLargeScreen && (
-                            <Image
-                                src={outlineImg}
-                                alt=""
-                                layout="responsive"
-                            />
-                        )}
+                    <Grid
+                        xs={5}
+                        container
+                        item
+                        sx={{
+                            height: {
+                                xs: '300px',
+                                md: '500px',
+                                lg: '600px',
+                            },
+                        }}
+                        className="hexagonContainer"
+                        p={1}
+                    >
+                        <Box
+                            className="hexagonWhiteContainer"
+                            width={1}
+                            height={1}
+                            p={5}
+                        >
+                            <Box position={'relative'} height={1} width={1}>
+                                <Image
+                                    src="/images/home/sample.jpg"
+                                    className="hexagon"
+                                    alt="sample"
+                                    fill
+                                    objectFit="cover"
+                                />
+                            </Box>
+                        </Box>
                     </Grid>
                     <Grid xs={5} item container alignContent={'center'}>
                         <Grid item xs={12}>
@@ -52,7 +58,7 @@ export default function Service() {
                                 color={theme.palette.primary.main}
                                 sx={{ mb: { xs: 0, md: 4 } }}
                             >
-                                DỊCH VỤ CHO THUÊ THIẾT BỊ
+                                {t('home.rentalService').toUpperCase()}
                             </Typography>
                         </Grid>
                         <Grid
@@ -70,7 +76,7 @@ export default function Service() {
                                 fontWeight={'bold'}
                                 sx={{ ml: 2 }}
                             >
-                                Nhanh chóng
+                                {t('home.fast')}
                             </Typography>
                         </Grid>
                         <Grid
@@ -88,7 +94,7 @@ export default function Service() {
                                 fontWeight={'bold'}
                                 sx={{ ml: 2 }}
                             >
-                                Tiết kiệm
+                                {t('home.efficiency')}
                             </Typography>
                         </Grid>
                         <Grid
@@ -106,7 +112,7 @@ export default function Service() {
                                 fontWeight={'bold'}
                                 sx={{ ml: 2 }}
                             >
-                                Đơn giản
+                                {t('home.simple')}
                             </Typography>
                         </Grid>
                     </Grid>
@@ -120,7 +126,7 @@ export default function Service() {
                                 color={theme.palette.primary.main}
                                 sx={{ mb: { xs: 0, md: 6 } }}
                             >
-                                DỊCH VỤ SAU TRIỄN LÃM, HỘI CHỢ
+                                {t('home.afterShowService').toUpperCase()}
                             </Typography>
                         </Grid>
                         <Grid
@@ -137,7 +143,7 @@ export default function Service() {
                                 fontWeight={'bold'}
                                 sx={{ ml: 2 }}
                             >
-                                Hội chợ quá ngắn
+                                {t('home.afterShowService')}
                             </Typography>
                         </Grid>
                         <Grid
@@ -154,7 +160,7 @@ export default function Service() {
                                 fontWeight={'bold'}
                                 sx={{ ml: 2 }}
                             >
-                                Giải pháp lâu dài
+                                {t('home.longTermSolution')}
                             </Typography>
                         </Grid>
                         <Grid
@@ -171,30 +177,40 @@ export default function Service() {
                                 fontWeight={'bold'}
                                 sx={{ ml: 2 }}
                             >
-                                Kết nối với khách hàng
+                                {t('home.connectWithClient')}
                             </Typography>
                         </Grid>
                     </Grid>
-                    <Grid xs={5} item sx={{ position: 'relative' }}>
-                        <Image
-                            src={article2Img}
-                            alt=""
-                            layout="responsive"
-                            style={{
-                                maxWidth: 500,
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                            }}
-                        />
-                        {isLargeScreen && (
-                            <Image
-                                src={outlineImg}
-                                alt=""
-                                layout="responsive"
-                            />
-                        )}
+                    <Grid
+                        xs={5}
+                        container
+                        item
+                        sx={{
+                            height: {
+                                xs: '300px',
+                                md: '500px',
+                                lg: '600px',
+                            },
+                        }}
+                        className="hexagonContainer"
+                        p={1}
+                    >
+                        <Box
+                            className="hexagonWhiteContainer"
+                            width={1}
+                            height={1}
+                            p={5}
+                        >
+                            <Box position={'relative'} height={1} width={1}>
+                                <Image
+                                    src="/images/home/sample.jpg"
+                                    className="hexagon"
+                                    alt="sample"
+                                    fill
+                                    objectFit="cover"
+                                />
+                            </Box>
+                        </Box>
                     </Grid>
                 </Grid>
             </Grid>

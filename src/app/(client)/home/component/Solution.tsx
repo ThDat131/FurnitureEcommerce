@@ -2,8 +2,10 @@
 import { Grid, ThemeProvider, Typography } from '@mui/material';
 import backgroundImg from '../../../assets/images/backgorundHomeComponent.jpg';
 import theme from '../../theme';
+import { useTranslation } from 'react-i18next';
 
 export default function Soulution() {
+    const { t } = useTranslation();
     return (
         <ThemeProvider theme={theme}>
             <Grid
@@ -18,7 +20,9 @@ export default function Soulution() {
                     fontWeight={'bold'}
                     textAlign={'center'}
                 >
-                    {'Cung cấp các giải pháp sáng tạo để triển lãm thành công'.toUpperCase()}
+                    {t(
+                        'home.provideSolutionToMakeExhibitionSuccessfully',
+                    ).toUpperCase()}
                 </Typography>
                 <Grid xs={10} container justifyContent={'center'} item>
                     <Typography
@@ -27,14 +31,7 @@ export default function Soulution() {
                         textAlign={'justify'}
                         sx={{ mt: 4, mb: 4 }}
                     >
-                        Với lợi thế từ Hồng Hạc Group, công ty chúng tôi tự tin
-                        có thể cung cấp dịch vụ cho thuê cáp điện, máng bảo vệ
-                        dây điện và các phụ kiện đi kèm cho các công ty dịch vụ
-                        sự kiên trong nhà/ngoài trời. Bên cạnh đó, ePioneer còn
-                        hỗ trợ dịch vụ sau triển lãm cho các đơn vị xưởng trong
-                        và ngoài nước để tiếp cận khách hàng trong thời gian
-                        dài, nhằm tìm kiếm nhà phân phối/đại lý tại Việt Nam,
-                        nâng cao cơ hội hợp tác trong và ngoài nước
+                        {t('home.provideSolutionContent')}
                     </Typography>
                 </Grid>
 
@@ -59,7 +56,7 @@ export default function Soulution() {
                         textAlign={'center'}
                         sx={{ p: 2 }}
                     >
-                        {' Giải pháp cho triển lãm và hơn thế nữa'.toUpperCase()}
+                        {t('home.solutionForExhibitionAndSoOn').toUpperCase()}
                     </Typography>
                     <Grid xs={8} item>
                         <Typography
@@ -69,8 +66,7 @@ export default function Soulution() {
                             textAlign={'center'}
                             sx={{ p: 2 }}
                         >
-                            Liên hệ với chúng tôi ngay hôm nay để thảo luận về
-                            nhu cầu triển lãm của bạn và nhận báo giá
+                            {t('home.contactUsToday').toUpperCase()}
                         </Typography>
                     </Grid>
                 </Grid>

@@ -26,8 +26,10 @@ import axios from '@/api/axios.instance';
 import { ApiPathEnum } from '@/api/api.path.enum';
 import { ApiResponse } from '@/types/utils/api-response.interface';
 import { isEmailRegex } from '@/types/common/regex.constants';
+import { useTranslation } from 'react-i18next';
 
 const ContactComponent = () => {
+    const { t } = useTranslation();
     const contactTheme = theme;
     const [isSend, setIsSend] = useState(false);
 
@@ -111,18 +113,17 @@ const ContactComponent = () => {
                                         }
                                         sx={{ ml: 1 }}
                                     >
-                                        CONTACT US
+                                        {t('contact.contactUs')}
                                     </Typography>
                                 </Grid>
                                 <Grid xs={12}>
                                     <TextField
                                         id="name"
-                                        label="Name"
+                                        label={t('contact.name')}
                                         variant="outlined"
                                         fullWidth
                                         margin="normal"
                                         color="primary"
-                                        placeholder="Ursa Joanna"
                                         name="name"
                                         onChange={formik.handleChange}
                                         helperText={
@@ -155,7 +156,7 @@ const ContactComponent = () => {
                                     />
                                     <TextField
                                         id="message"
-                                        label="Message"
+                                        label={t('contact.messsage')}
                                         multiline
                                         fullWidth
                                         margin="normal"
@@ -190,7 +191,7 @@ const ContactComponent = () => {
                                         }}
                                         type="submit"
                                     >
-                                        SEND
+                                        {t('contact.send').toUpperCase()}
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -225,7 +226,9 @@ const ContactComponent = () => {
                                 fontWeight={'bold'}
                                 textAlign={'center'}
                             >
-                                THÔNG TIN CỦA BẠN ĐÃ GỬI THÀNH CÔNG !
+                                {t(
+                                    'contact.yourInformationHaveSentSuccessfully',
+                                ).toUpperCase()}
                             </Typography>
                             <Typography
                                 variant="h6"
@@ -233,7 +236,9 @@ const ContactComponent = () => {
                                 fontWeight={'bold'}
                                 textAlign={'center'}
                             >
-                                CHÚNG TÔI SẼ LIÊN HỆ BẠN SỚM NHẤT CÓ THỂ
+                                {t(
+                                    'contact.weWillContactYouAsap',
+                                ).toUpperCase()}
                             </Typography>
                         </Grid>
                         <Grid xs={10} item container justifyContent={'center'}>
@@ -260,15 +265,16 @@ const ContactComponent = () => {
                                 fontWeight={'bold'}
                                 textAlign={'center'}
                             >
-                                CẢM ƠN BẠN !
+                                {t('contact.thankYou').toUpperCase()}
                             </Typography>
                             <Typography
                                 variant="h6"
                                 color={theme.palette.primary.main}
                                 textAlign={'center'}
                             >
-                                TIẾP TỤC KHÁM PHÁ NHỮNG SẢN PHẨM VÀ DỊCH VỤ CỦA
-                                EPIONEER
+                                {t(
+                                    'contact.continueExploreOurProduct',
+                                ).toUpperCase()}
                             </Typography>
                         </Grid>
                     </Grid>

@@ -7,6 +7,8 @@ import vnIcon from '../app/assets/images/flag/vn.png';
 import engIcon from '../app/assets/images/flag/eng.png';
 import zhIcon from '../app/assets/images/flag/zh.png';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+import '../../next-i18next.config';
 
 const LanguageSelectContainer = styled(FormControl)(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
@@ -18,14 +20,25 @@ const LanguageSelectContainer = styled(FormControl)(({ theme }) => ({
 }));
 
 const LanguageButton = () => {
-    const [language, setLanguage] = useState('en');
+    const { i18n } = useTranslation();
+    const [language, setLanguage] = useState('vn');
 
-    const handleLanguageChange = (event: any) => {
-        setLanguage(event.target.value);
-        // Add logic to handle language change (e.g., i18n)
+    const checkLanguageSetting = () => {
+        const storageLang = localStorage.getItem('lang');
+
+        if (storageLang) {
+            i18n.changeLanguage(storageLang);
+        }
+
+        localStorage.setItem('lang', 'vn');
     };
 
-    useEffect(() => {}, []);
+    const handleLanguageChange = (event: any) => {
+        const value = event.target.value;
+        setLanguage(value);
+        localStorage.setItem('lang', value);
+        checkLanguageSetting();
+    };
 
     return (
         <LanguageSelectContainer variant="outlined">
@@ -38,7 +51,7 @@ const LanguageButton = () => {
                                 src={
                                     language === 'en'
                                         ? engIcon
-                                        : language === 'vi'
+                                        : language === 'vn'
                                           ? vnIcon
                                           : zhIcon
                                 }
@@ -59,8 +72,8 @@ const LanguageButton = () => {
                     '.MuiOutlinedInput-notchedOutline': { borderStyle: 'none' },
                 }}
             >
-                <MenuItem value="vi">VN</MenuItem>
-                <MenuItem value="zh">中文</MenuItem>
+                <MenuItem value="vn">VN</MenuItem>
+                <MenuItem value="cn">中文</MenuItem>
                 <MenuItem value="en">ENG</MenuItem>
             </Select>
         </LanguageSelectContainer>
