@@ -1,14 +1,11 @@
 'use client';
 import { ApiPathEnum, convertSlug } from '@/api/api.path.enum';
 import axios from '@/api/axios.instance';
-import { items } from '@/app/static';
+import Fancybox from '@/components/FancyBox';
 import Footer from '@/components/Footer';
 import { ICategory } from '@/types/categories/categories.interface';
 import { IProduct } from '@/types/products/products.interface';
 import { ApiResponse } from '@/types/utils/api-response.interface';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import {
     Box,
     Card,
@@ -20,6 +17,7 @@ import {
     Stack,
     ThemeProvider,
     Typography,
+    useMediaQuery,
 } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,7 +30,8 @@ import GearSvg from './gear-svg';
 import ProductBox from './product-box';
 
 export default function ProductComponent() {
-    const sliderItems = 3;
+    const isDownMdScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const sliderItems = isDownMdScreen ? 1 : 3;
 
     const styleTitle: CSSProperties = {
         fontFamily: 'Kanit',
@@ -66,7 +65,6 @@ export default function ProductComponent() {
             .then((res) => {
                 if (res.status === 200) {
                     setNewProducts(res.data.data as IProduct[]);
-                    console.log(res.data.data);
                 }
             });
     };
@@ -102,20 +100,20 @@ export default function ProductComponent() {
                         <Grid
                             container
                             xs={12}
-                            p={5}
-                            spacing={2}
+                            // spacing={2}
                             key={`carousel-item-${i}`}
                         >
                             {newProducts
                                 ?.slice(i, i + sliderItems)
                                 .map((item: any) => (
-                                    <Grid item xs={4} key={item.id}>
+                                    <Grid item xs={12} md={4} key={item._id}>
                                         <Link
                                             href={`/products/${convertSlug(item.name)}-${item._id}`}
                                         >
                                             <Card
                                                 key={item._id}
                                                 variant="outlined"
+                                                sx={{ marginLeft: 2, marginRight: 2, marginTop: 2 }}
                                             >
                                                 <CardMedia
                                                     component="img"
@@ -147,7 +145,6 @@ export default function ProductComponent() {
                     );
                 }
             }
-
         return renderItems;
     };
 
@@ -197,23 +194,34 @@ export default function ProductComponent() {
                                 SẢN PHẨM MỚI
                             </Typography>
                         </Grid>
-                        <Grid item container p={3} xs={12}>
+                        <Grid item container xs={12}>
                             <Grid
                                 item
                                 container
                                 xs={12}
                                 sx={{
                                     backgroundColor: theme.palette.primary.main,
+                                    display: 'flex',
+                                    justifyContent: 'center',
                                 }}
-                                p={5}
                             >
-                                <Carousel
-                                    NextIcon={<ArrowForwardIosIcon />}
-                                    PrevIcon={<ArrowBackIosNewIcon />}
-                                    sx={{ width: 1 }}
+                                <div
+                                    style={{
+                                        width: '100%',
+                                    }}
                                 >
-                                    {showProductsCarousel().map((x) => x)}
-                                </Carousel>
+                                    <Fancybox
+                                        options={{
+                                            Carousel: {
+                                                infinite: false,
+                                            },
+                                        }}
+                                    >
+                                        <Carousel >
+                                        {showProductsCarousel()}
+                                        </Carousel>
+                                    </Fancybox>
+                                </div>
                             </Grid>
                         </Grid>
                         <Grid
@@ -290,6 +298,7 @@ export default function ProductComponent() {
                             {potentialProducts?.map((product) => (
                                 <Link
                                     href={`/products/${convertSlug(product.name)}-${product._id}`}
+                                    key={product._id}
                                 >
                                     <Blog
                                         directionImg={'left'}

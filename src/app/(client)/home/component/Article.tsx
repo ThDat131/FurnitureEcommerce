@@ -72,6 +72,8 @@ export default function Article() {
                         src={articleImg}
                         alt="Banner"
                         layout="responsive"
+                        width={100}
+                        height={100}
                     />
                 </Grid>
             </Grid>
