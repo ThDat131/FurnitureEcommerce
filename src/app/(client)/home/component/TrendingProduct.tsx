@@ -12,105 +12,10 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import shape from '../../../assets/images/shape/waveImg.png';
-import ProductBox from '../../products/components/product-box';
-import theme from '../../theme';
-import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-
-interface TrendingProductProps {
-    items: any[];
-}
-
-function Item({ item, isMobile }: any) {
-    const { t } = useTranslation();
-    const [hovered, setHovered] = useState(false);
-
-    return (
-        <Paper>
-            <Grid
-                xs={12}
-                container
-                justifyContent={'space-evenly'}
-                alignItems={'center'}
-            >
-                <Grid xs={10} md={4}>
-                    <Typography
-                        variant="h4"
-                        sx={{
-                            color: '#401d59',
-                            marginBottom: '30px',
-                            textAlign: isMobile ? 'center' : 'right',
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        <i>{item.name.toUpperCase()}</i>
-                    </Typography>
-                    <Typography
-                        variant="subtitle1"
-                        sx={{
-                            color: '#401d59',
-                            fontWeight: 'lighter',
-                            textAlign: 'justify',
-                            marginBottom: 2,
-                        }}
-                    >
-                        {item.description}
-                    </Typography>
-                </Grid>
-                <Grid
-                    xs={10}
-                    md={6}
-                    sx={{
-                        borderRadius: 8,
-                        overflow: 'hidden',
-                        position: 'relative',
-                        cursor: 'pointer',
-                    }}
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
-                >
-                    <Link
-                        href={`/products/${convertSlug(item.name)}-${item._id}`}
-                    >
-                        <Image
-                            src={item.images[0].url}
-                            alt={item.alt}
-                            layout="responsive"
-                            width={300}
-                            height={300}
-                            style={{
-                                transition:
-                                    'transform 0.3s ease, filter 0.3s ease',
-                                transform: hovered ? 'scale(1.1)' : 'scale(1)',
-                                filter: hovered
-                                    ? 'brightness(0.7)'
-                                    : 'brightness(1)',
-                            }}
-                        />
-                        {hovered && (
-                            <Typography
-                                variant="h4"
-                                sx={{
-                                    position: 'absolute',
-                                    top: '50%',
-                                    left: '50%',
-                                    transform: 'translate(-50%, -50%)',
-                                    color: '#EFE1CE',
-                                    zIndex: 1,
-                                    textAlign: 'center',
-                                    fontWeight: 'bold',
-                                }}
-                            >
-                                {t('home.detail')}
-                            </Typography>
-                        )}
-                    </Link>
-                </Grid>
-            </Grid>
-        </Paper>
-    );
-}
+import shape from '../../../assets/images/shape/waveImg.png';
+import NewProductComponent from '../../products/components/new-product-box';
+import theme from '../../theme';
 
 export default function TrendingProduct() {
     const { t } = useTranslation();
@@ -167,25 +72,9 @@ export default function TrendingProduct() {
                     />
                 </Grid>
 
-                <Grid
-                    xs={12}
-                    justifyContent={'center'}
-                    alignItems={'center'}
-                    item
-                    container
-                >
-                    <Grid
-                        item
-                        container
-                        xs={10}
-                        justifyContent={'space-evenly'}
-                        spacing={2}
-                    >
-                        {newProduct?.map((product) => (
-                            <Grid item xs={12} md={6} lg={3} key={product._id}>
-                                <ProductBox data={product} type={'product'} />
-                            </Grid>
-                        ))}
+                <Grid container item justifyContent={'center'} xs={12}>
+                    <Grid item xs={8}>
+                        <NewProductComponent newProducts={newProduct} />
                     </Grid>
                 </Grid>
             </Box>

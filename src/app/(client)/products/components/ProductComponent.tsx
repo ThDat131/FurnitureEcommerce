@@ -8,8 +8,6 @@ import { IProduct } from '@/types/products/products.interface';
 import { ApiResponse } from '@/types/utils/api-response.interface';
 import {
     Box,
-    Card,
-    CardContent,
     CardMedia,
     Container,
     CssBaseline,
@@ -29,6 +27,7 @@ import ProductBox from './product-box';
 import theme from '../../theme';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import NewProductComponent from './new-product-box';
 
 export default function ProductComponent() {
     const isDownMdScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -39,12 +38,6 @@ export default function ProductComponent() {
         fontFamily: 'Kanit',
         fontSize: '30px',
         color: theme.palette.primary.main,
-        fontWeight: 'bold',
-    };
-
-    const styleProductTitle: CSSProperties = {
-        fontFamily: 'Inika',
-        fontSize: '20px',
         fontWeight: 'bold',
     };
 
@@ -93,63 +86,6 @@ export default function ProductComponent() {
             });
     };
 
-    const showProductsCarousel = () => {
-        const renderItems = [];
-        if (newProducts)
-            for (let i = 0; i < newProducts.length; i += sliderItems) {
-                if (i % sliderItems === 0) {
-                    renderItems.push(
-                        <Grid
-                            container
-                            xs={12}
-                            // spacing={2}
-                            key={`carousel-item-${i}`}
-                        >
-                            {newProducts
-                                ?.slice(i, i + sliderItems)
-                                .map((item: any) => (
-                                    <Grid item xs={12} md={4} key={item._id}>
-                                        <Link
-                                            href={`/products/${convertSlug(item.name)}-${item._id}`}
-                                        >
-                                            <Card
-                                                key={item._id}
-                                                variant="outlined"
-                                                sx={{ marginLeft: 2, marginRight: 2, marginTop: 2 }}
-                                            >
-                                                <CardMedia
-                                                    component="img"
-                                                    height="300"
-                                                    image={item.images[0].url}
-                                                    alt={item.name}
-                                                />
-                                                <CardContent>
-                                                    <Stack
-                                                        direction={'row'}
-                                                        justifyContent={
-                                                            'center'
-                                                        }
-                                                    >
-                                                        <Typography
-                                                            sx={
-                                                                styleProductTitle
-                                                            }
-                                                        >
-                                                            {item.name}
-                                                        </Typography>
-                                                    </Stack>
-                                                </CardContent>
-                                            </Card>
-                                        </Link>
-                                    </Grid>
-                                ))}
-                        </Grid>,
-                    );
-                }
-            }
-        return renderItems;
-    };
-
     useEffect(() => {
         getProducts();
         getNewProduct();
@@ -196,36 +132,7 @@ export default function ProductComponent() {
                                 {t('product.newProduct')}
                             </Typography>
                         </Grid>
-                        <Grid item container xs={12}>
-                            <Grid
-                                item
-                                container
-                                xs={12}
-                                sx={{
-                                    backgroundColor: theme.palette.primary.main,
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        width: '100%',
-                                    }}
-                                >
-                                    <Fancybox
-                                        options={{
-                                            Carousel: {
-                                                infinite: false,
-                                            },
-                                        }}
-                                    >
-                                        <Carousel >
-                                        {showProductsCarousel()}
-                                        </Carousel>
-                                    </Fancybox>
-                                </div>
-                            </Grid>
-                        </Grid>
+                        <NewProductComponent newProducts={newProducts} />
                         <Grid
                             item
                             container
