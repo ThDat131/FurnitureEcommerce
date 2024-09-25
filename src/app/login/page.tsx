@@ -20,9 +20,8 @@ import {
 } from '@mui/material';
 import { useCookies } from 'next-client-cookies';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
-import { CookiesProvider } from 'next-client-cookies/server';
 
 function Copyright(props: any) {
     return (
@@ -153,7 +152,10 @@ export default function Login() {
                                 }
                             />
                             {usernameError && (
-                                <FormHelperText id="username-error-text" error>
+                                <FormHelperText
+                                    id="username-error-text"
+                                    error
+                                >
                                     Username is required.
                                 </FormHelperText>
                             )}
@@ -172,7 +174,10 @@ export default function Login() {
                                 }
                             />
                             {passwordError && (
-                                <FormHelperText id="password-error-text" error>
+                                <FormHelperText
+                                    id="password-error-text"
+                                    error
+                                >
                                     Password is required.
                                 </FormHelperText>
                             )}

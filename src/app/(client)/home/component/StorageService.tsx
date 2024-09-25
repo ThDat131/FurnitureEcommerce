@@ -7,10 +7,7 @@ import {
     useMediaQuery,
 } from '@mui/material';
 import Image from 'next/image';
-import packageimg from '../../../assets/images/package.png';
-import warehouseImg from '../../../assets/images/warehouse.png';
 import theme from '../../theme';
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function StorageService() {
@@ -28,92 +25,120 @@ export default function StorageService() {
         },
     };
 
-    useEffect(() => {}, []);
-
     return (
         <ThemeProvider theme={storageTheme}>
-            <Box>
+            <Grid
+                xs={12}
+                container
+                justifyContent={'space-evenly'}
+                alignItems={'center'}
+                sx={{
+                    backgroundColor: storageTheme.palette.primary.main,
+                    py: 12,
+                }}
+                height={1}
+            >
                 <Grid
+                    item
                     xs={12}
-                    container
-                    justifyContent={'space-evenly'}
-                    alignItems={'center'}
+                    md={4}
+                    height={1}
                     sx={{
-                        backgroundColor: storageTheme.palette.primary.main,
-                        paddingTop: 12,
-                        paddingBottom: isMobile ? 2 : 12,
+                        display: {
+                            xs: 'none',
+                            md: 'block',
+                        },
+                        px: {
+                            xs: 0,
+                            md: 3,
+                            lg: 10,
+                        },
                     }}
                 >
-                    <Grid item xs={12} md={3} sx={{ position: 'relative' }}>
-                        <Image
-                            src={packageimg}
-                            alt={'Package image'}
-                            layout="responsive"
-                            style={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                maxWidth: isMobile ? 100 : 400,
-                                zIndex: 2,
-                            }}
-                        />
-                    </Grid>
-                    <Grid item xs={10} md={3}>
-                        <Typography
-                            variant="h4"
-                            sx={{
-                                color: '#EFE1CE',
-                                textShadow: '0 0 5px black',
-                                zIndex: 1,
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                mt: isMobile ? 10 : 0,
-                            }}
-                        >
-                            {t('home.storageService').toUpperCase()}
-                        </Typography>
-                        <Typography
-                            variant="subtitle1"
-                            sx={{
-                                color: '#EFE1CE',
-                                textShadow: '0 0 5px black',
-                                zIndex: 1,
-                                textAlign: 'justify',
-                                marginTop: 4,
-                            }}
-                        >
-                            {t('home.storageContent1')}
-                        </Typography>
-                        <Typography
-                            variant="subtitle1"
-                            sx={{
-                                color: '#EFE1CE',
-                                textShadow: '0 0 5px black',
-                                zIndex: 1,
-                                textAlign: 'justify',
-                                marginTop: 4,
-                            }}
-                        >
-                            {t('home.storageContent2')}
-                        </Typography>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={10}
-                        md={3}
-                        justifyContent={'center'}
-                        container
+                    <Box
+                        position={'relative'}
+                        width={1}
+                        sx={{ height: { xs: 0, md: 300, lg: 500 } }}
                     >
                         <Image
-                            src={warehouseImg}
-                            alt={'Warehouse image'}
-                            layout="responsive"
-                            style={{ maxWidth: isMobile ? 300 : 'auto' }}
+                            src={'/images/home/storage/package.png'}
+                            alt={'Package image'}
+                            fill
+                            sizes='100vw'
                         />
-                    </Grid>
+                    </Box>
                 </Grid>
-            </Box>
+                <Grid item xs={12} md={4} height={1} px={5}>
+                    <Typography
+                        variant="h4"
+                        sx={{
+                            color: '#EFE1CE',
+                            textShadow: '0 0 5px black',
+                            zIndex: 1,
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        {t('home.storageService').toUpperCase()}
+                    </Typography>
+                    <Typography
+                        variant="subtitle1"
+                        sx={{
+                            color: '#EFE1CE',
+                            textShadow: '0 0 5px black',
+                            zIndex: 1,
+                            textAlign: 'justify',
+                            marginTop: 4,
+                        }}
+                    >
+                        {t('home.storageContent1')}
+                    </Typography>
+                    <Typography
+                        variant="subtitle1"
+                        sx={{
+                            color: '#EFE1CE',
+                            textShadow: '0 0 5px black',
+                            zIndex: 1,
+                            textAlign: 'justify',
+                            marginTop: 4,
+                        }}
+                    >
+                        {t('home.storageContent2')}
+                    </Typography>
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
+                    md={4}
+                    justifyContent={'center'}
+                    container
+                    height={1}
+                    sx={{
+                        display: {
+                            xs: 'none',
+                            md: 'block',
+                        },
+                        px: {
+                            xs: 0,
+                            md: 3,
+                            lg: 10,
+                        },
+                    }}
+                >
+                    <Box
+                        position={'relative'}
+                        width={1}
+                        sx={{ height: { xs: 0, md: 300, lg: 500 } }}
+                    >
+                        <Image
+                            src={'/images/home/storage/warehouse.png'}
+                            alt={'Warehouse image'}
+                            fill
+                            sizes='100vw'
+                        />
+                    </Box>
+                </Grid>
+            </Grid>
         </ThemeProvider>
     );
 }

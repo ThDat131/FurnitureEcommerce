@@ -182,13 +182,6 @@ export default function Footer() {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} md={4}>
-                                    <Typography
-                                        variant="h6"
-                                        gutterBottom
-                                        sx={{ fontWeight: 'bold' }}
-                                    >
-                                        GOOGLE MAP
-                                    </Typography>
                                     <Grid xs={12} md={12}>
                                         <MyGoogleMap />
                                     </Grid>

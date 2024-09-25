@@ -18,39 +18,51 @@ export default function Service() {
                     paddingBottom: 6,
                 }}
             >
-                <Grid xs={12} container justifyContent={'space-evenly'}>
+                <Grid xs={12} container>
                     <Grid
-                        xs={5}
-                        container
                         item
-                        sx={{
-                            height: {
-                                xs: '300px',
-                                md: '500px',
-                                lg: '600px',
-                            },
-                        }}
-                        className="hexagonContainer"
-                        p={1}
+                        container
+                        alignContent={'center'}
+                        justifyContent={'center'}
+                        xs={6}
+                        p={5}
                     >
-                        <Box
-                            className="hexagonWhiteContainer"
-                            width={1}
-                            height={1}
-                            p={5}
+                        <Grid
+                            sx={{
+                                height: {
+                                    xs: 200,
+                                    md: 500,
+                                    lg: 600,
+                                },
+                                width: {
+                                    xs: 200,
+                                    md: 500,
+                                    lg: 600,
+                                },
+                            }}
+                            className="hexagonContainer"
+                            p={1}
                         >
-                            <Box position={'relative'} height={1} width={1}>
-                                <Image
-                                    src="/images/home/sample.jpg"
-                                    className="hexagon"
-                                    alt="sample"
-                                    fill
-                                    objectFit="cover"
-                                />
+                            <Box
+                                className="hexagonWhiteContainer"
+                                width={1}
+                                height={1}
+                                p={5}
+                            >
+                                <Box position={'relative'} height={1} width={1}>
+                                    <Image
+                                        src="/images/home/sample.jpg"
+                                        className="hexagon"
+                                        alt="sample"
+                                        fill
+                                        sizes="100vw"
+                                    />
+                                </Box>
                             </Box>
-                        </Box>
+                        </Grid>
                     </Grid>
-                    <Grid xs={5} item container alignContent={'center'}>
+
+                    <Grid xs={6} item container alignContent={'center'} p={5}>
                         <Grid item xs={12}>
                             <Typography
                                 variant="h4"
@@ -117,8 +129,13 @@ export default function Service() {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid xs={12} container justifyContent={'space-evenly'} sx={{ mt: 4 }}>
-                    <Grid xs={5} item container alignContent={'center'}>
+                <Grid
+                    xs={12}
+                    container
+                    justifyContent={'space-evenly'}
+                    sx={{ mt: 4 }}
+                >
+                    <Grid xs={6} item container alignContent={'center'}>
                         <Grid item xs={12}>
                             <Typography
                                 variant="h4"
@@ -182,35 +199,46 @@ export default function Service() {
                         </Grid>
                     </Grid>
                     <Grid
-                        xs={5}
-                        container
                         item
-                        sx={{
-                            height: {
-                                xs: '300px',
-                                md: '500px',
-                                lg: '600px',
-                            },
-                        }}
-                        className="hexagonContainer"
-                        p={1}
+                        container
+                        alignContent={'center'}
+                        justifyContent={'center'}
+                        xs={6}
+                        p={5}
                     >
-                        <Box
-                            className="hexagonWhiteContainer"
-                            width={1}
-                            height={1}
-                            p={5}
+                        <Grid
+                            sx={{
+                                height: {
+                                    xs: 200,
+                                    md: 500,
+                                    lg: 600,
+                                },
+                                width: {
+                                    xs: 200,
+                                    md: 500,
+                                    lg: 600,
+                                },
+                            }}
+                            className="hexagonContainer"
+                            p={1}
                         >
-                            <Box position={'relative'} height={1} width={1}>
-                                <Image
-                                    src="/images/home/sample.jpg"
-                                    className="hexagon"
-                                    alt="sample"
-                                    fill
-                                    objectFit="cover"
-                                />
+                            <Box
+                                className="hexagonWhiteContainer"
+                                width={1}
+                                height={1}
+                                p={5}
+                            >
+                                <Box position={'relative'} height={1} width={1}>
+                                    <Image
+                                        src="/images/home/sample.jpg"
+                                        className="hexagon"
+                                        alt="sample"
+                                        fill
+                                        sizes="100vw"
+                                    />
+                                </Box>
                             </Box>
-                        </Box>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

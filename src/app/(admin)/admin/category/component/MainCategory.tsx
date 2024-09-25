@@ -17,12 +17,12 @@ import {
     TableRow,
 } from '@mui/material';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import axios  from '@/api/axios.instance';
+import axios from '@/api/axios.instance';
 
 interface MainCategoryProps {
     reload: boolean;
     setReload: Dispatch<SetStateAction<boolean>>;
-    setSelectedCategory: Dispatch<SetStateAction<ICategory>>;
+    setSelectedCategory: Dispatch<SetStateAction<ICategory | undefined>>;
     setType: Dispatch<SetStateAction<'CREATE' | 'UPDATE'>>;
     setOpen: Dispatch<SetStateAction<boolean>>;
 }

@@ -61,9 +61,13 @@ const AllProductComponent = () => {
 
     const getProductByFilter = () => {
         axios
-            .get(
-                `${ApiPathEnum.Product}`, { params: { category: categoryId ? categoryId.trim() : (categoryIdParam as string) } },
-            )
+            .get(`${ApiPathEnum.Product}`, {
+                params: {
+                    category: categoryId
+                        ? categoryId.trim()
+                        : (categoryIdParam as string),
+                },
+            })
             .then((res) => setProducts(res.data.data));
     };
 
@@ -80,64 +84,73 @@ const AllProductComponent = () => {
     }, [categoryId]);
 
     return (
-        <ThemeProvider theme={theme}>
-            <Grid
-                container
-                justifyContent={'center'}
-                xs={12}
-                sx={{
-                    backgroundColor: theme.palette.primary.contrastText,
-                    paddingTop: 4,
-                    paddingBottom: 4,
-                }}
-            >
-                <Grid item xs={10} container alignItems={'center'}>
-                    <Grid xs={12} item>
-                        <Typography
-                            variant="h4"
-                            color={theme.palette.primary.main}
-                            fontWeight={'bold'}
-                            textAlign={'center'}
-                        >
-                            {title?.toUpperCase()}
-                        </Typography>
-                    </Grid>
-                    <FormControl sx={{ width: 200, mr: 4 }}>
-                        <InputLabel id="demo-simple-select-label">
-                            Nhóm sản phẩm
-                        </InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={categoryId || categoryIdParam}
-                            label="Nhóm sản phẩm"
-                            onChange={handleSelectChange}
-                        >
-                            <MenuItem value={' '}>None</MenuItem>
-                            {categories?.map((category) => (
-                                <MenuItem
-                                    value={category._id}
-                                    key={category._id}
+            <ThemeProvider theme={theme}>
+                <Grid
+                    container
+                    justifyContent={'center'}
+                    xs={12}
+                    sx={{
+                        backgroundColor: theme.palette.primary.contrastText,
+                        paddingTop: 4,
+                        paddingBottom: 4,
+                    }}
+                >
+                    <Grid item xs={10} container alignItems={'center'}>
+                        <Grid xs={12} item>
+                            <Typography
+                                variant="h4"
+                                color={theme.palette.primary.main}
+                                fontWeight={'bold'}
+                                textAlign={'center'}
+                            >
+                                {title?.toUpperCase()}
+                            </Typography>
+                        </Grid>
+                        <FormControl sx={{ width: 200, mr: 4 }}>
+                            <InputLabel id="demo-simple-select-label">
+                                Nhóm sản phẩm
+                            </InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={categoryId || categoryIdParam}
+                                label="Nhóm sản phẩm"
+                                onChange={handleSelectChange}
+                            >
+                                <MenuItem value={' '}>None</MenuItem>
+                                {categories?.map((category) => (
+                                    <MenuItem
+                                        value={category._id}
+                                        key={category._id}
+                                    >
+                                        {category.name}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <Grid xs={12} sx={{ paddingTop: 2, paddingBottom: 2 }}>
+                            <Divider />
+                        </Grid>
+                        <Grid item container xs={12} spacing={2}>
+                            {products?.map((product) => (
+                                <Grid
+                                    item
+                                    xs={12}
+                                    md={6}
+                                    lg={3}
+                                    key={product._id}
                                 >
-                                    {category.name}
-                                </MenuItem>
+                                    <ProductBox
+                                        data={product}
+                                        type={'product'}
+                                    />
+                                </Grid>
                             ))}
-                        </Select>
-                    </FormControl>
-                    <Grid xs={12} sx={{ paddingTop: 2, paddingBottom: 2 }}>
-                        <Divider />
-                    </Grid>
-                    <Grid item container xs={12} spacing={2}>
-                        {products?.map((product) => (
-                            <Grid item xs={12} md={6} lg={3} key={product._id}>
-                                <ProductBox data={product} type={'product'} />
-                            </Grid>
-                        ))}
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
-            <Footer />
-        </ThemeProvider>
+                <Footer />
+            </ThemeProvider>
     );
 };
 

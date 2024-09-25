@@ -3,17 +3,9 @@ import { ApiPathEnum } from '@/api/api.path.enum';
 import axios from '@/api/axios.instance';
 import Footer from '@/components/Footer';
 import { IBanner } from '@/types/products/products.interface';
-import { Grid, ThemeProvider, Typography } from '@mui/material';
+import { Box, Grid, ThemeProvider, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import blog from '../../../assets/images/blog1.jpg';
-import cartImg from '../../../assets/images/icon/cart.png';
-import clockImg from '../../../assets/images/icon/clockIcon.png';
-import expressImg from '../../../assets/images/icon/express.png';
-import paymentImg from '../../../assets/images/icon/payment.png';
-import shieldImg from '../../../assets/images/icon/shield.png';
-import tradeImg from '../../../assets/images/icon/trade.png';
-import peopleStonkImg from '../../../assets/images/peopleStonk.png';
 import theme from '../../theme';
 import { useTranslation } from 'react-i18next';
 
@@ -108,7 +100,23 @@ export default function PolicyComponent() {
                     </Typography>
                 </Grid>
                 <Grid xs={10} md={6} item>
-                    <Image alt="" src={blog} layout="responsive" />
+                    <Box
+                        width={1}
+                        sx={{
+                            height: {
+                                xs: 300,
+                                md: 400,
+                                lg: 650,
+                            },
+                        }}
+                        position={'relative'}
+                    >
+                        <Image
+                            alt="blog"
+                            src={'/images/policy/blog1.jpg'}
+                            fill
+                        />
+                    </Box>
                 </Grid>
                 <Grid xs={10} item>
                     <Typography
@@ -152,11 +160,17 @@ export default function PolicyComponent() {
                                 container
                                 sx={{ mb: 2 }}
                             >
-                                <Image
-                                    src={expressImg}
-                                    alt="icon"
-                                    width={130}
-                                />
+                                <Box
+                                    width={120}
+                                    height={120}
+                                    position={'relative'}
+                                >
+                                    <Image
+                                        src={'/images/icon/express.png'}
+                                        alt="icon"
+                                        fill
+                                    />
+                                </Box>
                             </Grid>
                             <Grid
                                 xs={12}
@@ -200,7 +214,17 @@ export default function PolicyComponent() {
                                 container
                                 sx={{ mb: 2 }}
                             >
-                                <Image src={shieldImg} alt="icon" width={120} />
+                                <Box
+                                    width={120}
+                                    height={120}
+                                    position={'relative'}
+                                >
+                                    <Image
+                                        src={'/images/icon/shield.png'}
+                                        alt="icon"
+                                        fill
+                                    />
+                                </Box>
                             </Grid>
                             <Grid
                                 xs={12}
@@ -266,11 +290,17 @@ export default function PolicyComponent() {
                                 container
                                 sx={{ mb: 2 }}
                             >
-                                <Image
-                                    src={paymentImg}
-                                    alt="icon"
+                                <Box
                                     width={120}
-                                />
+                                    height={120}
+                                    position={'relative'}
+                                >
+                                    <Image
+                                        src={'/images/icon/payment.png'}
+                                        alt="icon"
+                                        fill
+                                    />
+                                </Box>
                             </Grid>
                             <Grid
                                 xs={12}
@@ -314,7 +344,17 @@ export default function PolicyComponent() {
                                 container
                                 sx={{ mb: 2 }}
                             >
-                                <Image src={clockImg} alt="icon" width={130} />
+                                <Box
+                                    width={120}
+                                    height={120}
+                                    position={'relative'}
+                                >
+                                    <Image
+                                        src={'/images/icon/clockIcon.png'}
+                                        alt="icon"
+                                        fill
+                                    />
+                                </Box>
                             </Grid>
                             <Grid
                                 xs={12}
@@ -380,7 +420,23 @@ export default function PolicyComponent() {
 
                     <Grid xs={12} container item justifyContent={'center'}>
                         <Grid md={6} xs={12} item>
-                            <Image alt="" src={blog} layout="responsive" />
+                            <Box
+                                width={1}
+                                position={'relative'}
+                                sx={{
+                                    height: {
+                                        xs: 300,
+                                        md: 400,
+                                        lg: 650,
+                                    },
+                                }}
+                            >
+                                <Image
+                                    alt="blog"
+                                    src={'/images/policy/blog1.jpg'}
+                                    fill
+                                />
+                            </Box>
                         </Grid>
                     </Grid>
 
@@ -430,7 +486,17 @@ export default function PolicyComponent() {
                                 container
                                 sx={{ mb: 2 }}
                             >
-                                <Image src={tradeImg} alt="icon" width={300} />
+                                <Box
+                                    width={300}
+                                    height={120}
+                                    position={'relative'}
+                                >
+                                    <Image
+                                        src={'/images/icon/trade.png'}
+                                        alt="icon"
+                                        fill
+                                    />
+                                </Box>
                             </Grid>
                             <Grid
                                 xs={12}
@@ -470,7 +536,17 @@ export default function PolicyComponent() {
                                 container
                                 sx={{ mb: 2 }}
                             >
-                                <Image src={cartImg} alt="icon" width={120} />
+                                <Box
+                                    width={110}
+                                    height={110}
+                                    position={'relative'}
+                                >
+                                    <Image
+                                        src={'/images/icon/cart.png'}
+                                        alt="icon"
+                                        fill
+                                    />
+                                </Box>
                             </Grid>
                             <Grid
                                 xs={12}
@@ -563,11 +639,23 @@ export default function PolicyComponent() {
                         </Typography>
                     </Grid>
                     <Grid item md={5} xs={12}>
-                        <Image
-                            alt=""
-                            src={peopleStonkImg}
-                            layout="responsive"
-                        />
+                        <Box
+                            width={1}
+                            sx={{
+                                height: {
+                                    xs: 300,
+                                    md: 400,
+                                    lg: 800
+                                },
+                            }}
+                            position={'relative'}
+                        >
+                            <Image
+                                alt="people"
+                                src={'/images/policy/peopleStonk.png'}
+                                fill
+                            />
+                        </Box>
                     </Grid>
                 </Grid>
             </Grid>

@@ -2,7 +2,6 @@
 import { Grid, ThemeProvider, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useState } from 'react';
-import articleImg from '../../../assets/images/article3.jpg';
 import theme from '../../theme';
 import { useTranslation } from 'react-i18next';
 
@@ -57,14 +56,20 @@ export default function Article() {
                         position: 'relative',
                         overflow: 'hidden',
                         cursor: 'pointer',
+                        width: 100,
+                        height: {
+                            lg: 800,
+                            md: 400,
+                            sm: 400,
+                        },
                     }}
                 >
                     <Image
-                        src={articleImg}
+                        src={'/images/home/articles/article3.jpg'}
                         alt="Banner"
-                        layout="responsive"
-                        width={100}
-                        height={100}
+                        fill
+                        sizes="100vw"
+                        style={{ objectFit: 'cover' }}
                     />
                 </Grid>
             </Grid>

@@ -34,13 +34,14 @@ export default function Banner() {
         <ThemeProvider theme={theme}>
             <Box>
                 <Grid xs={12}>
-                    <Image
-                        src={banner?.image.url as string}
-                        alt="Banner"
-                        layout="responsive"
-                        width={100}
-                        height={100}
-                    />
+                    <Box width={1} height={600} position={'relative'}>
+                        <Image
+                            src={banner?.image?.url ?? ''}
+                            alt="Banner"
+                            fill
+                            sizes="100vw"
+                        />
+                    </Box>
                 </Grid>
             </Box>
         </ThemeProvider>
