@@ -38,14 +38,16 @@ export default function Blog() {
                     xs={12}
                     container
                     justifyContent={'space-evenly'}
-                    sx={{ mt: 6, mb: 6 }}
+                    sx={{ p: 6 }}
                 >
                     {blogs.map((blog) => (
                         <Grid
-                            xs={10}
-                            md={3}
+                            item
+                            xs={12}
+                            md={4}
                             key={blog.id}
-                            sx={{ mt: { xs: 4, md: 0 } }}
+                            px={2}
+                            mt={{ xs: 4, md: 0 }}
                         >
                             <Card elevation={24}>
                                 <CardActionArea>
@@ -54,7 +56,7 @@ export default function Blog() {
                                         image={blog.img}
                                         title={t(blog.title)}
                                     />
-                                    <CardContent>
+                                    <CardContent sx={{ minHeight: 200 }}>
                                         <Typography
                                             gutterBottom
                                             variant="subtitle1"

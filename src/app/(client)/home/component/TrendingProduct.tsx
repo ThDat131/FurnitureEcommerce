@@ -1,11 +1,12 @@
 'use client';
-import { ApiPathEnum } from '@/api/api.path.enum';
+import { ApiPathEnum, convertSlug } from '@/api/api.path.enum';
 import axios from '@/api/axios.instance';
 import { IProduct } from '@/types/products/products.interface';
 import { ApiResponse } from '@/types/utils/api-response.interface';
 import {
     Box,
     Grid,
+    Paper,
     ThemeProvider,
     Typography,
     useMediaQuery,

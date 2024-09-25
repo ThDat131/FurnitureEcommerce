@@ -2,13 +2,6 @@
 import Footer from "@/components/Footer";
 import { Grid, ThemeProvider, Typography } from "@mui/material";
 import Image from "next/image";
-import backgroundBanner from "../../../../assets/images/bgImg.jpg";
-import blog1 from "../../../../assets/images/blog1.jpg";
-import chatImg from "../../../../assets/images/icon/chat.png";
-import expressImg from "../../../../assets/images/icon/express.png";
-import handImg from "../../../../assets/images/icon/hand.png";
-import likeImg from "../../../../assets/images/icon/like.png";
-import supportImg from "../../../../assets/images/icon/support.png";
 import theme from "../../../theme";
 
 export default function ServiceDetailComponent() {
@@ -25,7 +18,7 @@ export default function ServiceDetailComponent() {
           justifyContent={"center"}
           xs={12}
           sx={{
-            backgroundImage: `url(${backgroundBanner.src})`,
+            backgroundImage: `url('/images/service/bgImg.jpg')`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -93,7 +86,7 @@ export default function ServiceDetailComponent() {
             chiếu sáng đến hệ thống nguồn điện, chúng tôi đều hỗ trợ bạn.
           </Typography>
           <Grid md={6} xs={12}>
-            <Image src={blog1} alt="" layout="responsive" />
+            <Image src={'/images/service/blog1.jpg'} alt="" layout="responsive" />
           </Grid>
         </Grid>
 
@@ -135,7 +128,7 @@ export default function ServiceDetailComponent() {
                 container
                 sx={{ mb: 2 }}
               >
-                <Image src={handImg} alt="icon" width={120} />
+                <Image src={'/images/icon/hand.png'} alt="icon" width={120} />
               </Grid>
               <Grid xs={12} item justifyContent={"center"} container>
                 <Typography
@@ -172,7 +165,7 @@ export default function ServiceDetailComponent() {
                 container
                 sx={{ mb: 2 }}
               >
-                <Image src={supportImg} alt="icon" width={120} />
+                <Image src={'/images/icon/support.png'} alt="icon" width={120} />
               </Grid>
               <Grid xs={12} item justifyContent={"center"} container>
                 <Typography
@@ -203,7 +196,7 @@ export default function ServiceDetailComponent() {
                 container
                 sx={{ mb: 2 }}
               >
-                <Image src={expressImg} alt="icon" width={180} />
+                <Image src={'/images/icon/express.png'} alt="icon" width={180} />
               </Grid>
               <Grid xs={12} item justifyContent={"center"} container>
                 <Typography
@@ -242,7 +235,7 @@ export default function ServiceDetailComponent() {
             </Grid>
             <Grid xs={12} container item justifyContent={"space-evenly"}>
               <Grid md={3} xs={12} item>
-                <Image src={blog1} alt="icon" layout="responsive" />
+                <Image src={'/images/service/blog1.jpg'} alt="icon" layout="responsive" />
                 <Typography
                   variant="h6"
                   textAlign={"center"}
@@ -266,7 +259,7 @@ export default function ServiceDetailComponent() {
                 item
                 sx={{ paddingBottom: 4, paddingTop: 4 }}
               >
-                <Image src={blog1} alt="icon" layout="responsive" />
+                <Image src={'/images/service/blog1.jpg'} alt="icon" layout="responsive" />
                 <Typography
                   variant="h6"
                   textAlign={"center"}
@@ -285,7 +278,7 @@ export default function ServiceDetailComponent() {
                 </Typography>
               </Grid>
               <Grid md={3} xs={12} item>
-                <Image src={blog1} alt="icon" layout="responsive" />
+                <Image src={'/images/service/blog1.jpg'} alt="icon" layout="responsive" />
                 <Typography
                   variant="h6"
                   textAlign={"center"}
@@ -331,7 +324,7 @@ export default function ServiceDetailComponent() {
             thành công.
           </Typography>
           <Grid md={6} xs={12}>
-            <Image src={blog1} alt="" layout="responsive" />
+            <Image src={'/images/service/blog1.jpg'} alt="" layout="responsive" />
           </Grid>
           <Grid
             xs={12}
@@ -348,7 +341,7 @@ export default function ServiceDetailComponent() {
                 container
                 sx={{ mb: 2 }}
               >
-                <Image src={likeImg} alt="icon" width={120} />
+                <Image src={'/images/icon/like.png'} alt="icon" width={120} />
               </Grid>
               <Grid xs={12} item justifyContent={"center"} container>
                 <Typography
@@ -379,7 +372,7 @@ export default function ServiceDetailComponent() {
                 container
                 sx={{ mb: 2 }}
               >
-                <Image src={chatImg} alt="icon" width={120} />
+                <Image src={'/images/icon/chat.png'} alt="icon" width={120} />
               </Grid>
               <Grid xs={12} item justifyContent={"center"} container>
                 <Typography
