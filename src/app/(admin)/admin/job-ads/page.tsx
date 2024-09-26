@@ -16,7 +16,6 @@ import {
     TableRow,
     Typography,
 } from '@mui/material';
-import SideMenu from '@/app/(admin)/admin/dashboard/components/SideMenu';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -25,6 +24,7 @@ import { JobAdsDialog } from './components/JobAdsDialog';
 import axios from '@/api/axios.instance';
 import { ApiResponse } from '@/types/utils/api-response.interface';
 import { ApiPathEnum } from '@/api/api.path.enum';
+import SideMenu from '../dashboard/components/SideMenu';
 
 export default function JobAds() {
     const [type, setType] = useState<'CREATE' | 'UPDATE'>('CREATE');

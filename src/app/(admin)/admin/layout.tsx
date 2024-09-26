@@ -1,8 +1,8 @@
 'use client';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import getDashboardTheme from '@/app/(admin)/admin/dashboard/theme/getDashboardTheme';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import getDashboardTheme from './dashboard/theme/getDashboardTheme';
 
 export default function RootLayout({
     children,
