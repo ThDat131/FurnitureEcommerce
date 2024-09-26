@@ -1,9 +1,7 @@
 'use client';
 import {
-    createTheme,
     PaletteMode,
     Stack,
-    ThemeProvider,
     Typography,
 } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -12,11 +10,9 @@ import { useState } from 'react';
 import Header from './dashboard/components/Header';
 import Navbar from './dashboard/components/Navbar';
 import SideMenu from './dashboard/components/SideMenu';
-import getDashboardTheme from './dashboard/theme/getDashboardTheme';
 
 export default function Home() {
     const [mode, setMode] = useState<PaletteMode>('light');
-    const dashboardTheme = createTheme(getDashboardTheme(mode));
 
     const toggleColorMode = () => {
         setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -54,7 +50,6 @@ export default function Home() {
                     <Typography variant="h4">
                         Chào mừng đến với trang Quản trị
                     </Typography>
-                    {/* <MainGrid /> */}
                 </Stack>
             </Box>
         </Box>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
+import { CookiesProvider } from 'next-client-cookies/server';
 
 export const metadata: Metadata = {
     title: 'Main',
@@ -30,7 +31,9 @@ export default function RootLayout({
                     rel="stylesheet"
                 />
             </head>
-            <body suppressHydrationWarning={true}>{children}</body>
+            <body suppressHydrationWarning={true}>
+                <CookiesProvider>{children}</CookiesProvider>
+            </body>
         </html>
     );
 }
